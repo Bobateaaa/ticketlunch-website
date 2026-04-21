@@ -1,0 +1,34 @@
+/*
+* Theme Name: TicketLunchWebsite
+* Theme URI: http://www.ticketlunch.wordpress.ca
+* Author: Matilda Kang
+* Description: This is the CSS file for the TicketLunchWebsite. It contains styles for the layout, colors, fonts, and other visual elements of the website. The styles are designed to create a clean and user-friendly interface for users to navigate and interact with the website.
+* Version: 1.0
+*/
+
+
+/* /////////////////////////////////
+Base
+//////////////////////////////////// */
+@use "base/color" as *;
+@use "base/reset" as *;
+@use "base/typography" as *;
+
+
+/* /////////////////////////////////
+Components
+//////////////////////////////////// */
+@use "components/buttons" as *;
+
+
+/* /////////////////////////////////
+Layout
+//////////////////////////////////// */
+@use "layout/header" as *;
+@use "layout/footer" as *;
+
+
+/* /////////////////////////////////
+Pages
+//////////////////////////////////// */
+@use "pages/home" as *;

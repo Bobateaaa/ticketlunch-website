@@ -1,0 +1,77 @@
+/*
+* Theme Name: TicketLunchWebsite
+* Theme URI: http://www.ticketlunch.wordpress.ca
+* Author: Matilda Kang
+* Description: This is the CSS file for the TicketLunchWebsite. It contains styles for the layout, colors, fonts, and other visual elements of the website. The styles are designed to create a clean and user-friendly interface for users to navigate and interact with the website.
+* Version: 1.0
+*/
+/* /////////////////////////////////
+Base
+//////////////////////////////////// */
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  background: #f4f4f4;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  padding: 2rem;
+}
+
+footer {
+  background: #f4f4f4;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* /////////////////////////////////
+Components
+//////////////////////////////////// */
+/* /////////////////////////////////
+Layout
+//////////////////////////////////// */
+.header {
+  flex-direction: column;
+  align-items: center;
+}
+.header__nav {
+  flex-direction: column;
+  gap: 10px;
+}
+.header__logo {
+  display: flex;
+  flex-flow: nowrap row;
+}
+
+@media (max-width: 768px) { /* Tablets */ }
+@media (max-width: 1024px) { /* Laptops */ }
+@media (max-width: 1200px) { /* Large screens */ }
+/* /////////////////////////////////
+Pages
+//////////////////////////////////// *//*# sourceMappingURL=style.css.map */
