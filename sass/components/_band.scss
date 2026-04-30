@@ -1,0 +1,40 @@
+/*========================================
+=           CSS DE LA BANDE              =
+========================================= */
+
+
+.cuisine-band {
+    background-color: var(--tertiary-color);
+    overflow: hidden;
+    border-top: var(--border-size) solid var(--secondary-color-pale);
+    border-bottom: var(--border-size) solid var(--secondary-color-pale);
+
+    &__track {
+        display: flex;
+        width: max-content;
+        animation: band-scroll 40s linear infinite;
+    }
+
+    &__item {
+        font-family: Geist, sans-serif;
+        color: var(--text-color-light);
+        white-space: nowrap;
+        font-weight: 500;
+    }
+}
+
+@keyframes band-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* -50% because track is doubled */
+}
+
+@media (max-width: 768px) {
+    .cuisine-band {
+        padding: 1rem 0;
+
+        &__item {
+            font-size: var(--mobile-font-size-paragraph);
+            padding: 0 1.5rem;
+        }
+    }
+}

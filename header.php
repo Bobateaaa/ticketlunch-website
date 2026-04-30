@@ -13,14 +13,21 @@
     HEADER DE LA PAGE
 -->
     <header class="header">
+        <div class="header__background"></div>
+
         <div class="header__logo">
             <?php if ( get_theme_mod( 'header_logo' ) ) : ?>
                 <img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php echo esc_attr( get_theme_mod( 'logo_title', get_bloginfo( 'name' ) ) ); ?>">
             <?php endif; ?>
             <p><?php echo esc_html( get_theme_mod( 'logo_title', get_bloginfo( 'name' ) ) ); ?></p>
+        <button class="header__burger" id="burger-menu" aria-label="Toggle menu" aria-expanded="false">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
         </div>
 
-        <div class="header__container">
+        <div class="header__container" id="menu-container">
             <nav class="header__nav">
                 <?php
                 wp_nav_menu( array(

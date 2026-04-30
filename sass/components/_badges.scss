@@ -1,0 +1,17 @@
+/*========================================
+=           CSS DES BADGES          =
+========================================= */
+
+.hero {
+    &__badge {
+        background-color: var(--primary-color);
+        color: var(--text-color-dark);
+        padding: 4px 20px;
+        border-radius: var(--border-radius-rounded);
+        font-size: 0.7rem;
+        font-family: Geist;
+        font-weight: 400;
+        width: fit-content;
+        border: var(--small-border) solid var(--secondary-color-dark);
+    }
+}

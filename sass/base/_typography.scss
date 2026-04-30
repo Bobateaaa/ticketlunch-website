@@ -1,0 +1,53 @@
+@font-face {
+    font-family: RoundPop;
+    src: url(gomarice_round_pop.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: Futura;
+    src: url(FuturaCyrillicHeavy.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: Geist;
+    src: url(Geist-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: Gelasio;
+    src: url(Gelasio-Italic-VariableFont_wght.ttf) format('truetype');
+}
+
+/* Typography size*/
+
+:root {
+    --mobile-font-size-menu: clamp(14px, 4vw, 30px);
+    --laptop-font-size-menu: clamp(16px, 2vw, 24px);
+    --desktop-font-size-menu: clamp(18px, 1.5vw, 22px);
+
+    --mobile-font-size-heading: clamp(30px, 6vw, 40px);
+    --laptop-font-size-heading: clamp(32px, 4vw, 48px);
+    --desktop-font-size-heading: clamp(40px, 3vw, 60px);
+
+    --mobile-font-size-subtitle: clamp(20px, 5vw, 30px);
+
+    --mobile-font-size-paragraph: clamp(13px, 4vw, 16px);
+    --laptop-font-size-paragraph: clamp(16px, 2vw, 20px);
+    --desktop-font-size-paragraph: clamp(18px, 1.5vw, 22px);
+}
+
+h2 {
+    font-family: Futura, sans-serif;
+    font-size: var(--mobile-font-size-heading);
+    color: var(--text-color-dark);
+    line-height: 1.2;
+    margin: 0 0 2.5rem;
+
+    &--highlight {
+        display: block;
+    }
+}
+
+p {
+    line-height: 120%;
+}

@@ -9,11 +9,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-}
-
-header {
-    background: #f4f4f4;
-    padding: 1rem;
+    background-color: var(--background-color);
+    overflow-x: hidden;
 }
 
 nav ul {
@@ -30,12 +27,21 @@ nav ul li a {
     color: #333;
 }
 
-main {
-    padding: 2rem;
+footer {
+    background: var(--background-color);
+    text-align: center;
 }
 
-footer {
-    background: #f4f4f4;
-    padding: 1rem;
-    text-align: center;
+:root {
+    --mobile-padding-main: clamp(16px, 5vw, 24px);
+    --laptop-padding-main: clamp(48px, 10vw, 64px);
+    --desktop-padding-main: clamp(80px, 10vw, 120px);
+
+    --border-radius-rounded: 50px;
+    --border-radius-soft: 10px;
+
+    --border-size: 2.5px;
+    --small-border: 1px;
+
+    --general-padding: 0 3rem;
 }

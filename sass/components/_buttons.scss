@@ -1,0 +1,38 @@
+:root {
+    --button-padding-vertical: clamp(12px, 2vw, 14px);
+    --button-padding-horizontal: clamp(30px, 4vw, 40px);
+    --button-padding-vertical-smaller: clamp(8px, 1.5vw, 10px);
+    --width-button: clamp(175px, 20vw, 200px);
+}
+
+/*========================================
+=           CSS DES BOUTONS              =
+========================================= */
+
+
+    .hero__cta, .cta__button {
+        width: var(--width-button);
+        padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+        font-family: Geist, sans-serif;
+        font-weight: bold;
+        border: none;
+        border-radius: var(--border-radius-rounded);
+        white-space: nowrap;
+    }
+
+
+        .hero__cta {
+        background-color: var(--secondary-color-dark);
+        color: var(--text-color-light);
+        border: none;
+        }
+
+        .cta__button {
+        background-color: var(--secondary-color-pale);
+        padding: var(--button-padding-vertical-smaller) var(--button-padding-horizontal);
+        color: var(--text-color-dark);
+        border: var(--border-size) solid var(--secondary-color-dark);
+        text-decoration: none;
+        position: relative;
+        right: 0.3rem;
+        }
