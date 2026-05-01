@@ -49,7 +49,7 @@
                     <?php if ( get_theme_mod( 'facebook_icon' ) ) : ?>
                         <img src="<?php echo esc_url( get_theme_mod( 'facebook_icon' ) ); ?>" alt="Facebook" class="social-icon">
                     <?php else: ?>
-                        <i class="fab fa-facebook-f"></i>
+                        <i class="fa-brands fa-square-facebook"></i>
                     <?php endif; ?>
                 </a>
                 <a href="<?php echo esc_url( get_theme_mod( 'twitter_url', '#' ) ); ?>" target="_blank" rel="noopener noreferrer">

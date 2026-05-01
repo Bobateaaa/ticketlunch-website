@@ -96,7 +96,7 @@ get_header(); ?>
         </div>
     </section>
 
-    <!-- STATS -->
+    <!-- Section des statistiques -->
     <section class="stats">
         <h2 class="stats__title">Manger au restaurant, <span class="stats__title--underline">ce n'est plus comme avant</span></h2>
 
@@ -147,6 +147,15 @@ get_header(); ?>
             <p class="cta__text">Que vous soyez employeur, employé ou restaurateur, notre équipe est là pour répondre à vos questions et vous accompagner. Contactez-nous pour plus de détails.</p>
             <a href="#contact" class="cta__button">Contactez-nous</a>
         </div>
+
+        <div class="cta__deco-hands" aria-hidden="true">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/homepage_hands.png" alt="">
+        </div>
+
+        <div class="cta__deco-question-mark" aria-hidden="true">
+            <p>?</p>
+        </div>
+ 
     </section>
 </main>
 

@@ -6,17 +6,15 @@
 .cuisine-band {
     background-color: var(--tertiary-color);
     overflow: hidden;
-    border-top: var(--border-size) solid var(--secondary-color-pale);
-    border-bottom: var(--border-size) solid var(--secondary-color-pale);
 
     &__track {
         display: flex;
         width: max-content;
-        animation: band-scroll 40s linear infinite;
+        animation: band-scroll 50s linear infinite;
     }
 
     &__item {
-        font-family: Geist, sans-serif;
+        font-family: Gelasio, sans-serif;
         color: var(--text-color-light);
         white-space: nowrap;
         font-weight: 500;
@@ -28,7 +26,6 @@
     100% { transform: translateX(-50%); } /* -50% because track is doubled */
 }
 
-@media (max-width: 768px) {
     .cuisine-band {
         padding: 1rem 0;
 
@@ -37,4 +34,3 @@
             padding: 0 1.5rem;
         }
     }
-}

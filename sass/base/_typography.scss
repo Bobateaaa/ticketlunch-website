@@ -22,8 +22,8 @@
 
 :root {
     --mobile-font-size-menu: clamp(14px, 4vw, 30px);
-    --laptop-font-size-menu: clamp(16px, 2vw, 24px);
-    --desktop-font-size-menu: clamp(18px, 1.5vw, 22px);
+    --laptop-font-size-menu: clamp(14px, 2vw, 24px);
+    --desktop-font-size-menu: clamp(14px, 1vw, 22px);
 
     --mobile-font-size-heading: clamp(30px, 6vw, 40px);
     --laptop-font-size-heading: clamp(32px, 4vw, 48px);
@@ -48,6 +48,16 @@ h2 {
     }
 }
 
+h3 {
+    line-height: 95%;
+}
+
 p {
     line-height: 120%;
+    font-weight: 550;
+}
+
+
+.stats article > p {
+    font-weight: 450;
 }

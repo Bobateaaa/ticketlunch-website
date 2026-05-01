@@ -19,7 +19,6 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: 1rem;
 }
 
 nav ul li a {
@@ -32,7 +31,13 @@ footer {
     text-align: center;
 }
 
+main {
+    align-self: center;
+}
+
 :root {
+    --desktop-gap-size: 1.5rem;
+
     --mobile-padding-main: clamp(16px, 5vw, 24px);
     --laptop-padding-main: clamp(48px, 10vw, 64px);
     --desktop-padding-main: clamp(80px, 10vw, 120px);
@@ -40,8 +45,14 @@ footer {
     --border-radius-rounded: 50px;
     --border-radius-soft: 10px;
 
-    --border-size: 2.5px;
+    --border-size: 3px;
     --small-border: 1px;
 
-    --general-padding: 0 3rem;
+    --mobile-general-padding: 0 3rem;
+    --mobile-general-padding-bigger: 0 5rem;
+    --laptop-general-padding: 0 5rem;
+    --laptop-general-padding-bigger: 0 7rem;
+
+    --desktop-general-padding: 0 10rem;
+
 }

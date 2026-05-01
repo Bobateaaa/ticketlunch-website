@@ -1,0 +1,128 @@
+.primary-menu {
+
+    li a {
+        font-family: RoundPop, sans-serif;
+        color: var(--text-color-dark);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .current-menu-item > a {
+        text-decoration: underline;
+    }
+
+    .menu-item-has-children {
+        &.active > a .menu-arrow {
+            transform: rotate(90deg);
+        }
+    }
+
+    .menu-arrow {
+        display: inline-flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+        transform: rotate(0deg);
+
+        svg path {
+            stroke: var(--text-color-dark);
+        }
+    }
+
+    .sub-menu {
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+
+        li a {
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .primary-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0;
+
+        li {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        li a {
+            font-size: var(--mobile-font-size-menu);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-item-has-children {
+            & > a {
+                justify-content: flex-start;
+                gap: 0.75rem;
+            }
+        }
+
+        .menu-arrow {
+            width: 10px;
+            height: 16px;
+        }
+
+        .sub-menu {
+            padding: 0 0 0 1rem;
+
+            li {
+                padding: 0.4rem 0;
+                align-items: flex-start;
+            }
+
+            li a {
+                font-size: calc(var(--mobile-font-size-menu) * 0.85);
+                justify-content: flex-start;
+            }
+        }
+    }
+}
+
+// ── DESKTOP ──
+@media (min-width: 1200px) {
+    .primary-menu {
+
+        .menu-arrow {
+            width: 8px;
+            height: 12px;
+        }
+
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--background-color);
+            border-radius: var(--border-radius-soft);
+            padding: 0;
+            min-width: 180px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            z-index: 100;
+
+            li {
+                padding: 0;
+            }
+
+            li a {
+                padding: 0.6rem 1rem;
+                font-size: calc(var(--desktop-font-size-menu) * 0.85);
+                justify-content: flex-start;
+                white-space: nowrap;
+            }
+        }
+    }
+}
