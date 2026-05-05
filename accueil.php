@@ -68,6 +68,7 @@ get_header(); ?>
 
     <!-- L'IDÉE DERRIÈRE TICKETLUNCH -->
     <section class="idea">
+        <div class="idea__content">
         <h2 class="idea__title">L'idée derrière TicketLunch</h2>
 
         <div class="idea__list">
@@ -91,8 +92,8 @@ get_header(); ?>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/mascot-holding-card.png" alt="">
              </div>
 
+                </div>
             </div>
-
         </div>
     </section>
 
@@ -105,7 +106,7 @@ get_header(); ?>
                 <h3 class="stats__card-title">Les Canadiens vont moins souvent au restaurant</h3>
                 <p class="stats__card-text">
                     <span class="stats__card-text--reduced">Avec la hausse du coût de la vie, les habitudes de consommation changent. Près...</span>
-                    <span class="stats__card-text--full">Avec la hausse du coût de la vie, les habitudes de consommation changent. Près de 75 % des Canadiens réduisent leurs sorties au restaurant, et cette tendance est encore plus marquée chez les jeunes adultes. Les prix des menus ayant augmenté, beaucoup privilégient désormais la cuisine à la maison ou des options plus économiques. Les restaurateurs, eux, font face à une pression croissante : coûts des ingrédients, main‑d'œuvre et énergie en hausse. Résultat : une baisse de fréquentation qui touche l'ensemble du secteur.</span>
+                    <span class="stats__card-text--full">Avec la hausse du coût de la vie, les habitudes de consommation changent. Près de 75 % des Canadiens réduisent leurs sorties au restaurant, et cette tendance est encore plus marquée chez les jeunes adultes. Les prix des menus ayant augmenté, beaucoup privilégient désormais la cuisine à la maison ou des options plus économiques. <br><br>Les restaurateurs, eux, font face à une pression croissante : coûts des ingrédients, main‑d'œuvre et énergie en hausse. Résultat : une baisse de fréquentation qui touche l'ensemble du secteur.</span>
                 </p>
                 <button class="stats__card-toggle" aria-expanded="false">+</button>
             </article>
@@ -119,15 +120,17 @@ get_header(); ?>
                 <h3 class="stats__card-title">Tendances restos Québec (2025)</h3>
                 <p class="stats__card-text">
                     <span class="stats__card-text--reduced">Les Québécois sortent moins souvent au restaurant, mais recherchent davantage de qualité, de rapidité et de valeur...</span>
-                    <span class="stats__card-text--full">Les Québécois sortent moins souvent au restaurant, mais recherchent davantage de qualité, de rapidité et de valeur. Les restaurateurs répondent avec plus de promotions, des menus abordables et une adoption accrue de la technologie. Malgré la baisse de fréquentation, la scène culinaire reste dynamique, avec de nouvelles adresses et une forte mise en valeur des produits locaux.</span>
+                    <span class="stats__card-text--full">Les Québécois sortent moins souvent au restaurant, mais recherchent davantage de qualité, de rapidité et de valeur. <br><br>Les restaurateurs répondent avec plus de promotions, des menus abordables et une adoption accrue de la technologie. Malgré la baisse de fréquentation, la scène culinaire reste dynamique, avec de nouvelles adresses et une forte mise en valeur des produits locaux.</span>
                 </p>
                 <button class="stats__card-toggle" aria-expanded="false">+</button>
                 <div class="stats__card-figures">
                     <div class="stats__figure">
+                        <img class="stats__figure-icon" src="<?php echo get_template_directory_uri(); ?>/assets/shop.svg" alt="">
                         <p class="stats__figure-label">Majorité des restaurants touchés par l'inflation :</p>
                         <span class="stats__figure-value">85%</span>
                     </div>
                     <div class="stats__figure">
+                        <img class="stats__figure-icon" src="<?php echo get_template_directory_uri(); ?>/assets/shop.svg" alt="">
                         <p class="stats__figure-label">Augmentation des prix au restaurant en 2025 :</p>
                         <span class="stats__figure-value">~3,1%</span>
                     </div>

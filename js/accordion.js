@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggles.forEach(toggle => {
         toggle.addEventListener('click', function () {
+            if (window.innerWidth >= 769) return; // disable on tablet/desktop
+
             const card = this.closest('.stats__card');
             const reduced = card.querySelector('.stats__card-text--reduced');
             const full = card.querySelector('.stats__card-text--full');

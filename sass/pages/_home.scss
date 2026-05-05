@@ -180,9 +180,14 @@
         }
     }
 
-        &__swirl--third{
-            z-index: -15;
-        }
+    &__figure-icon{
+        width: 24px;
+        height: 24px;
+    }
+
+    &__swirl--third{
+        z-index: -15;
+    }
 }
 
     .cta {
@@ -191,6 +196,7 @@
         color: var(--text-color-light);
         position: relative;
         z-index: -11;
+        width: 100%;
 
         &__text {
             font-family: Geist, sans-serif;
@@ -224,8 +230,13 @@
  - cellulaire\tablet : 0px à 768px
 ------------------------- */
 #home{
-    .hero, .why {
-        padding: var(--mobile-general-padding);
+    .hero, .why, .idea__content, .stats, .cta__content {
+       width: var(--mobile-general-width);
+       place-self: center;
+    }
+
+    .idea__content, .cta__content{
+        margin: auto;
     }
 
     .hero{
@@ -338,7 +349,6 @@
 
 
 .idea {
-    padding: var(--mobile-general-padding);
     padding-top: 7rem;
     padding-bottom: 15rem;
     &__title {
@@ -383,7 +393,6 @@
 }
 
  .stats {
-        padding: var(--mobile-general-padding);
         padding-top: 7rem;
         padding-bottom: 5rem;
 
@@ -486,7 +495,6 @@
     }
 
     .cta {
-        padding: var(--mobile-general-padding-bigger);
         align-self: flex-start;
         font-size: var(--mobile-font-size-paragraph);
         padding-bottom: 7rem;
@@ -530,16 +538,21 @@
 
 @media (min-width:769px) { 
     #home{
-        .hero, .why, .idea, .stats, .cta {
-            padding: var(--laptop-general-padding);
-            margin-top: 7rem;
-            margin-top: 7rem;
+
+        .hero, .why, .idea__content, .stats, .cta__content {
+            width: var(--laptop-general-width);
+            place-self: center;
+            margin: 7rem auto;
+            padding: 0;
+        }
+
+        .cta__content {
+            width: 500px;
         }
 
         .cta, .idea {
-            padding: var(--laptop-general-padding-bigger);
-            padding-top: 7rem;
-            padding-bottom: 7rem;
+            padding-top: 0;
+            padding-bottom: 0;
         }
 
         .hero{
@@ -547,14 +560,16 @@
             height: fit-content;
             align-items: center;
             justify-content: center;
-            margin: 10rem 0;
+            margin: 10rem 0 3rem 0;
             gap: 5vh;
             flex-direction: row-reverse;
+
 
             &__img{
                 img {
                     width: 45vw;
                     height: auto;
+                    translate: 0% 7%;
                 }
             }
     
@@ -568,46 +583,259 @@
             }
         }
 
-        .why {
-            
-            &__list {
+        .stats__card {
+
+            &-toggle {
+                display: none;
+            }
+
+        &-text {
+            &--reduced {
+                display: none;
+            }
+
+            &--full {
+                display: inline;
+            }
+        }
+    }
+    }
+
+    .why {
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10%;
+        }
+
+        &__card {
+            // remove the flex properties, grid handles everything
+        }
+
+        @media (min-width:1000px) {
+                        &__list {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
+                justify-content: center;
+                gap: 5%;
             }
 
                 &__card {
                     flex: 1;
-                    min-width: 300px;
                 }
         }
+    }
+
+    .stats {
+        &__list {
+            display: grid;
+            grid-template-columns: 2fr 1fr; // expandable card bigger, 75% card smaller
+            grid-template-rows: auto auto;
+            gap: 1rem;
+        }
+
+        &__figure {
+
+            flex-direction: column;
+            gap: 0.25rem;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20% 0 10%;
+
+                &-label {
+                    text-align: center;
+                }
+        }
+
+        &__card {
+            gap: 1.5rem;
+            padding: 4rem 3rem;
+        }
+
+        // Row 1: expandable card takes left, highlight takes right
+        &__card--expandable {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        &__card--highlight {
+            grid-column: 2;
+            grid-row: 1;
+            flex-direction: column; // stack label above stat
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0rem;
+
+            .stats__card-label {
+                flex: 0;
+                padding-right: 0;
+            }
+
+
+            .stats__card-stat {
+                font-size: clamp(50px, 6vw, 80px);
+            }
+        }
+
+        // Row 2: dark card spans full width
+        &__card--dark {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            display: grid;
+            grid-template-columns: 1fr 2fr; // figures left, text+title right
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+            column-gap: 8%;
+
+            .stats__card-title {
+                grid-column: 2;
+                grid-row: 1;
+                align-self: end;
+            }
+
+            .stats__card-text {
+                grid-column: 2;
+                grid-row: 2;
+            }
+
+            .stats__card-figures {
+                grid-column: 1;
+                grid-row: 1 / -1; // spans both rows on the left
+                border-top: none !important; // override mobile top border
+                border-right: var(--small-border) solid var(--secondary-color-pale);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                padding-right: 1.5rem;
+            }
+
+            .stats__card-toggle {
+                display: none;
+            }
+        }
+    }
+
+    .cta{
+
+        &__content{
+            display: flex;
+            flex-flow: nowrap column;
+            align-items: center;
+        }
+
+        &__deco-question-mark{
+            top: -15%;
+            left: 10%;
+        }
+
+        &__title{
+            white-space: nowrap;
+            margin-bottom: 1rem;
+            text-align: center;
+
+        }
+
+        &__text{
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
     }
 }
 
 @media (min-width: 1200px) {
     
     #home{
-        .hero, .why, .idea, .stats, .cta {
-            width: clamp(900px, 80vw, 2000px);
+
+       .hero, .why, .idea__content, .stats, .cta__content {
+            width: var(--desktop-general-width);
             place-self: center;
+            margin: 10rem auto;
         }
 
-        .idea, .cta {
-            width: 100%;
-            padding: 10vw;
+        .cta__content{
+            width: 500px;
+            margin: 5rem auto;
+        }
 
-            * {
+        .cta, .idea {
+            width: 100vw;
+        }
+
+        .hero {
+            margin: 0;
+            height: 100vh;
+            gap: 10vh;
+
+            &__img {
+                img {
+                    width: clamp(500px, 32vw, 700px);
+                    height: auto;
+                }
+            }
+
+            &__tagline {
+                font-size: clamp(20px, 3vw, 35px);
             }
         }
+
 
         .why {
             
             &__list {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5%;
             }
 
-                &__card {
-                    flex: 1;
+            &__title {
+                font-size: var(--desktop-font-size-heading);
+
+                &--highlight {
+                    display: inline; 
                 }
-        }    
+            }
+
+            &__card {
+                flex: 1;
+            }
+        }  
+
+    .idea {
+        display: flex;
+        justify-content: center;
+
+            &__content {
+                place-self: center; 
+                padding-right: 25vw;     
+            }
+
+            &__list {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            &__title {
+                font-size: var(--desktop-font-size-heading);
+            }
+
+            &__number {
+                font-size: 1.5rem;
+            }
+
+            &__mascot {
+                right: -7rem; 
+                bottom: -10rem;
+                img {
+                    width: clamp(750px, 35vw, 1000px);
+                    height: auto;    
+                }
+             }
+        }
     }
 }

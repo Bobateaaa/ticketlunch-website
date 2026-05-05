@@ -7,7 +7,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     color: #333;
     background-color: var(--background-color);
     overflow-x: hidden;
@@ -33,6 +32,9 @@ footer {
 
 main {
     align-self: center;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
 }
 
 :root {
@@ -48,11 +50,7 @@ main {
     --border-size: 3px;
     --small-border: 1px;
 
-    --mobile-general-padding: 0 3rem;
-    --mobile-general-padding-bigger: 0 5rem;
-    --laptop-general-padding: 0 5rem;
-    --laptop-general-padding-bigger: 0 7rem;
-
-    --desktop-general-padding: 0 10rem;
-
+    --mobile-general-width: 80vw;
+    --laptop-general-width: clamp(200px, 75vw, 900px);
+    --desktop-general-width: clamp(950px, 70vw, 2000px)
 }

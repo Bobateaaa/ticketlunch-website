@@ -36,3 +36,11 @@
         position: relative;
         right: 0.3rem;
         }
+
+    @media (min-width: 769px) {
+        .cta__button{
+            right: 0;
+            text-align: center;
+            padding: var(--button-padding-vertical-smaller) 0;
+        } 
+    }

@@ -31,7 +31,6 @@ Base
 
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
   color: #333;
   background-color: var(--background-color);
   overflow-x: hidden;
@@ -57,6 +56,9 @@ footer {
 
 main {
   align-self: center;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
 }
 
 :root {
@@ -68,11 +70,9 @@ main {
   --border-radius-soft: 10px;
   --border-size: 3px;
   --small-border: 1px;
-  --mobile-general-padding: 0 3rem;
-  --mobile-general-padding-bigger: 0 5rem;
-  --laptop-general-padding: 0 5rem;
-  --laptop-general-padding-bigger: 0 7rem;
-  --desktop-general-padding: 0 10rem;
+  --mobile-general-width: 80vw;
+  --laptop-general-width: clamp(200px, 75vw, 900px);
+  --desktop-general-width: clamp(950px, 70vw, 2000px) ;
 }
 
 @font-face {
@@ -95,7 +95,7 @@ main {
 :root {
   --mobile-font-size-menu: clamp(14px, 4vw, 30px);
   --laptop-font-size-menu: clamp(14px, 2vw, 24px);
-  --desktop-font-size-menu: clamp(14px, 1vw, 22px);
+  --desktop-font-size-menu: clamp(14px, 1vw, 16px);
   --mobile-font-size-heading: clamp(30px, 6vw, 40px);
   --laptop-font-size-heading: clamp(32px, 4vw, 48px);
   --desktop-font-size-heading: clamp(40px, 3vw, 60px);
@@ -185,6 +185,13 @@ Components
   right: 0.3rem;
 }
 
+@media (min-width: 769px) {
+  .cta__button {
+    right: 0;
+    text-align: center;
+    padding: var(--button-padding-vertical-smaller) 0;
+  }
+}
 /*========================================
 =           CSS DE LA BANDE              =
 ========================================= */
@@ -835,6 +842,10 @@ Pages
   font-family: Futura, sans-serif;
   color: var(--text-color-light);
 }
+#home .stats__figure-icon {
+  width: 24px;
+  height: 24px;
+}
 #home .stats__swirl--third {
   z-index: -15;
 }
@@ -844,6 +855,7 @@ Pages
   color: var(--text-color-light);
   position: relative;
   z-index: -11;
+  width: 100%;
 }
 #home .cta__text {
   font-family: Geist, sans-serif;
@@ -868,8 +880,12 @@ Pages
 
  - cellulaire\tablet : 0px à 768px
 ------------------------- */
-#home .hero, #home .why {
-  padding: var(--mobile-general-padding);
+#home .hero, #home .why, #home .idea__content, #home .stats, #home .cta__content {
+  width: var(--mobile-general-width);
+  place-self: center;
+}
+#home .idea__content, #home .cta__content {
+  margin: auto;
 }
 #home .hero {
   display: flex;
@@ -960,7 +976,6 @@ Pages
 }
 
 .idea {
-  padding: var(--mobile-general-padding);
   padding-top: 7rem;
   padding-bottom: 15rem;
 }
@@ -1001,7 +1016,6 @@ Pages
 }
 
 .stats {
-  padding: var(--mobile-general-padding);
   padding-top: 7rem;
   padding-bottom: 5rem;
 }
@@ -1082,7 +1096,6 @@ Pages
 }
 
 .cta {
-  padding: var(--mobile-general-padding-bigger);
   align-self: flex-start;
   font-size: var(--mobile-font-size-paragraph);
   padding-bottom: 7rem;
@@ -1117,52 +1130,220 @@ Pages
 }
 
 @media (min-width: 769px) {
-  #home .hero, #home .why, #home .idea, #home .stats, #home .cta {
-    padding: var(--laptop-general-padding);
-    margin-top: 7rem;
-    margin-top: 7rem;
+  #home .hero, #home .why, #home .idea__content, #home .stats, #home .cta__content {
+    width: var(--laptop-general-width);
+    place-self: center;
+    margin: 7rem auto;
+    padding: 0;
+  }
+  #home .cta__content {
+    width: 500px;
   }
   #home .cta, #home .idea {
-    padding: var(--laptop-general-padding-bigger);
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   #home .hero {
     display: flex;
     height: fit-content;
     align-items: center;
     justify-content: center;
-    margin: 10rem 0;
+    margin: 10rem 0 3rem 0;
     gap: 5vh;
     flex-direction: row-reverse;
   }
   #home .hero__img img {
     width: 45vw;
     height: auto;
+    translate: 0% 7%;
   }
   #home .hero__tagline {
     font-size: clamp(13px, 3vw, 27px);
+  }
+  #home .stats__card-toggle {
+    display: none;
+  }
+  #home .stats__card-text--reduced {
+    display: none;
+  }
+  #home .stats__card-text--full {
+    display: inline;
+  }
+  .why__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10%;
+  }
+}
+@media (min-width: 769px) and (min-width: 1000px) {
+  .why__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+  }
+  .why__card {
+    flex: 1;
+  }
+}
+@media (min-width: 769px) {
+  .stats__list {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+  .stats__figure {
+    flex-direction: column;
+    gap: 0.25rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20% 0 10%;
+  }
+  .stats__figure-label {
+    text-align: center;
+  }
+  .stats__card {
+    gap: 1.5rem;
+    padding: 4rem 3rem;
+  }
+  .stats__card--expandable {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .stats__card--highlight {
+    grid-column: 2;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0rem;
+  }
+  .stats__card--highlight .stats__card-label {
+    flex: 0;
+    padding-right: 0;
+  }
+  .stats__card--highlight .stats__card-stat {
+    font-size: clamp(50px, 6vw, 80px);
+  }
+  .stats__card--dark {
+    grid-column: 1/-1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+    column-gap: 8%;
+  }
+  .stats__card--dark .stats__card-title {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+  }
+  .stats__card--dark .stats__card-text {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .stats__card--dark .stats__card-figures {
+    grid-column: 1;
+    grid-row: 1/-1;
+    border-top: none !important;
+    border-right: var(--small-border) solid var(--secondary-color-pale);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding-right: 1.5rem;
+  }
+  .stats__card--dark .stats__card-toggle {
+    display: none;
+  }
+  .cta__content {
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+  }
+  .cta__deco-question-mark {
+    top: -15%;
+    left: 10%;
+  }
+  .cta__title {
+    white-space: nowrap;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .cta__text {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  #home .hero, #home .why, #home .idea__content, #home .stats, #home .cta__content {
+    width: var(--desktop-general-width);
+    place-self: center;
+    margin: 10rem auto;
+  }
+  #home .cta__content {
+    width: 500px;
+    margin: 5rem auto;
+  }
+  #home .cta, #home .idea {
+    width: 100vw;
+  }
+  #home .hero {
+    margin: 0;
+    height: 100vh;
+    gap: 10vh;
+  }
+  #home .hero__img img {
+    width: clamp(500px, 32vw, 700px);
+    height: auto;
+  }
+  #home .hero__tagline {
+    font-size: clamp(20px, 3vw, 35px);
   }
   #home .why__list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+  }
+  #home .why__title {
+    font-size: var(--desktop-font-size-heading);
+  }
+  #home .why__title--highlight {
+    display: inline;
   }
   #home .why__card {
     flex: 1;
-    min-width: 300px;
   }
-}
-@media (min-width: 1200px) {
-  #home .hero, #home .why, #home .idea, #home .stats, #home .cta {
-    width: clamp(900px, 80vw, 2000px);
+  #home .idea {
+    display: flex;
+    justify-content: center;
+  }
+  #home .idea__content {
     place-self: center;
+    padding-right: 25vw;
   }
-  #home .idea, #home .cta {
-    width: 100%;
-    padding: 10vw;
+  #home .idea__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
-  #home .why__card {
-    flex: 1;
+  #home .idea__title {
+    font-size: var(--desktop-font-size-heading);
+  }
+  #home .idea__number {
+    font-size: 1.5rem;
+  }
+  #home .idea__mascot {
+    right: -7rem;
+    bottom: -10rem;
+  }
+  #home .idea__mascot img {
+    width: clamp(750px, 35vw, 1000px);
+    height: auto;
   }
 }/*# sourceMappingURL=style.css.map */
