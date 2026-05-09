@@ -1,0 +1,85 @@
+/*========================================
+=           CSS PAGE NOTRE EQUIPE        =
+========================================= */
+
+/* ------------------------
+* Global (colors, fonts, borders, position, display, etc.)
+------------------------- */
+#equipe{
+
+    section{
+        margin-bottom: var(--mobile-section-gap-size);
+    }
+    .directors, .employees, .join{
+        place-self: center;
+    }
+}
+
+/* ------------------------
+* CSS MOBILE
+------------------------- */
+
+#equipe{
+    margin-top: var(--mobile-top-margin-general);
+
+   .directors, .employees, .join{
+    width: var(--mobile-general-width);
+    }
+
+    h2 {
+        font-size: var(--mobile-font-size-heading);
+    }
+
+    section{
+        margin-bottom: var(--mobile-section-gap-size);
+    }
+}
+
+
+
+/* ------------------------
+* CSS LAPOTP\TABLET
+------------------------- */
+@media (min-width:769px) {
+
+    #equipe{
+        margin-top: var(--laptop-top-margin-general);
+
+       .directors, .employees, .join{
+        width: var(--laptop-general-width);
+        }
+
+        h2 {
+        font-size: var(--laptop-font-size-heading);
+        }
+
+        section{
+        margin-bottom: var(--laptop-section-gap-size);
+        }
+    }
+
+}
+
+
+/* ------------------------
+* CSS DESKTOP
+------------------------- */
+@media (min-width:1200px) {
+
+    #equipe{
+        margin-top: var(--desktop-top-margin-general);
+
+       .directors, .employees, .join{
+        width: var(--desktop-general-width);
+        }
+
+        h2 {
+        font-size: var(--desktop-font-size-heading);
+        }
+
+        section{
+        margin-bottom: var(--laptop-section-gap-size);
+        }
+    }    
+
+}

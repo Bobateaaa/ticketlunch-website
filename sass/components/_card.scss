@@ -1,0 +1,164 @@
+/*==================================================================
+=     CSS POUR toutes les cartes qui se trouvent dans le site      =
+==================================================================== */
+
+/* ------------------------
+* Global (colors, fonts, borders, position, display, etc.)
+------------------------- */    
+
+// ── GLOBAL ──
+.directors {
+    &__card {
+        background-color: var(--primary-color);
+        border: var(--small-border) solid var(--secondary-color-dark);
+
+        &-image {
+            border-radius: var(--border-radius-soft);
+            overflow: hidden;
+            flex-shrink: 0;
+
+            img {
+                object-fit: cover;
+                object-position: center center;
+            }
+        }
+
+        &-name {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+            letter-spacing: -0.01em;
+        }
+
+        &-role {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+        }
+
+        &-quote {
+            background-color: var(--accent-color);
+            border-radius: var(--border-radius-soft);
+            border-left: none;
+
+            p {
+                font-family: Gelasio, sans-serif;
+                color: var(--text-color-dark);
+                font-style: italic;
+                line-height: 1.1;
+                font-weight: 100;
+            }
+        }
+    }
+}
+
+/* ------------------------
+* CSS MOBILE
+------------------------- */
+.directors {
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        gap: 1.25rem;
+        padding: 2rem 1.5rem;
+        margin-top: 2rem;
+
+        &-image {
+            border: var(--small-border) solid black;
+            display: none;
+        }
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+
+        &-name {
+            font-size: var(--mobile-font-size-subtitle);
+            margin: 0;
+        }
+
+        &-role {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        &-quote {
+            margin-top: 0.5rem;
+            padding: 0.75rem 1rem;
+
+            p {
+                font-size: 12px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+* CSS LAPOTP TABLET
+------------------------- */
+@media (min-width:769px) {
+
+    .directors {
+
+        &__list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 2rem;
+        }
+
+        &__card {
+            flex-flow: row nowrap;
+            gap: 2rem;
+
+            &-content {
+            }
+
+            &-image{
+                display: contents;
+                width: auto;
+                height: auto;
+            
+                img {
+                    border: var(--small-border) solid black;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: var(--border-radius-soft);
+                }
+            }
+
+            &-name {
+                font-size: var(--laptop-font-size-subtitle);
+            }
+
+            &-role {
+                font-size: 14px;
+            }
+
+            &-quote {
+                p {
+                    font-size: 14px;
+                }
+            }            
+        }
+    }
+    
+}
+
+
+/* ------------------------
+* CSS DESKTOP
+------------------------- */
+@media (min-width: 1200px) {
+    .directors {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 100px;
+        
+    }
+}

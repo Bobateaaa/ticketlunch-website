@@ -22,6 +22,8 @@ Components
 @use "components/buttons" as *;
 @use "components/band" as *;
 @use "components/dropdown" as *;
+@use "components/title" as *;
+@use "components/card" as *;
 
 /* /////////////////////////////////
 Layout
@@ -34,3 +36,4 @@ Layout
 Pages
 //////////////////////////////////// */
 @use "pages/home" as *;
+@use "pages/equipe" as *;

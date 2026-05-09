@@ -6,10 +6,9 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
     color: #333;
     background-color: var(--background-color);
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 nav ul {
@@ -38,11 +37,13 @@ main {
 }
 
 :root {
-    --desktop-gap-size: 1.5rem;
+    --mobile-section-gap-size: 3rem;
+    --laptop-section-gap-size: 6rem;
+    --desktop-section-gap-size: 9rem;
 
     --mobile-padding-main: clamp(16px, 5vw, 24px);
-    --laptop-padding-main: clamp(48px, 10vw, 64px);
-    --desktop-padding-main: clamp(80px, 10vw, 120px);
+    --laptop-padding-main: clamp(16px, 5vw, 24px);
+    --desktop-padding-main: 4vw;
 
     --border-radius-rounded: 50px;
     --border-radius-soft: 10px;
@@ -52,5 +53,22 @@ main {
 
     --mobile-general-width: 80vw;
     --laptop-general-width: clamp(200px, 75vw, 900px);
-    --desktop-general-width: clamp(950px, 70vw, 2000px)
+    --desktop-general-width: clamp(950px, 70vw, 2000px);
+
+    --mobile-section-gap: 200px;
+    --lapotop-section-gap: 300px;
+    --desktop-section-gap: 400px;
+
+    --mobile-main-title-width: 90vw;
+    --laptop-main-title-width: 90vw;
+    --desktop-main-title-width: 90vw;
+
+    --mobile-main-title-height: 250px;
+    --laptop-main-title-height: 350px;
+    --desktop-main-title-height: 450px;
+
+    --mobile-top-margin-general: 60px;
+    --laptop-top-margin-general: 80px;
+    --desktop-top-margin-general: 100px;
+
 }

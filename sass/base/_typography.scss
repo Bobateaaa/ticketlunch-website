@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: Futura;
-    src: url(FuturaCyrillicHeavy.ttf) format('truetype');
+    src: url(Futura-Heavy.otf) format('opentype');
 }
 
 @font-face {
@@ -18,7 +18,7 @@
     src: url(Gelasio-Italic-VariableFont_wght.ttf) format('truetype');
 }
 
-/* Typography size*/
+/* Typography size */
 
 :root {
     --mobile-font-size-menu: clamp(14px, 4vw, 30px);
@@ -29,11 +29,18 @@
     --laptop-font-size-heading: clamp(32px, 4vw, 48px);
     --desktop-font-size-heading: clamp(40px, 3vw, 60px);
 
-    --mobile-font-size-subtitle: clamp(20px, 5vw, 30px);
+    --mobile-font-size-subtitle: clamp(24px, 4vw, 26px);
+    --laptop-font-size-subtitle: clamp(26px, 3vw, 28px);
+    --desktop-font-size-subtitle: clamp(28px, 1.5vw, 30px);
+    
 
     --mobile-font-size-paragraph: clamp(13px, 4vw, 16px);
     --laptop-font-size-paragraph: clamp(16px, 2vw, 20px);
     --desktop-font-size-paragraph: clamp(18px, 1.5vw, 22px);
+
+    --mobile-page-title-size: 36px;
+    --laptop-page-title-size: 52px;
+    --desktop-page-title-size: 70px;
 }
 
 h2 {
@@ -41,7 +48,8 @@ h2 {
     font-size: var(--mobile-font-size-heading);
     color: var(--text-color-dark);
     line-height: 1.2;
-    margin: 0 0 2.5rem;
+    letter-spacing: -0.02em;
+    padding: 0.5rem 0;
 
     &--highlight {
         display: block;
@@ -49,15 +57,17 @@ h2 {
 }
 
 h3 {
-    line-height: 95%;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
 }
 
 p {
-    line-height: 120%;
-    font-weight: 550;
+    line-height: 22px;
+    font-weight: 500;
+    letter-spacing: 0;
+    font-family: Geist, Arial, Helvetica, sans-serif;
 }
 
-
 .stats article > p {
-    font-weight: 450;
+    font-weight: 400;
 }

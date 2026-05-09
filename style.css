@@ -30,10 +30,9 @@ Base
 }
 
 body {
-  font-family: Arial, sans-serif;
   color: #333;
   background-color: var(--background-color);
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 nav ul {
@@ -62,17 +61,31 @@ main {
 }
 
 :root {
-  --desktop-gap-size: 1.5rem;
+  --mobile-section-gap-size: 3rem;
+  --laptop-section-gap-size: 6rem;
+  --desktop-section-gap-size: 9rem;
   --mobile-padding-main: clamp(16px, 5vw, 24px);
-  --laptop-padding-main: clamp(48px, 10vw, 64px);
-  --desktop-padding-main: clamp(80px, 10vw, 120px);
+  --laptop-padding-main: clamp(16px, 5vw, 24px);
+  --desktop-padding-main: 4vw;
   --border-radius-rounded: 50px;
   --border-radius-soft: 10px;
   --border-size: 3px;
   --small-border: 1px;
   --mobile-general-width: 80vw;
   --laptop-general-width: clamp(200px, 75vw, 900px);
-  --desktop-general-width: clamp(950px, 70vw, 2000px) ;
+  --desktop-general-width: clamp(950px, 70vw, 2000px);
+  --mobile-section-gap: 200px;
+  --lapotop-section-gap: 300px;
+  --desktop-section-gap: 400px;
+  --mobile-main-title-width: 90vw;
+  --laptop-main-title-width: 90vw;
+  --desktop-main-title-width: 90vw;
+  --mobile-main-title-height: 250px;
+  --laptop-main-title-height: 350px;
+  --desktop-main-title-height: 450px;
+  --mobile-top-margin-general: 60px;
+  --laptop-top-margin-general: 80px;
+  --desktop-top-margin-general: 100px;
 }
 
 @font-face {
@@ -81,7 +94,7 @@ main {
 }
 @font-face {
   font-family: Futura;
-  src: url(FuturaCyrillicHeavy.ttf) format("truetype");
+  src: url(Futura-Heavy.otf) format("opentype");
 }
 @font-face {
   font-family: Geist;
@@ -91,7 +104,7 @@ main {
   font-family: Gelasio;
   src: url(Gelasio-Italic-VariableFont_wght.ttf) format("truetype");
 }
-/* Typography size*/
+/* Typography size */
 :root {
   --mobile-font-size-menu: clamp(14px, 4vw, 30px);
   --laptop-font-size-menu: clamp(14px, 2vw, 24px);
@@ -99,10 +112,15 @@ main {
   --mobile-font-size-heading: clamp(30px, 6vw, 40px);
   --laptop-font-size-heading: clamp(32px, 4vw, 48px);
   --desktop-font-size-heading: clamp(40px, 3vw, 60px);
-  --mobile-font-size-subtitle: clamp(20px, 5vw, 30px);
+  --mobile-font-size-subtitle: clamp(24px, 4vw, 26px);
+  --laptop-font-size-subtitle: clamp(26px, 3vw, 28px);
+  --desktop-font-size-subtitle: clamp(28px, 1.5vw, 30px);
   --mobile-font-size-paragraph: clamp(13px, 4vw, 16px);
   --laptop-font-size-paragraph: clamp(16px, 2vw, 20px);
   --desktop-font-size-paragraph: clamp(18px, 1.5vw, 22px);
+  --mobile-page-title-size: 36px;
+  --laptop-page-title-size: 52px;
+  --desktop-page-title-size: 70px;
 }
 
 h2 {
@@ -110,23 +128,27 @@ h2 {
   font-size: var(--mobile-font-size-heading);
   color: var(--text-color-dark);
   line-height: 1.2;
-  margin: 0 0 2.5rem;
+  letter-spacing: -0.02em;
+  padding: 0.5rem 0;
 }
 h2--highlight {
   display: block;
 }
 
 h3 {
-  line-height: 95%;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 p {
-  line-height: 120%;
-  font-weight: 550;
+  line-height: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+  font-family: Geist, Arial, Helvetica, sans-serif;
 }
 
 .stats article > p {
-  font-weight: 450;
+  font-weight: 400;
 }
 
 /* /////////////////////////////////
@@ -307,13 +329,12 @@ Components
   }
   .primary-menu .sub-menu {
     position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--background-color);
+    top: 4vh;
+    left: -12%;
+    background-color: var(--secondary-color-pale);
     border-radius: var(--border-radius-soft);
     padding: 0;
     min-width: 180px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     z-index: 100;
   }
   .primary-menu .sub-menu li {
@@ -324,6 +345,208 @@ Components
     font-size: calc(var(--desktop-font-size-menu) * 0.85);
     justify-content: flex-start;
     white-space: nowrap;
+  }
+}
+/*========================================
+=           CSS POUR LES TITRES DE PAGE     =
+========================================= */
+/* ------------------------
+* Global (colors, fonts, borders, position, display, etc.)
+------------------------- */
+.title__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  text-align: left;
+  background-color: var(--secondary-color-dark);
+  width: 100%;
+}
+.title__label {
+  color: var(--secondary-color-pale);
+}
+.title__heading {
+  margin: 0;
+  color: var(--primary-color);
+  font-family: Futura, Arial, Helvetica, sans-serif;
+}
+
+/* ------------------------
+* CSS MOBILE
+------------------------- */
+#equipe {
+  margin-top: var(--mobile-top-margin-general);
+}
+
+.title {
+  margin: 0 calc(var(--mobile-padding-main) + 1rem);
+}
+.title__content {
+  height: var(--mobile-main-title-height);
+  border-radius: var(--border-radius-soft);
+}
+.title__heading {
+  font-size: var(--mobile-page-title-size);
+}
+
+/* ------------------------
+* CSS LAPOTP\TABLET
+------------------------- */
+@media (min-width: 769px) {
+  #equipe {
+    margin-top: var(--laptop-top-margin-general);
+  }
+  .title {
+    margin: 0 calc(var(--laptop-padding-main) + 2rem);
+  }
+  .title__content {
+    border-radius: var(--border-radius-rounded);
+    height: var(--laptop-main-title-height);
+  }
+  .title__heading {
+    font-size: var(--laptop-page-title-size);
+  }
+}
+/* ------------------------
+* CSS DESKTOP
+------------------------- */
+@media (min-width: 1200px) {
+  #equipe {
+    margin-top: var(--desktop-top-margin-general);
+  }
+  .title {
+    margin: 0 calc(var(--desktop-padding-main) + 3rem);
+  }
+  .title__content {
+    height: var(--desktop-main-title-height);
+  }
+  .title__heading {
+    font-size: var(--desktop-page-title-size);
+  }
+}
+/*==================================================================
+=     CSS POUR toutes les cartes qui se trouvent dans le site      =
+==================================================================== */
+/* ------------------------
+* Global (colors, fonts, borders, position, display, etc.)
+------------------------- */
+.directors__card {
+  background-color: var(--primary-color);
+  border: var(--small-border) solid var(--secondary-color-dark);
+}
+.directors__card-image {
+  border-radius: var(--border-radius-soft);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.directors__card-image img {
+  object-fit: cover;
+  object-position: center center;
+}
+.directors__card-name {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.01em;
+}
+.directors__card-role {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+}
+.directors__card-quote {
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius-soft);
+  border-left: none;
+}
+.directors__card-quote p {
+  font-family: Gelasio, sans-serif;
+  color: var(--text-color-dark);
+  font-style: italic;
+  line-height: 1.1;
+  font-weight: 100;
+}
+
+/* ------------------------
+* CSS MOBILE
+------------------------- */
+.directors__card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+}
+.directors__card-image {
+  border: var(--small-border) solid black;
+  display: none;
+}
+.directors__card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+.directors__card-name {
+  font-size: var(--mobile-font-size-subtitle);
+  margin: 0;
+}
+.directors__card-role {
+  font-size: 12px;
+  margin: 0;
+}
+.directors__card-quote {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+.directors__card-quote p {
+  font-size: 12px;
+  margin: 0;
+}
+
+/* ------------------------
+* CSS LAPOTP TABLET
+------------------------- */
+@media (min-width: 769px) {
+  .directors__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+  }
+  .directors__card {
+    flex-flow: row nowrap;
+    gap: 2rem;
+  }
+  .directors__card-image {
+    display: contents;
+    width: auto;
+    height: auto;
+  }
+  .directors__card-image img {
+    border: var(--small-border) solid black;
+    width: 150px;
+    height: 150px;
+    border-radius: var(--border-radius-soft);
+  }
+  .directors__card-name {
+    font-size: var(--laptop-font-size-subtitle);
+  }
+  .directors__card-role {
+    font-size: 14px;
+  }
+  .directors__card-quote p {
+    font-size: 14px;
+  }
+}
+/* ------------------------
+* CSS DESKTOP
+------------------------- */
+@media (min-width: 1200px) {
+  .directors {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 100px;
   }
 }
 /* /////////////////////////////////
@@ -448,7 +671,7 @@ Layout
   width: 25px;
 }
 .header__logo {
-  padding: var(--mobile-padding-main) 0;
+  height: 80px;
   margin: 0 var(--mobile-padding-main);
   border-bottom: 2px solid var(--text-color-dark);
   position: absolute;
@@ -476,9 +699,6 @@ Layout
 .primary-menu .menu-arrow {
   width: 10px;
   height: 16px;
-}
-.primary-menu .sub-menu {
-  padding: 0 0 0 1rem;
 }
 .primary-menu .sub-menu li {
   padding: 0.4rem 0;
@@ -510,7 +730,7 @@ Layout
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--desktop-padding-main);
-    height: 79px;
+    height: 80px;
     transform: none;
     background-color: transparent;
     padding: 0;
@@ -565,11 +785,14 @@ Layout
   }
   .primary-menu li a {
     font-size: var(--desktop-font-size-menu);
-    gap: var(--desktop-gap-size);
+    gap: 0;
     white-space: nowrap;
   }
   .primary-menu .current-menu-item > a {
     text-decoration: underline;
+  }
+  .primary-menu .sub-menu li a {
+    font-size: var(--desktop-font-size-menu);
   }
 }
 /*========================================
@@ -1345,5 +1568,68 @@ Pages
   #home .idea__mascot img {
     width: clamp(750px, 35vw, 1000px);
     height: auto;
+  }
+}
+/*========================================
+=           CSS PAGE NOTRE EQUIPE        =
+========================================= */
+/* ------------------------
+* Global (colors, fonts, borders, position, display, etc.)
+------------------------- */
+#equipe section {
+  margin-bottom: var(--mobile-section-gap-size);
+}
+#equipe .directors, #equipe .employees, #equipe .join {
+  place-self: center;
+}
+
+/* ------------------------
+* CSS MOBILE
+------------------------- */
+#equipe {
+  margin-top: var(--mobile-top-margin-general);
+}
+#equipe .directors, #equipe .employees, #equipe .join {
+  width: var(--mobile-general-width);
+}
+#equipe h2 {
+  font-size: var(--mobile-font-size-heading);
+}
+#equipe section {
+  margin-bottom: var(--mobile-section-gap-size);
+}
+
+/* ------------------------
+* CSS LAPOTP\TABLET
+------------------------- */
+@media (min-width: 769px) {
+  #equipe {
+    margin-top: var(--laptop-top-margin-general);
+  }
+  #equipe .directors, #equipe .employees, #equipe .join {
+    width: var(--laptop-general-width);
+  }
+  #equipe h2 {
+    font-size: var(--laptop-font-size-heading);
+  }
+  #equipe section {
+    margin-bottom: var(--laptop-section-gap-size);
+  }
+}
+/* ------------------------
+* CSS DESKTOP
+------------------------- */
+@media (min-width: 1200px) {
+  #equipe {
+    margin-top: var(--desktop-top-margin-general);
+  }
+  #equipe .directors, #equipe .employees, #equipe .join {
+    width: var(--desktop-general-width);
+  }
+  #equipe h2 {
+    font-size: var(--desktop-font-size-heading);
+  }
+  #equipe section {
+    margin-bottom: var(--laptop-section-gap-size);
   }
 }/*# sourceMappingURL=style.css.map */

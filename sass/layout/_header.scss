@@ -137,7 +137,7 @@
     }
 
     &__logo {
-        padding: var(--mobile-padding-main) 0;
+        height: 80px;
         margin: 0 var(--mobile-padding-main);
         border-bottom: 2px solid var(--text-color-dark);
         position: absolute;
@@ -171,7 +171,6 @@
     }
 
     .sub-menu {
-        padding: 0 0 0 1rem;
 
         li {
             padding: 0.4rem 0;
@@ -215,7 +214,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 var(--desktop-padding-main);
-            height: 79px;
+            height: 80px;
             transform: none;
             background-color: transparent;
             padding: 0;
@@ -280,12 +279,16 @@
 
         li a {
             font-size: var(--desktop-font-size-menu);
-            gap: var(--desktop-gap-size);
+            gap: 0;
             white-space: nowrap;
         }
 
         .current-menu-item > a {
             text-decoration: underline;
+        }
+
+        .sub-menu li a {
+            font-size: var(--desktop-font-size-menu);
         }
 
     }

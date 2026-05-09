@@ -1,0 +1,95 @@
+/*========================================
+=           CSS POUR LES TITRES DE PAGE     =
+========================================= */
+
+/* ------------------------
+* Global (colors, fonts, borders, position, display, etc.)
+------------------------- */    
+
+    .title{
+        &__content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column nowrap;
+            text-align: left;
+            background-color: var(--secondary-color-dark);
+            width: 100%;
+
+        }
+
+        &__label{
+            color: var(--secondary-color-pale);
+        }
+
+        &__heading{
+            margin: 0;
+            color: var(--primary-color);
+            font-family: Futura, Arial, Helvetica, sans-serif;
+        }
+    }
+
+/* ------------------------
+* CSS MOBILE
+------------------------- */
+
+#equipe{
+    margin-top: var(--mobile-top-margin-general);
+}
+
+    .title{
+        margin:  0 calc(var(--mobile-padding-main) + 1rem);
+        &__content{
+            height: var(--mobile-main-title-height);
+                border-radius: var(--border-radius-soft);
+        }
+                
+        &__heading{
+            font-size: var(--mobile-page-title-size);
+        }
+    }
+
+
+/* ------------------------
+* CSS LAPOTP\TABLET
+------------------------- */
+@media (min-width:769px) {
+
+    #equipe{
+        margin-top: var(--laptop-top-margin-general);
+    }
+
+        .title{
+            margin:  0 calc(var(--laptop-padding-main) + 2rem);
+            &__content{
+                border-radius: var(--border-radius-rounded);
+                height: var(--laptop-main-title-height);
+            }
+
+            &__heading{
+                font-size: var(--laptop-page-title-size);
+            }
+        }
+}
+
+
+/* ------------------------
+* CSS DESKTOP
+------------------------- */
+@media (min-width:1200px) {
+
+    #equipe{
+        margin-top: var(--desktop-top-margin-general);
+    }    
+
+        .title{
+            margin:  0 calc(var(--desktop-padding-main) + 3rem);
+            &__content{
+                height: var(--desktop-main-title-height);
+            }
+
+            &__heading{
+                font-size: var(--desktop-page-title-size);
+            }
+        }
+}
