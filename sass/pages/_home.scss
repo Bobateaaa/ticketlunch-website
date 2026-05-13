@@ -284,6 +284,7 @@
 }
 
 .why {
+    margin-top: 5rem;
     margin-bottom: 5rem;
 
     &__title {
@@ -520,7 +521,7 @@
             height: fit-content;
             align-items: center;
             justify-content: center;
-            margin: 10rem 0 3rem 0;
+            margin: 20vh 0 15vh 0;
             gap: 5vh;
             flex-direction: row-reverse;
 
@@ -692,7 +693,11 @@
         .hero, .why, .idea__content, .stats, .cta__content {
             width: var(--desktop-general-width);
             place-self: center;
-            margin: 10rem auto;
+            margin: 8rem auto;
+        }
+
+        .cta {
+            margin-bottom: 0;
         }
 
         .cta__content {

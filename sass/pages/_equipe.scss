@@ -10,6 +10,11 @@
     section{
         margin-bottom: var(--mobile-section-gap-size);
     }
+
+    .join{
+        margin-bottom: 0;
+    }
+
     .directors, .employees, .join{
         place-self: center;
     }
@@ -51,19 +56,12 @@
 ------------------------- */
 
 #equipe{
-    margin-top: var(--mobile-top-margin-general);
 
    .directors, .employees {
     width: var(--mobile-general-width);
+    margin-bottom: var(--mobile-section-gap-size);
     }
 
-    h2 {
-        font-size: var(--mobile-font-size-heading);
-    }
-
-    section{
-        margin-bottom: var(--mobile-section-gap-size);
-    }
 
     // ── MOBILE ──
     .join {
@@ -86,11 +84,9 @@
         }
 
         &__title {
-            font-size: var(--mobile-font-size-heading);
         }
 
         &__text {
-            font-size: var(--mobile-font-size-paragraph);
             font-weight: 400;
             color: var(--text-color-light-blue);
         }
@@ -105,7 +101,6 @@
             align-items: center;
             justify-content: center;
             padding: 0.75rem 2rem;
-            font-size: var(--mobile-font-size-paragraph);
             width: 100%;
         }
     }
@@ -119,19 +114,12 @@
 @media (min-width:769px) {
 
     #equipe{
-        margin-top: var(--laptop-top-margin-general);
 
        .directors, .employees {
         width: var(--laptop-general-width);
-        }
-
-        h2 {
-        font-size: var(--laptop-font-size-heading);
-        }
-
-        section{
         margin-bottom: var(--laptop-section-gap-size);
         }
+
 
         .join { 
             width: 100%;
@@ -140,7 +128,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            padding: 2rem var(--laptop-padding-main);
+            padding: 3rem var(--laptop-padding-main);
 
             &__content {
                 display: flex;
@@ -159,14 +147,6 @@
                 margin-bottom: 0;
             }
 
-            &__title {
-                font-size: var(--laptop-font-size-heading);
-            }
-
-            &__text {
-                font-size: var(--laptop-font-size-paragraph);
-            }
-
             &__action {
                 flex-shrink: 0;
             }
@@ -174,7 +154,6 @@
             &__cta {
                 width: auto;
                 padding: 0.75rem 2rem;
-                font-size: var(--laptop-font-size-paragraph);
             }
         }
     }
@@ -187,16 +166,18 @@
 ------------------------- */
 @media (min-width:1200px) {
 
-    #equipe{
-        margin-top: var(--desktop-top-margin-general);
-
        .directors, .employees{
-        width: var(--desktop-general-width);
+        width: var(--desktop-general-width) !important;
+        margin-bottom: var(--desktop-section-gap-size);
         }
 
-        h2 {
-        font-size: var(--desktop-font-size-heading);
+        .employees{
+            &__list {
+                display: grid;
+                  grid-template-columns: auto auto auto auto;
+            }
         }
+
 
         section{
         margin-bottom: var(--laptop-section-gap-size);
@@ -204,9 +185,7 @@
 
         .join { 
             &__content {
-                width: var(--desktop-general-width);
+                width: var(--desktop-general-width) !important;
             }
         }
     }    
-
-}

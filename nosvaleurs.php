@@ -28,7 +28,7 @@ get_header(); ?>
                 <div class="valeurs-cards__card-icon" aria-hidden="true">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-bienetre.svg" alt="">
                 </div>
-                <h2 class="valeurs-cards__card-title">Bien-être</h2>
+                <h3 class="valeurs-cards__card-title">Bien-être</h3>
                 <p class="valeurs-cards__card-text">Améliorer le bien-être des employés grâce à des repas abordables.</p>
             </article>
 
@@ -36,7 +36,7 @@ get_header(); ?>
                 <div class="valeurs-cards__card-icon" aria-hidden="true">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-innovation.svg" alt="">
                 </div>
-                <h2 class="valeurs-cards__card-title">Innovation</h2>
+                <h3 class="valeurs-cards__card-title">Innovation</h3>
                 <p class="valeurs-cards__card-text">Renforcer la rétention en offrant aux employeurs la possibilité d'adapter le montant du titre</p>
             </article>
 
@@ -44,7 +44,7 @@ get_header(); ?>
                 <div class="valeurs-cards__card-icon" aria-hidden="true">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-accessibilite.svg" alt="">
                 </div>
-                <h2 class="valeurs-cards__card-title">Accessibilité</h2>
+                <h3 class="valeurs-cards__card-title">Accessibilité</h3>
                 <p class="valeurs-cards__card-text">Soutenir la restauration locale en incitant à fréquenter les établissements voisins</p>
             </article>
 

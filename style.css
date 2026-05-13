@@ -32,7 +32,7 @@ Base
 body {
   color: #333;
   background-color: var(--background-color);
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
 }
 
 nav ul {
@@ -61,7 +61,7 @@ main {
 }
 
 :root {
-  --mobile-section-gap-size: 3rem;
+  --mobile-section-gap-size: 4rem;
   --laptop-section-gap-size: 6rem;
   --desktop-section-gap-size: 9rem;
   --mobile-padding-main: clamp(16px, 5vw, 24px);
@@ -69,7 +69,7 @@ main {
   --desktop-padding-main: 4vw;
   --border-radius-rounded: 50px;
   --border-radius-soft: 10px;
-  --border-size: 3px;
+  --border-size: 2px;
   --small-border: 1px;
   --mobile-general-width: 80vw;
   --laptop-general-width: clamp(200px, 75vw, 900px);
@@ -108,19 +108,25 @@ main {
   --laptop-font-size-menu: clamp(14px, 2vw, 24px);
   --desktop-font-size-menu: clamp(14px, 1vw, 16px);
   --mobile-font-size-heading: clamp(30px, 6vw, 40px);
-  --laptop-font-size-heading: clamp(32px, 4vw, 48px);
-  --desktop-font-size-heading: clamp(40px, 3vw, 60px);
-  --mobile-font-size-subtitle: clamp(24px, 4vw, 26px);
-  --laptop-font-size-subtitle: clamp(26px, 3vw, 28px);
-  --desktop-font-size-subtitle: clamp(28px, 1.5vw, 30px);
-  --mobile-font-size-paragraph: clamp(13px, 4vw, 16px);
-  --laptop-font-size-paragraph: clamp(16px, 2vw, 20px);
-  --desktop-font-size-paragraph: clamp(18px, 1.5vw, 22px);
+  --laptop-font-size-heading: clamp(35px, 4vw, 48px);
+  --desktop-font-size-heading: clamp(40px, 2.5vw, 56px);
+  --mobile-font-size-subtitle: 24px;
+  --laptop-font-size-subtitle: 26px;
+  --desktop-font-size-subtitle: 28px;
+  --mobile-font-size-h4: 20px;
+  --laptop-font-size-h4: 21px;
+  --desktop-font-size-h4: 22px;
+  --mobile-font-size-paragraph: 16px;
+  --laptop-font-size-paragraph: 16px;
+  --desktop-font-size-paragraph: 17px;
   --mobile-page-title-size: 36px;
   --laptop-page-title-size: 52px;
   --desktop-page-title-size: 70px;
 }
 
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
 h2 {
   font-family: Futura, sans-serif;
   font-size: var(--mobile-font-size-heading);
@@ -141,7 +147,7 @@ h3 {
 p {
   line-height: 22px;
   font-weight: 500;
-  letter-spacing: 0;
+  letter-spacing: 0.01px;
   font-family: Geist, Arial, Helvetica, sans-serif;
 }
 
@@ -149,6 +155,59 @@ p {
   font-weight: 400;
 }
 
+/* ------------------------
+ * Mobile
+------------------------- */
+h2 {
+  font-size: var(--mobile-font-size-heading);
+}
+
+h3 {
+  font-size: var(--mobile-font-size-subtitle);
+}
+
+h4 {
+  font-size: var(--mobile-font-size-h4);
+}
+
+p {
+  font-size: var(--mobile-font-size-paragraph);
+}
+
+/* ------------------------
+ * Laptop
+------------------------- */
+@media (min-width: 769px) {
+  h2 {
+    font-size: var(--laptop-font-size-heading);
+  }
+  h3 {
+    font-size: var(--laptop-font-size-subtitle);
+  }
+  h4 {
+    font-size: var(--laptop-font-size-h4);
+  }
+  p {
+    font-size: var(--laptop-font-size-paragraph);
+  }
+}
+/* ------------------------
+ * Desktop
+------------------------- */
+@media (min-width: 1200px) {
+  h2 {
+    font-size: var(--desktop-font-size-heading);
+  }
+  h3 {
+    font-size: var(--desktop-font-size-subtitle);
+  }
+  h4 {
+    font-size: var(--desktop-font-size-h4);
+  }
+  p {
+    font-size: var(--desktop-font-size-paragraph);
+  }
+}
 /* /////////////////////////////////
 Components
 //////////////////////////////////// */
@@ -256,7 +315,7 @@ Components
   border-top: var(--small-border) solid var(--secondary-color-dark);
   border-bottom: var(--small-border) solid var(--secondary-color-dark);
   background-color: var(--background-color);
-  height: 3.5rem;
+  height: 4rem;
   place-self: center;
   display: flex;
   align-items: center;
@@ -412,12 +471,8 @@ Components
 /* ------------------------
 * CSS MOBILE
 ------------------------- */
-#equipe {
-  margin-top: var(--mobile-top-margin-general);
-}
-
 .title {
-  margin: 0 calc(var(--mobile-padding-main) + 1rem);
+  margin: var(--mobile-top-margin-general) calc(var(--mobile-padding-main) + 1rem) var(--mobile-section-gap-size);
 }
 .title__content {
   height: var(--mobile-main-title-height);
@@ -431,11 +486,12 @@ Components
 * CSS LAPOTP\TABLET
 ------------------------- */
 @media (min-width: 769px) {
-  #equipe {
+  .title {
     margin-top: var(--laptop-top-margin-general);
+    margin-bottom: var(--laptop-section-gap-size);
   }
   .title {
-    margin: 0 calc(var(--laptop-padding-main) + 2rem);
+    margin: var(--laptop-top-margin-general) calc(var(--laptop-padding-main) + 2rem) var(--laptop-section-gap-size);
   }
   .title__content {
     border-radius: var(--border-radius-rounded);
@@ -449,11 +505,8 @@ Components
 * CSS DESKTOP
 ------------------------- */
 @media (min-width: 1200px) {
-  #equipe {
-    margin-top: var(--desktop-top-margin-general);
-  }
   .title {
-    margin: 0 calc(var(--desktop-padding-main) + 3rem);
+    margin: var(--desktop-top-margin-general) calc(var(--desktop-padding-main) + 3rem) var(--laptop-section-gap-size);
   }
   .title__content {
     height: var(--desktop-main-title-height);
@@ -670,6 +723,157 @@ Components
     padding-left: 0;
     padding-right: 0;
     width: 100%;
+  }
+}
+/* ========================================
+=              CSS POPUP                 =
+======================================== */
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.popup-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup {
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-soft);
+  border: var(--small-border) solid var(--secondary-color-dark);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.popup-overlay.active .popup {
+  transform: translateY(0);
+}
+.popup__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color-dark);
+  line-height: 1;
+}
+.popup__close:hover {
+  color: var(--secondary-color-dark);
+}
+.popup__title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+.popup__subtitle {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  margin: 0 0 1.5rem;
+}
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.popup__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.popup__form-group label {
+  font-family: Geist, sans-serif;
+  font-weight: 700;
+  color: var(--text-color-dark);
+}
+.popup__form-group input[type=text],
+.popup__form-group input[type=email] {
+  border: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: var(--border-radius-soft);
+  background-color: var(--background-color);
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  outline: none;
+}
+.popup__form-group input[type=text]:focus,
+.popup__form-group input[type=email]:focus {
+  border-color: var(--secondary-color-mid);
+}
+.popup__form-group input[type=file] {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+}
+.popup__form-hint {
+  font-family: Geist, sans-serif;
+  color: var(--secondary-color-mid);
+  margin: 0;
+}
+.popup__form-optional {
+  font-weight: 400;
+  color: var(--secondary-color-mid);
+}
+.popup__submit {
+  font-family: Geist, sans-serif;
+  font-weight: 700;
+  color: var(--text-color-light);
+  background-color: var(--secondary-color-dark);
+  border: none;
+  border-radius: var(--border-radius-rounded);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.2s ease;
+}
+.popup__submit:hover {
+  background-color: var(--secondary-color-mid);
+}
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+.popup {
+  width: 90vw;
+  padding: 2rem;
+}
+.popup__title {
+  padding-right: 2rem;
+}
+.popup__form-group input[type=text],
+.popup__form-group input[type=email] {
+  padding: 0.6rem 0.75rem;
+}
+.popup__submit {
+  padding: 0.6rem 1.5rem;
+}
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+  .popup {
+    width: 500px;
+    padding: 2.5rem;
+  }
+  .popup__form-group input[type=text],
+  .popup__form-group input[type=email] {
+    padding: 0.65rem 0.85rem;
+  }
+  .popup__submit {
+    padding: 0.65rem 2rem;
   }
 }
 /* /////////////////////////////////
@@ -1286,6 +1490,7 @@ Pages
 }
 
 .why {
+  margin-top: 5rem;
   margin-bottom: 5rem;
 }
 .why__title {
@@ -1483,7 +1688,7 @@ Pages
     height: fit-content;
     align-items: center;
     justify-content: center;
-    margin: 10rem 0 3rem 0;
+    margin: 20vh 0 15vh 0;
     gap: 5vh;
     flex-direction: row-reverse;
   }
@@ -1617,7 +1822,10 @@ Pages
   #home .hero, #home .why, #home .idea__content, #home .stats, #home .cta__content {
     width: var(--desktop-general-width);
     place-self: center;
-    margin: 10rem auto;
+    margin: 8rem auto;
+  }
+  #home .cta {
+    margin-bottom: 0;
   }
   #home .cta__content {
     width: 500px;
@@ -1685,6 +1893,9 @@ Pages
 #equipe section {
   margin-bottom: var(--mobile-section-gap-size);
 }
+#equipe .join {
+  margin-bottom: 0;
+}
 #equipe .directors, #equipe .employees, #equipe .join {
   place-self: center;
 }
@@ -1718,16 +1929,8 @@ Pages
 /* ------------------------
 * CSS MOBILE
 ------------------------- */
-#equipe {
-  margin-top: var(--mobile-top-margin-general);
-}
 #equipe .directors, #equipe .employees {
   width: var(--mobile-general-width);
-}
-#equipe h2 {
-  font-size: var(--mobile-font-size-heading);
-}
-#equipe section {
   margin-bottom: var(--mobile-section-gap-size);
 }
 #equipe .join {
@@ -1747,11 +1950,7 @@ Pages
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
-#equipe .join__title {
-  font-size: var(--mobile-font-size-heading);
-}
 #equipe .join__text {
-  font-size: var(--mobile-font-size-paragraph);
   font-weight: 400;
   color: var(--text-color-light-blue);
 }
@@ -1764,7 +1963,6 @@ Pages
   align-items: center;
   justify-content: center;
   padding: 0.75rem 2rem;
-  font-size: var(--mobile-font-size-paragraph);
   width: 100%;
 }
 
@@ -1772,16 +1970,8 @@ Pages
 * CSS LAPOTP\TABLET
 ------------------------- */
 @media (min-width: 769px) {
-  #equipe {
-    margin-top: var(--laptop-top-margin-general);
-  }
   #equipe .directors, #equipe .employees {
     width: var(--laptop-general-width);
-  }
-  #equipe h2 {
-    font-size: var(--laptop-font-size-heading);
-  }
-  #equipe section {
     margin-bottom: var(--laptop-section-gap-size);
   }
   #equipe .join {
@@ -1791,7 +1981,7 @@ Pages
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 2rem var(--laptop-padding-main);
+    padding: 3rem var(--laptop-padding-main);
   }
   #equipe .join__content {
     display: flex;
@@ -1808,39 +1998,31 @@ Pages
     gap: 0rem;
     margin-bottom: 0;
   }
-  #equipe .join__title {
-    font-size: var(--laptop-font-size-heading);
-  }
-  #equipe .join__text {
-    font-size: var(--laptop-font-size-paragraph);
-  }
   #equipe .join__action {
     flex-shrink: 0;
   }
   #equipe .join__cta {
     width: auto;
     padding: 0.75rem 2rem;
-    font-size: var(--laptop-font-size-paragraph);
   }
 }
 /* ------------------------
 * CSS DESKTOP
 ------------------------- */
 @media (min-width: 1200px) {
-  #equipe {
-    margin-top: var(--desktop-top-margin-general);
+  .directors, .employees {
+    width: var(--desktop-general-width) !important;
+    margin-bottom: var(--desktop-section-gap-size);
   }
-  #equipe .directors, #equipe .employees {
-    width: var(--desktop-general-width);
+  .employees__list {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
   }
-  #equipe h2 {
-    font-size: var(--desktop-font-size-heading);
-  }
-  #equipe section {
+  section {
     margin-bottom: var(--laptop-section-gap-size);
   }
-  #equipe .join__content {
-    width: var(--desktop-general-width);
+  .join__content {
+    width: var(--desktop-general-width) !important;
   }
 }
 /* ========================================
@@ -1907,7 +2089,7 @@ Pages
   margin: 0 auto;
 }
 #apropos .company {
-  margin-top: var(--mobile-section-gap-size);
+  margin-bottom: var(--mobile-section-gap-size);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -1916,7 +2098,7 @@ Pages
   margin: 0;
 }
 #apropos .mission {
-  margin-top: var(--mobile-section-gap-size);
+  margin-bottom: var(--mobile-section-gap-size);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -1954,7 +2136,7 @@ Pages
   display: none;
 }
 #apropos .origin {
-  margin-top: var(--mobile-section-gap-size);
+  margin-bottom: var(--mobile-section-gap-size);
   margin-bottom: var(--mobile-section-gap-size);
   display: flex;
   flex-direction: column;
@@ -1975,10 +2157,10 @@ Pages
     margin: 0 auto;
   }
   #apropos .company {
-    margin-top: var(--laptop-section-gap-size);
+    margin-bottom: var(--laptop-section-gap-size);
   }
   #apropos .mission {
-    margin-top: var(--laptop-section-gap-size);
+    margin-bottom: var(--laptop-section-gap-size);
   }
   #apropos .mission__list {
     gap: 0.75rem;
@@ -1995,9 +2177,11 @@ Pages
   }
   #apropos .mission__card-body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: start;
+    align-items: flex-start;
     flex: 1;
   }
   #apropos .mission__card-title {
@@ -2012,7 +2196,7 @@ Pages
     z-index: -1;
   }
   #apropos .origin {
-    margin-top: var(--laptop-section-gap-size);
+    margin-bottom: var(--laptop-section-gap-size);
     margin-bottom: var(--laptop-section-gap-size);
   }
 }
@@ -2027,10 +2211,13 @@ Pages
     margin: 0 auto;
   }
   #apropos .company {
-    margin-top: var(--desktop-section-gap-size);
+    margin-bottom: var(--desktop-section-gap-size);
+    grid-area: company;
+    padding-right: 20%;
   }
   #apropos .mission {
-    margin-top: var(--desktop-section-gap-size);
+    margin-bottom: var(--desktop-section-gap-size);
+    grid-area: mission;
   }
   #apropos .mission__card {
     padding: 1.25rem 2rem;
@@ -2044,8 +2231,10 @@ Pages
     width: 350px;
   }
   #apropos .origin {
-    margin-top: var(--desktop-section-gap-size);
     margin-bottom: var(--desktop-section-gap-size);
+    margin-bottom: var(--desktop-section-gap-size);
+    grid-area: origin;
+    padding-right: 20%;
   }
 }
 /* ========================================
@@ -2085,13 +2274,16 @@ Pages
 ------------------------- */
 #valeurs .valeurs-cards {
   width: var(--mobile-general-width);
-  margin: var(--mobile-section-gap-size) auto;
+  margin: 0 auto;
+  margin-bottom: var(--mobile-section-gap-size);
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 #valeurs .valeurs-cards__ambition {
   margin: 0;
+  font-size: 17px;
+  text-align: left;
 }
 #valeurs .valeurs-cards__list {
   display: flex;
@@ -2114,7 +2306,12 @@ Pages
 @media (min-width: 769px) {
   #valeurs .valeurs-cards {
     width: var(--laptop-general-width);
-    margin: var(--laptop-section-gap-size) auto;
+    margin-bottom: var(--laptop-section-gap-size);
+  }
+  #valeurs .valeurs-cards__ambition {
+    margin: 0;
+    font-size: 18px;
+    text-align: left;
   }
   #valeurs .valeurs-cards__list {
     flex-direction: row;
@@ -2130,7 +2327,13 @@ Pages
 @media (min-width: 1200px) {
   #valeurs .valeurs-cards {
     width: var(--desktop-general-width);
-    margin: var(--desktop-section-gap-size) auto;
+    margin-bottom: var(--desktop-section-gap-size);
+  }
+  #valeurs .valeurs-cards__ambition {
+    margin: 0;
+    font-size: 20px;
+    max-width: 800px;
+    text-align: left;
   }
   #valeurs .valeurs-cards__card {
     padding: 1.5rem;
@@ -2149,7 +2352,6 @@ Pages
 #emplois .avantages__title {
   font-family: Futura, sans-serif;
   color: var(--text-color-dark);
-  letter-spacing: -0.02em;
   margin: 0;
 }
 #emplois .avantages__subtitle {
@@ -2157,13 +2359,16 @@ Pages
   color: var(--text-color-dark);
 }
 #emplois .avantages__card {
-  background-color: var(--accent-color);
+  background-color: var(--secondary-color-pale);
   border-radius: var(--border-radius-soft);
 }
 #emplois .avantages__card-title {
   font-family: Futura, sans-serif;
   color: var(--text-color-dark);
   letter-spacing: -0.01em;
+  border-bottom: var(--small-border) solid var(--secondary-color-dark);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 #emplois .avantages__card-text {
   font-family: Geist, sans-serif;
@@ -2172,12 +2377,6 @@ Pages
 #emplois .emplois-disponibles__title {
   font-family: Futura, sans-serif;
   color: var(--text-color-dark);
-  letter-spacing: -0.02em;
-}
-#emplois .emplois-disponibles__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 #emplois .emplois-disponibles__item {
   border-bottom: var(--small-border) solid var(--secondary-color-dark);
@@ -2189,13 +2388,11 @@ Pages
   font-family: Futura, sans-serif;
   color: var(--text-color-dark);
   letter-spacing: -0.01em;
-  margin: 0;
 }
 #emplois .emplois-disponibles__meta {
   font-family: Geist, sans-serif;
-  color: var(--secondary-color-mid);
+  color: var(--text-color-dark);
   font-style: italic;
-  margin: 0;
 }
 #emplois .emplois-disponibles__pdf {
   font-family: Geist, sans-serif;
@@ -2208,12 +2405,11 @@ Pages
   border-radius: var(--border-radius-rounded);
   border: var(--small-border) solid var(--secondary-color-dark);
   cursor: pointer;
-  background: none;
   white-space: nowrap;
 }
 #emplois .emplois-disponibles__badge--postulez {
-  color: var(--text-color-dark);
   background-color: transparent;
+  color: var(--text-color-dark);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 #emplois .emplois-disponibles__badge--postulez:hover {
@@ -2221,53 +2417,33 @@ Pages
   color: var(--text-color-light);
 }
 #emplois .emplois-disponibles__badge--indisponible {
-  color: var(--text-color-light);
   background-color: var(--secondary-color-dark);
-  opacity: 0.6;
+  color: var(--text-color-light);
+  border-color: var(--secondary-color-dark);
   cursor: default;
 }
+#emplois .emplois-disponibles__empty {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+}
 #emplois .candidatures {
-  background-color: var(--secondary-color-dark);
+  background-color: none;
+}
+#emplois .candidatures__content {
   border-radius: var(--border-radius-soft);
+  background-color: var(--secondary-color-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
 }
 #emplois .candidatures__title {
   font-family: Futura, sans-serif;
   color: var(--text-color-light);
-  letter-spacing: -0.02em;
-  margin: 0;
 }
 #emplois .candidatures__text {
   font-family: Geist, sans-serif;
   color: var(--text-color-light);
-}
-#emplois .candidatures__form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-#emplois .candidatures__form-group label {
-  font-family: Geist, sans-serif;
-  color: var(--text-color-light);
-  font-weight: 600;
-}
-#emplois .candidatures__form-group input {
-  font-family: Geist, sans-serif;
-  background-color: transparent;
-  border: var(--small-border) solid var(--text-color-light);
-  border-radius: var(--border-radius-soft);
-  color: var(--text-color-light);
-}
-#emplois .candidatures__form-group input:focus {
-  outline: none;
-  border-color: var(--secondary-color-pale);
-}
-#emplois .candidatures__form-hint {
-  font-family: Geist, sans-serif;
-  color: var(--text-color-light-blue);
-  margin: 0;
-}
-#emplois .candidatures__form-optional {
-  color: var(--text-color-light-blue);
 }
 #emplois .candidatures__cta {
   font-family: Geist, sans-serif;
@@ -2277,100 +2453,10 @@ Pages
   border: none;
   border-radius: var(--border-radius-rounded);
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 #emplois .candidatures__cta:hover {
-  opacity: 0.85;
-}
-#emplois .popup-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#emplois .popup-overlay.hidden {
-  display: none;
-}
-#emplois .popup {
-  background-color: var(--primary-color);
-  border-radius: var(--border-radius-soft);
-  position: relative;
-  overflow-y: auto;
-}
-#emplois .popup__close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: var(--text-color-dark);
-  line-height: 1;
-}
-#emplois .popup__close:hover {
-  opacity: 0.6;
-}
-#emplois .popup__title {
-  font-family: Futura, sans-serif;
-  color: var(--text-color-dark);
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-#emplois .popup__meta {
-  font-family: Geist, sans-serif;
-  color: var(--secondary-color-mid);
-  font-style: italic;
-  margin: 0;
-}
-#emplois .popup__form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-#emplois .popup__form-group label {
-  font-family: Geist, sans-serif;
-  color: var(--text-color-dark);
-  font-weight: 600;
-}
-#emplois .popup__form-group input {
-  font-family: Geist, sans-serif;
-  border: var(--small-border) solid var(--secondary-color-dark);
-  border-radius: var(--border-radius-soft);
-  color: var(--text-color-dark);
-  background-color: white;
-  padding: 0.6rem 0.75rem;
-}
-#emplois .popup__form-group input:focus {
-  outline: none;
-  border-color: var(--secondary-color-mid);
-}
-#emplois .popup__form-hint {
-  font-family: Geist, sans-serif;
-  color: var(--secondary-color-mid);
-  font-size: 0.8rem;
-  margin: 0;
-}
-#emplois .popup__form-optional {
-  color: var(--secondary-color-mid);
-  font-weight: 400;
-}
-#emplois .popup__submit {
-  font-family: Geist, sans-serif;
-  font-weight: 700;
-  color: var(--text-color-light);
-  background-color: var(--secondary-color-dark);
-  border: none;
-  border-radius: var(--border-radius-rounded);
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  align-self: flex-start;
-}
-#emplois .popup__submit:hover {
-  opacity: 0.85;
+  background-color: var(--secondary-color-pale);
 }
 
 /* ------------------------
@@ -2383,41 +2469,35 @@ Pages
   margin: 0 auto;
 }
 #emplois .avantages {
-  margin-top: var(--mobile-section-gap-size);
+  margin-bottom: var(--mobile-section-gap-size);
 }
 #emplois .avantages__intro {
   margin-bottom: 1.5rem;
 }
-#emplois .avantages__title {
-  font-size: var(--mobile-font-size-heading);
-}
-#emplois .avantages__subtitle {
-  font-size: var(--mobile-font-size-paragraph);
-}
 #emplois .avantages__list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 #emplois .avantages__card {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  padding: 2rem 1.5rem;
 }
 #emplois .avantages__card-title {
-  font-size: var(--mobile-font-size-paragraph);
   font-weight: 700;
 }
 #emplois .avantages__card-text {
-  font-size: var(--mobile-font-size-paragraph);
+  margin: 0;
 }
 #emplois .emplois-disponibles {
-  margin-top: var(--mobile-section-gap-size);
+  margin-bottom: var(--mobile-section-gap-size);
 }
 #emplois .emplois-disponibles__title {
-  font-size: var(--mobile-font-size-heading);
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+#emplois .emplois-disponibles__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 #emplois .emplois-disponibles__item {
   display: flex;
@@ -2425,78 +2505,53 @@ Pages
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 1.25rem 0;
 }
 #emplois .emplois-disponibles__info {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  flex: 1;
 }
 #emplois .emplois-disponibles__name {
-  font-size: var(--mobile-font-size-paragraph);
+  margin: 0;
 }
 #emplois .emplois-disponibles__meta {
-  font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+  margin: 0;
 }
 #emplois .emplois-disponibles__pdf {
-  font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+  margin-top: 0.25rem;
+  display: inline-block;
+}
+#emplois .emplois-disponibles__action {
+  flex-shrink: 0;
 }
 #emplois .emplois-disponibles__badge {
-  padding: 0.5rem 1rem;
-  font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+}
+#emplois .emplois-disponibles__empty {
+  margin-top: 1rem;
 }
 #emplois .candidatures {
-  margin-top: var(--mobile-section-gap-size);
   margin-bottom: var(--mobile-section-gap-size);
-  padding: 2rem 1.5rem;
 }
 #emplois .candidatures__content {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
+  background-color: var(--secondary-color-dark);
 }
 #emplois .candidatures__title {
-  font-size: var(--mobile-font-size-subtitle);
+  margin: 0;
 }
 #emplois .candidatures__text {
-  font-size: var(--mobile-font-size-paragraph);
-}
-#emplois .candidatures__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-#emplois .candidatures__form-group input {
-  padding: 0.6rem 0.75rem;
+  margin: 0;
 }
 #emplois .candidatures__cta {
-  padding: 0.75rem 2rem;
-  font-size: var(--mobile-font-size-paragraph);
   align-self: flex-start;
-}
-#emplois .popup {
-  width: 90vw;
-  max-height: 85vh;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-#emplois .popup__title {
-  font-size: var(--mobile-font-size-subtitle);
-  padding-right: 2rem;
-}
-#emplois .popup__meta {
-  font-size: var(--mobile-font-size-paragraph);
-}
-#emplois .popup__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-#emplois .popup__submit {
-  padding: 0.75rem 2rem;
-  font-size: var(--mobile-font-size-paragraph);
+  padding: 0.6rem 1.5rem;
 }
 
 /* ------------------------
@@ -2510,52 +2565,30 @@ Pages
     margin: 0 auto;
   }
   #emplois .avantages {
-    margin-top: var(--laptop-section-gap-size);
+    margin-bottom: var(--laptop-section-gap-size);
   }
-  #emplois .avantages__title {
-    font-size: var(--laptop-font-size-heading);
+  #emplois .avantages__card {
+    padding: 2.5rem 2rem;
+    flex: 1 1 250px;
   }
   #emplois .avantages__list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
-  }
-  #emplois .avantages__card-title {
-    font-size: var(--laptop-font-size-paragraph);
-  }
-  #emplois .avantages__card-text {
-    font-size: var(--laptop-font-size-paragraph);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
   }
   #emplois .emplois-disponibles {
-    margin-top: var(--laptop-section-gap-size);
+    margin-bottom: var(--laptop-section-gap-size);
   }
-  #emplois .emplois-disponibles__title {
-    font-size: var(--laptop-font-size-heading);
-  }
-  #emplois .emplois-disponibles__name {
-    font-size: var(--laptop-font-size-paragraph);
-  }
-  #emplois .emplois-disponibles__meta {
-    font-size: calc(var(--laptop-font-size-paragraph) * 0.85);
+  #emplois .emplois-disponibles__badge {
+    padding: 0.4rem 1.25rem;
   }
   #emplois .candidatures {
-    margin-top: var(--laptop-section-gap-size);
     margin-bottom: var(--laptop-section-gap-size);
-    padding: 3rem 2.5rem;
+    margin-bottom: var(--laptop-section-gap-size);
   }
-  #emplois .candidatures__title {
-    font-size: var(--laptop-font-size-subtitle);
-  }
-  #emplois .candidatures__text {
-    font-size: var(--laptop-font-size-paragraph);
-  }
-  #emplois .popup {
-    width: 550px;
-    max-height: 90vh;
-    padding: 2.5rem 2rem;
-  }
-  #emplois .popup__title {
-    font-size: var(--laptop-font-size-subtitle);
+  #emplois .candidatures__cta {
+    padding: 0.6rem 2rem;
   }
 }
 /* ------------------------
@@ -2569,25 +2602,132 @@ Pages
     margin: 0 auto;
   }
   #emplois .avantages {
-    margin-top: var(--desktop-section-gap-size);
+    margin-bottom: var(--desktop-section-gap-size);
   }
-  #emplois .avantages__title {
-    font-size: var(--desktop-font-size-heading);
+  #emplois .avantages__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
   }
-  #emplois .avantages__card-title {
-    font-size: var(--desktop-font-size-paragraph);
+}
+@media (min-width: 1200px) and (min-width: 1450px) {
+  #emplois .avantages__list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  #emplois .avantages__card-text {
-    font-size: var(--desktop-font-size-paragraph);
+}
+@media (min-width: 1200px) {
+  #emplois .avantages__card {
+    padding: 2.5rem 2rem;
+    flex: 1 1 300px;
   }
   #emplois .emplois-disponibles {
-    margin-top: var(--desktop-section-gap-size);
-  }
-  #emplois .emplois-disponibles__title {
-    font-size: var(--desktop-font-size-heading);
+    margin-bottom: var(--desktop-section-gap-size);
   }
   #emplois .candidatures {
-    margin-top: var(--desktop-section-gap-size);
     margin-bottom: var(--desktop-section-gap-size);
+  }
+  #emplois .candidatures__content {
+    max-width: 600px;
+    padding: 2.5rem 3rem;
+  }
+}
+/* ========================================
+=       CSS PAGE RECONNAISSANCE          =
+======================================== */
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#reconnaissance .reconnaissances__card {
+  border: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: var(--border-radius-soft);
+}
+#reconnaissance .reconnaissances__card-title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+#reconnaissance .reconnaissances__card-text {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+#reconnaissance .reconnaissances__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-soft);
+  display: block;
+}
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#reconnaissance .reconnaissances {
+  width: var(--mobile-general-width);
+  margin: 0 auto;
+  margin-bottom: var(--mobile-section-gap-size);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+#reconnaissance .reconnaissances__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+#reconnaissance .reconnaissances__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#reconnaissance .reconnaissances__card-image img {
+  max-width: 100%;
+}
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+  #reconnaissance .reconnaissances {
+    width: var(--laptop-general-width);
+    margin: 0 auto;
+    margin-bottom: var(--laptop-section-gap-size);
+    gap: 2rem;
+  }
+  #reconnaissance .reconnaissances__card {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  #reconnaissance .reconnaissances__card-content {
+    flex: 1;
+  }
+  #reconnaissance .reconnaissances__card-image {
+    flex-shrink: 0;
+    width: 260px;
+  }
+  #reconnaissance .reconnaissances__card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+  #reconnaissance .reconnaissances {
+    width: var(--desktop-general-width);
+    margin: 0 auto;
+    margin-bottom: var(--desktop-section-gap-size);
+    gap: 2.5rem;
+  }
+  #reconnaissance .reconnaissances__card {
+    gap: 3rem;
+    padding: 2.5rem 3rem;
+  }
+  #reconnaissance .reconnaissances__card-image {
+    width: 320px;
   }
 }/*# sourceMappingURL=style.css.map */

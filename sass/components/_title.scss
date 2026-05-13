@@ -33,12 +33,8 @@
 * CSS MOBILE
 ------------------------- */
 
-#equipe{
-    margin-top: var(--mobile-top-margin-general);
-}
-
     .title{
-        margin:  0 calc(var(--mobile-padding-main) + 1rem);
+        margin: var(--mobile-top-margin-general) calc(var(--mobile-padding-main) + 1rem) var(--mobile-section-gap-size);
         &__content{
             height: var(--mobile-main-title-height);
                 border-radius: var(--border-radius-soft);
@@ -55,12 +51,13 @@
 ------------------------- */
 @media (min-width:769px) {
 
-    #equipe{
+    .title{
         margin-top: var(--laptop-top-margin-general);
+        margin-bottom: var(--laptop-section-gap-size);
     }
 
         .title{
-            margin:  0 calc(var(--laptop-padding-main) + 2rem);
+            margin: var(--laptop-top-margin-general) calc(var(--laptop-padding-main) + 2rem) var(--laptop-section-gap-size);
             &__content{
                 border-radius: var(--border-radius-rounded);
                 height: var(--laptop-main-title-height);
@@ -76,14 +73,10 @@
 /* ------------------------
 * CSS DESKTOP
 ------------------------- */
-@media (min-width:1200px) {
-
-    #equipe{
-        margin-top: var(--desktop-top-margin-general);
-    }    
+@media (min-width:1200px) {  
 
         .title{
-            margin:  0 calc(var(--desktop-padding-main) + 3rem);
+            margin:  var(--desktop-top-margin-general) calc(var(--desktop-padding-main) + 3rem) var(--laptop-section-gap-size);
             &__content{
                 height: var(--desktop-main-title-height);
             }

@@ -1,0 +1,178 @@
+/* ========================================
+=              CSS POPUP                 =
+======================================== */
+
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.popup {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius-soft);
+    border: var(--small-border) solid var(--secondary-color-dark);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    .popup-overlay.active & {
+        transform: translateY(0);
+    }
+
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-color-dark);
+        line-height: 1;
+
+        &:hover {
+            color: var(--secondary-color-dark);
+        }
+    }
+
+    &__title {
+        font-family: Futura, sans-serif;
+        color: var(--text-color-dark);
+        letter-spacing: -0.01em;
+        margin: 0 0 0.5rem;
+    }
+
+    &__subtitle {
+        font-family: Geist, sans-serif;
+        color: var(--text-color-dark);
+        margin: 0 0 1.5rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    &__form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+
+        label {
+            font-family: Geist, sans-serif;
+            font-weight: 700;
+            color: var(--text-color-dark);
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            border: var(--small-border) solid var(--secondary-color-dark);
+            border-radius: var(--border-radius-soft);
+            background-color: var(--background-color);
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+            outline: none;
+
+            &:focus {
+                border-color: var(--secondary-color-mid);
+            }
+        }
+
+        input[type="file"] {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+        }
+    }
+
+    &__form-hint {
+        font-family: Geist, sans-serif;
+        color: var(--secondary-color-mid);
+        margin: 0;
+    }
+
+    &__form-optional {
+        font-weight: 400;
+        color: var(--secondary-color-mid);
+    }
+
+    &__submit {
+        font-family: Geist, sans-serif;
+        font-weight: 700;
+        color: var(--text-color-light);
+        background-color: var(--secondary-color-dark);
+        border: none;
+        border-radius: var(--border-radius-rounded);
+        cursor: pointer;
+        align-self: flex-start;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: var(--secondary-color-mid);
+        }
+    }
+}
+
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+.popup {
+    width: 90vw;
+    padding: 2rem;
+
+    &__title {
+        padding-right: 2rem;
+    }
+
+    &__form-group {
+        input[type="text"],
+        input[type="email"] {
+            padding: 0.6rem 0.75rem;
+        }
+    }
+
+    &__submit {
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+    .popup {
+        width: 500px;
+        padding: 2.5rem;
+
+        &__form-group {
+            input[type="text"],
+            input[type="email"] {
+                padding: 0.65rem 0.85rem;
+            }
+        }
+
+        &__submit {
+            padding: 0.65rem 2rem;
+        }
+    }
+}

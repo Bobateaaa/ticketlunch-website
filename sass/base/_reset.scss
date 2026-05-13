@@ -8,7 +8,7 @@
 body {
     color: #333;
     background-color: var(--background-color);
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
 }
 
 nav ul {
@@ -38,7 +38,7 @@ main {
 
 
 :root {
-    --mobile-section-gap-size: 3rem;
+    --mobile-section-gap-size: 4rem;
     --laptop-section-gap-size: 6rem;
     --desktop-section-gap-size: 9rem;
 
@@ -49,7 +49,7 @@ main {
     --border-radius-rounded: 50px;
     --border-radius-soft: 10px;
 
-    --border-size: 3px;
+    --border-size: 2px;
     --small-border: 1px;
 
     --mobile-general-width: 80vw;

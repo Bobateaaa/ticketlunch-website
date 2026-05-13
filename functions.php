@@ -16,6 +16,7 @@ function ticketlunch_enqueue_scripts() {
     wp_enqueue_style( 'ticketlunch-style', get_stylesheet_uri(), array('normalize'), '1.0.0' );
     wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0' );
     wp_enqueue_script( 'ticketlunch-accordion', get_template_directory_uri() . '/js/accordion.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'ticketlunch-popup', get_template_directory_uri() . '/js/popup.js', array(), '1.0.0', true );
     wp_enqueue_script( 'ticketlunch-menu', get_template_directory_uri() . '/js/menu.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'ticketlunch_enqueue_scripts' );

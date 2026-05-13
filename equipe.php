@@ -90,7 +90,6 @@ get_header(); ?>
                 <p class="employees__card-title">Représentant(e) des entreprises</p>
                 <a href="#" class="employees__card-cta">Consulter le poste</a>
             </article>
-
         </div>
     </section>
 

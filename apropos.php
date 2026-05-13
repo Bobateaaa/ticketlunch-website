@@ -35,7 +35,7 @@ get_header(); ?>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-mission-1.svg" alt="">
                 </div>
                 <div class="mission__card-body">
-                    <h3 class="mission__card-title">Redonner du pouvoir d'achat</h3>
+                    <h4 class="mission__card-title">Redonner du pouvoir d'achat</h4>
                     <p class="mission__card-text">Permettre à chaque travailleur de manger au restaurant tous les jours, sans y laisser sa paye.</p>
                 </div>
             </article>
@@ -45,7 +45,7 @@ get_header(); ?>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-mission-2.svg" alt="">
                 </div>
                 <div class="mission__card-body">
-                    <h3 class="mission__card-title">Repenser la consommation</h3>
+                    <h4 class="mission__card-title">Repenser la consommation</h4>
                     <p class="mission__card-text">Relancer l'économie locale en créant un nouveau modèle d'avantage social inédit au Québec.</p>
                 </div>
             </article>
@@ -55,7 +55,7 @@ get_header(); ?>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-mission-3.svg" alt="">
                 </div>
                 <div class="mission__card-body">
-                    <h3 class="mission__card-title">Devenir une référence</h3>
+                    <h4 class="mission__card-title">Devenir une référence</h4>
                     <p class="mission__card-text">S'imposer comme l'entreprise de référence en avantages sociaux liés à la restauration.</p>
                 </div>
             </article>

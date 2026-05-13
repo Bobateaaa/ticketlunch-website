@@ -26,22 +26,30 @@
     --desktop-font-size-menu: clamp(14px, 1vw, 16px);
 
     --mobile-font-size-heading: clamp(30px, 6vw, 40px);
-    --laptop-font-size-heading: clamp(32px, 4vw, 48px);
-    --desktop-font-size-heading: clamp(40px, 3vw, 60px);
+    --laptop-font-size-heading: clamp(35px, 4vw, 48px);
+    --desktop-font-size-heading: clamp(40px, 2.5vw, 56px);
 
-    --mobile-font-size-subtitle: clamp(24px, 4vw, 26px);
-    --laptop-font-size-subtitle: clamp(26px, 3vw, 28px);
-    --desktop-font-size-subtitle: clamp(28px, 1.5vw, 30px);
+    --mobile-font-size-subtitle: 24px;
+    --laptop-font-size-subtitle: 26px;
+    --desktop-font-size-subtitle: 28px;
+
+    --mobile-font-size-h4: 20px;
+    --laptop-font-size-h4: 21px;
+    --desktop-font-size-h4: 22px;
     
 
-    --mobile-font-size-paragraph: clamp(13px, 4vw, 16px);
-    --laptop-font-size-paragraph: clamp(16px, 2vw, 20px);
-    --desktop-font-size-paragraph: clamp(18px, 1.5vw, 22px);
+    --mobile-font-size-paragraph: 16px;
+    --laptop-font-size-paragraph: 16px;
+    --desktop-font-size-paragraph: 17px;
 
     --mobile-page-title-size: 36px;
     --laptop-page-title-size: 52px;
     --desktop-page-title-size: 70px;
 }
+
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
 
 h2 {
     font-family: Futura, sans-serif;
@@ -64,10 +72,76 @@ h3 {
 p {
     line-height: 22px;
     font-weight: 500;
-    letter-spacing: 0;
+    letter-spacing: 0.01px;
     font-family: Geist, Arial, Helvetica, sans-serif;
 }
 
 .stats article > p {
     font-weight: 400;
+}
+
+/* ------------------------
+ * Mobile
+------------------------- */
+h2{
+    font-size: var(--mobile-font-size-heading);
+}
+
+h3{
+    font-size: var(--mobile-font-size-subtitle);
+}
+
+h4{
+    font-size: var(--mobile-font-size-h4);
+}
+
+p{
+    font-size: var(--mobile-font-size-paragraph);
+}
+
+
+/* ------------------------
+ * Laptop
+------------------------- */
+@media (min-width: 769px) {
+
+    h2{
+        font-size: var(--laptop-font-size-heading);
+    }
+
+    h3{
+        font-size: var(--laptop-font-size-subtitle);
+    }
+
+    h4{
+        font-size: var(--laptop-font-size-h4);
+    }
+
+    p{
+        font-size: var(--laptop-font-size-paragraph);
+    }
+    
+}
+
+
+/* ------------------------
+ * Desktop
+------------------------- */
+@media (min-width: 1200px) {
+    
+    h2{
+        font-size: var(--desktop-font-size-heading);
+    }
+
+    h3{
+        font-size: var(--desktop-font-size-subtitle);
+    }
+
+    h4{
+        font-size: var(--desktop-font-size-h4);
+    }
+
+    p{
+        font-size: var(--desktop-font-size-paragraph);  
+    }
 }

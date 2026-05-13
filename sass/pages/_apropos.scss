@@ -83,7 +83,7 @@
     }
 
     .company {
-        margin-top: var(--mobile-section-gap-size);
+        margin-bottom: var(--mobile-section-gap-size);
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
@@ -94,7 +94,7 @@
     }
 
     .mission {
-        margin-top: var(--mobile-section-gap-size);
+        margin-bottom: var(--mobile-section-gap-size);
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
@@ -141,7 +141,7 @@
     }
 
     .origin {
-        margin-top: var(--mobile-section-gap-size);
+        margin-bottom: var(--mobile-section-gap-size);
         margin-bottom: var(--mobile-section-gap-size);
         display: flex;
         flex-direction: column;
@@ -168,11 +168,11 @@
         }
 
         .company {
-            margin-top: var(--laptop-section-gap-size);
+            margin-bottom: var(--laptop-section-gap-size);
         }
 
         .mission {
-            margin-top: var(--laptop-section-gap-size);
+            margin-bottom: var(--laptop-section-gap-size);
 
             &__list {
                 gap: 0.75rem;
@@ -193,9 +193,11 @@
 
                 &-body {
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
                     align-items: center;
-                    gap: 1.5rem;
+                    justify-content: start;
+                    align-items: flex-start;
                     flex: 1;
                 }
 
@@ -215,7 +217,7 @@
         }
 
         .origin {
-            margin-top: var(--laptop-section-gap-size);
+            margin-bottom: var(--laptop-section-gap-size);
             margin-bottom: var(--laptop-section-gap-size);
         }
     }
@@ -228,6 +230,13 @@
 @media (min-width: 1200px) {
     #apropos {
 
+        //display: grid;
+        //grid-template-columns: 1fr 1fr;
+        //grid-template-areas:
+        //    "company origin"
+        //    "mission mission";
+
+
         .company,
         .mission,
         .origin {
@@ -235,12 +244,16 @@
             margin: 0 auto;
         }
 
+
         .company {
-            margin-top: var(--desktop-section-gap-size);
+            margin-bottom: var(--desktop-section-gap-size);
+            grid-area: company;
+            padding-right: 20%;
         }
 
         .mission {
-            margin-top: var(--desktop-section-gap-size);
+            margin-bottom: var(--desktop-section-gap-size);
+            grid-area: mission;
 
             &__card {
                 padding: 1.25rem 2rem;
@@ -260,8 +273,10 @@
         }
 
         .origin {
-            margin-top: var(--desktop-section-gap-size);
             margin-bottom: var(--desktop-section-gap-size);
+            margin-bottom: var(--desktop-section-gap-size);
+            grid-area: origin;
+            padding-right: 20%;
         }
     }
 }

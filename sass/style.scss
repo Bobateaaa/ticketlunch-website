@@ -24,6 +24,7 @@ Components
 @use "components/dropdown" as *;
 @use "components/title" as *;
 @use "components/card" as *;
+@use "components/popup" as *;
 
 /* /////////////////////////////////
 Layout
@@ -40,3 +41,4 @@ Pages
 @use "pages/apropos" as *;
 @use "pages/valeurs" as *;
 @use "pages/emplois" as *;
+@use "pages/reconnaissance" as *;
