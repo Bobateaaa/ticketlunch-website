@@ -13,6 +13,37 @@
     .directors, .employees, .join{
         place-self: center;
     }
+
+    .join {
+        background-color: var(--secondary-color-dark);
+
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-light);
+            margin: 0;
+        }
+
+        &__text {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-light);
+            margin: 0;
+        }
+
+        &__cta {
+            font-family: Geist, sans-serif;
+            font-weight: 700;
+            color: var(--text-color-light);
+            text-decoration: none;
+            border: var(--small-border) solid var(--text-color-light);
+            border-radius: var(--border-radius-rounded);
+            white-space: nowrap;
+
+            &:hover {
+                background-color: var(--text-color-light);
+                color: var(--secondary-color-dark);
+            }
+        }
+    }
 }
 
 /* ------------------------
@@ -22,7 +53,7 @@
 #equipe{
     margin-top: var(--mobile-top-margin-general);
 
-   .directors, .employees, .join{
+   .directors, .employees {
     width: var(--mobile-general-width);
     }
 
@@ -32,6 +63,51 @@
 
     section{
         margin-bottom: var(--mobile-section-gap-size);
+    }
+
+    // ── MOBILE ──
+    .join {
+        margin-bottom: 0;
+        padding: 2.5rem var(--mobile-padding-main);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        &__content {
+            width: var(--mobile-general-width);
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        &__title {
+            font-size: var(--mobile-font-size-heading);
+        }
+
+        &__text {
+            font-size: var(--mobile-font-size-paragraph);
+            font-weight: 400;
+            color: var(--text-color-light-blue);
+        }
+
+        &__action {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            font-size: var(--mobile-font-size-paragraph);
+            width: 100%;
+        }
     }
 }
 
@@ -45,7 +121,7 @@
     #equipe{
         margin-top: var(--laptop-top-margin-general);
 
-       .directors, .employees, .join{
+       .directors, .employees {
         width: var(--laptop-general-width);
         }
 
@@ -55,6 +131,51 @@
 
         section{
         margin-bottom: var(--laptop-section-gap-size);
+        }
+
+        .join { 
+            width: 100%;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem var(--laptop-padding-main);
+
+            &__content {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                width: var(--laptop-general-width);
+                row-gap: 1rem;
+            }
+
+            &__info {
+                display: flex;
+                flex-direction: column;
+                gap: 0rem;
+                margin-bottom: 0;
+            }
+
+            &__title {
+                font-size: var(--laptop-font-size-heading);
+            }
+
+            &__text {
+                font-size: var(--laptop-font-size-paragraph);
+            }
+
+            &__action {
+                flex-shrink: 0;
+            }
+
+            &__cta {
+                width: auto;
+                padding: 0.75rem 2rem;
+                font-size: var(--laptop-font-size-paragraph);
+            }
         }
     }
 
@@ -69,7 +190,7 @@
     #equipe{
         margin-top: var(--desktop-top-margin-general);
 
-       .directors, .employees, .join{
+       .directors, .employees{
         width: var(--desktop-general-width);
         }
 
@@ -79,6 +200,12 @@
 
         section{
         margin-bottom: var(--laptop-section-gap-size);
+        }
+
+        .join { 
+            &__content {
+                width: var(--desktop-general-width);
+            }
         }
     }    
 

@@ -6,7 +6,7 @@
 .footer {
     background-color: var(--background-color);
     position: relative;
-    overflow: hidden;
+    overflow: clip;
 
     &__brand {
         display: flex;
@@ -97,8 +97,7 @@
 }
 
     .footer {
-        padding: var(--mobile-general-padding);
-        padding-top: 7rem;
+        padding: 7rem 10vw 2rem 10vw;
         text-align: left;
 
         &__brand {
@@ -153,10 +152,15 @@
     }
 
 
-@media (min-width: 789px) {
+@media (min-width: 769px) {
     .footer {
+        padding: 7rem 5vw 2rem 5vw;
         li a {
 
         }
     }
+}
+
+@media (min-width:1200px) {
+    
 }

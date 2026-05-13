@@ -21,6 +21,51 @@ function ticketlunch_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'ticketlunch_enqueue_scripts' );
 
 
+// Handle job application form submissions
+add_action( 'template_redirect', function() {
+    if ( ! isset( $_POST['submit_candidature'] ) ) return;
+    if ( ! wp_verify_nonce( $_POST['candidature_nonce'] ?? '', $_POST['candidature_type'] === 'poste' ? 'candidature_poste' : 'candidature_spontanee' ) ) return;
+
+    $nom   = sanitize_text_field( $_POST['candidature_nom'] ?? '' );
+    $email = sanitize_email( $_POST['candidature_email'] ?? '' );
+    $to    = get_theme_mod( 'contact_email', 'info@ticketlunch.ca' );
+
+    if ( $_POST['candidature_type'] === 'poste' ) {
+        $job_id  = intval( $_POST['job_id'] ?? 0 );
+        $subject = 'Candidature : ' . get_the_title( $job_id );
+    } else {
+        $subject = 'Candidature spontanée de ' . $nom;
+    }
+
+    $message = "Nom : $nom\nCourriel : $email";
+
+    $attachments = [];
+    foreach ( [ 'candidature_cv', 'candidature_lettre' ] as $field ) {
+        if ( ! empty( $_FILES[ $field ]['tmp_name'] ) ) {
+            $attachments[] = $_FILES[ $field ]['tmp_name'];
+        }
+    }
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: TicketLunch <noreply@ticketlunch.ca>',
+        "Reply-To: $nom <$email>"
+    );
+
+    wp_mail( $to, $subject, $message, $headers, $attachments );
+} );
+
+// Add PDF upload field to job listings
+add_action( 'job_manager_job_listing_data_fields', function( $fields ) {
+    $fields['_job_pdf'] = array(
+        'label'       => __( 'PDF du poste', 'ticketlunch' ),
+        'type'        => 'file',
+        'placeholder' => '',
+        'description' => __( 'Téléverser un PDF avec les détails du poste', 'ticketlunch' ),
+    );
+    return $fields;
+} );
+
 function ticketlunch_customize_register( $wp_customize ) {
 
     // -------------------------------------------------------------------------
@@ -39,6 +84,17 @@ function ticketlunch_customize_register( $wp_customize ) {
         'label'   => __( 'Site Description', 'ticketlunch' ),
         'section' => 'ticketlunch_options',
         'type'    => 'text',
+    ) );
+
+
+    $wp_customize->add_setting( 'contact_email', array(
+        'default'           => 'info@ticketlunch.ca',
+        'sanitize_callback' => 'sanitize_email',
+    ) );
+    $wp_customize->add_control( 'contact_email', array(
+        'label'   => __( 'Courriel de contact (candidatures)', 'ticketlunch' ),
+        'section' => 'ticketlunch_options',
+        'type'    => 'email',
     ) );
 
     // -------------------------------------------------------------------------

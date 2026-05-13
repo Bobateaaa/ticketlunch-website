@@ -74,9 +74,6 @@ main {
   --mobile-general-width: 80vw;
   --laptop-general-width: clamp(200px, 75vw, 900px);
   --desktop-general-width: clamp(950px, 70vw, 2000px);
-  --mobile-section-gap: 200px;
-  --lapotop-section-gap: 300px;
-  --desktop-section-gap: 400px;
   --mobile-main-title-width: 90vw;
   --laptop-main-title-width: 90vw;
   --desktop-main-title-width: 90vw;
@@ -86,6 +83,7 @@ main {
   --mobile-top-margin-general: 60px;
   --laptop-top-margin-general: 80px;
   --desktop-top-margin-general: 100px;
+  -menu-gap-size: 1.5rem;
 }
 
 @font-face {
@@ -249,6 +247,46 @@ Components
   padding: 0 1.5rem;
 }
 
+/* ------------------------
+    SLOGAN BAND
+
+------------------------- */
+.tagline-band {
+  overflow: hidden;
+  border-top: var(--small-border) solid var(--secondary-color-dark);
+  border-bottom: var(--small-border) solid var(--secondary-color-dark);
+  background-color: var(--background-color);
+  height: 3.5rem;
+  place-self: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.tagline-band__track {
+  display: flex;
+  width: max-content;
+  animation: tagline-scroll 18s linear infinite;
+}
+.tagline-band__item {
+  font-family: Geist, sans-serif;
+  font-size: var(--mobile-font-size-paragraph);
+  color: var(--text-color-dark);
+  white-space: nowrap;
+  padding: 0 3rem;
+}
+.tagline-band__item strong {
+  font-family: Futura, sans-serif;
+  font-weight: 900;
+}
+
+@keyframes tagline-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 .primary-menu li a {
   font-family: RoundPop, sans-serif;
   color: var(--text-color-dark);
@@ -465,6 +503,37 @@ Components
   font-weight: 100;
 }
 
+.employees__card {
+  background-color: var(--secondary-color-pale);
+  border: var(--small-border) solid var(--secondary-color-dark);
+}
+.employees__card-icon {
+  border: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: var(--border-radius-soft);
+  flex-shrink: 0;
+}
+.employees__card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.employees__card-title {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+}
+.employees__card-cta {
+  font-family: Geist, sans-serif;
+  font-weight: 600;
+  color: var(--text-color-dark);
+  text-decoration: none;
+  border: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: var(--border-radius-rounded);
+}
+.employees__card-cta:hover {
+  background-color: var(--secondary-color-dark);
+  color: var(--text-color-light);
+}
+
 /* ------------------------
 * CSS MOBILE
 ------------------------- */
@@ -475,7 +544,7 @@ Components
   flex-wrap: nowrap;
   gap: 1.25rem;
   padding: 2rem 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 .directors__card-image {
   border: var(--small-border) solid black;
@@ -502,6 +571,34 @@ Components
 .directors__card-quote p {
   font-size: 12px;
   margin: 0;
+}
+
+.employees__card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+.employees__card-icon {
+  width: 80px;
+  height: 80px;
+  padding: 0.75rem;
+}
+.employees__card-title {
+  font-size: var(--mobile-font-size-paragraph);
+  margin: 0;
+  flex: 1;
+}
+.employees__card-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: var(--mobile-font-size-paragraph);
+  padding: 0.5rem 1.25rem;
 }
 
 /* ------------------------
@@ -548,6 +645,32 @@ Components
     flex-flow: row nowrap;
     gap: 100px;
   }
+  .employees__list {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .employees__card {
+    flex-flow: column nowrap;
+    flex: 1 1 200px;
+    max-width: 300%;
+    margin: 0;
+  }
+  .employees__card-icon {
+    width: 100%;
+    height: auto;
+    padding: 3.5rem;
+  }
+  .employees__card-title {
+    justify-content: left;
+    text-align: left;
+  }
+  .employees__card-cta {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
 }
 /* /////////////////////////////////
 Layout
@@ -568,7 +691,7 @@ Layout
   top: 0;
   left: 0;
   width: 100%;
-  height: 79px;
+  height: 80px;
   background-color: var(--background-color);
   z-index: -1;
 }
@@ -697,11 +820,11 @@ Layout
   gap: 0.5rem;
 }
 .primary-menu .menu-arrow {
-  width: 10px;
+  width: 7px;
   height: 16px;
+  margin-left: 7px;
 }
 .primary-menu .sub-menu li {
-  padding: 0.4rem 0;
   align-items: flex-start;
 }
 .primary-menu .sub-menu li a {
@@ -709,6 +832,17 @@ Layout
   justify-content: flex-start;
 }
 
+@media (min-width: 769px) {
+  .sub-menu li:first-child a {
+    margin-top: 1rem;
+  }
+  .sub-menu li:last-child a {
+    margin-bottom: 1rem;
+  }
+  .sub-menu li a {
+    margin-left: 0.5rem;
+  }
+}
 @media (min-width: 1200px) {
   .header {
     margin: 0 4vw;
@@ -776,7 +910,6 @@ Layout
   .primary-menu {
     flex-direction: row;
     align-items: center;
-    gap: var(--desktop-gap-size);
     padding: 0;
   }
   .primary-menu li {
@@ -801,7 +934,7 @@ Layout
 .footer {
   background-color: var(--background-color);
   position: relative;
-  overflow: hidden;
+  overflow: clip;
 }
 .footer__brand {
   display: flex;
@@ -872,8 +1005,7 @@ Layout
 }
 
 .footer {
-  padding: var(--mobile-general-padding);
-  padding-top: 7rem;
+  padding: 7rem 10vw 2rem 10vw;
   text-align: left;
 }
 .footer__brand {
@@ -919,6 +1051,11 @@ Layout
   opacity: 0.5;
 }
 
+@media (min-width: 769px) {
+  .footer {
+    padding: 7rem 5vw 2rem 5vw;
+  }
+}
 /* /////////////////////////////////
 Pages
 //////////////////////////////////// */
@@ -928,6 +1065,9 @@ Pages
 /* ------------------------
 * Global (colors, fonts, borders, position, display, etc.)
 ------------------------- */
+#home .hero, #home .idea, #home .stats, #home .cta {
+  overflow: clip;
+}
 #home .hero__tagline {
   font-family: Futura, sans-serif;
   line-height: 120%;
@@ -946,7 +1086,6 @@ Pages
 }
 #home .why__title {
   font-family: Futura, sans-serif;
-  font-size: var(--mobile-font-size-heading);
   color: var(--text-color-dark);
 }
 #home .why__card {
@@ -969,13 +1108,11 @@ Pages
   color: var(--text-color-dark);
   font-family: Geist, sans-serif;
   font-weight: 700;
-  font-size: var(--mobile-font-size-paragraph);
   border-radius: var(--border-radius-rounded);
   border: var(--border-size) solid var(--secondary-color-dark);
 }
 #home .why__card-text {
   font-family: Geist, sans-serif;
-  font-size: var(--mobile-font-size-paragraph);
   color: var(--text-color-dark);
 }
 #home .idea {
@@ -984,7 +1121,6 @@ Pages
 }
 #home .idea__title {
   font-family: Futura, sans-serif;
-  font-size: var(--mobile-font-size-heading);
   color: var(--text-color-light);
 }
 #home .idea__item {
@@ -994,12 +1130,10 @@ Pages
 }
 #home .idea__item--title {
   font-family: Futura, sans-serif;
-  font-size: var(--mobile-font-size-subtitle);
   color: var(--text-color-dark);
 }
 #home .idea__item--text {
   font-family: Geist, sans-serif;
-  font-size: var(--mobile-font-size-paragraph);
   color: var(--text-color-dark);
 }
 #home .idea__number {
@@ -1034,7 +1168,6 @@ Pages
 }
 #home .stats__card-text {
   font-family: Geist, sans-serif;
-  font-size: var(--mobile-font-size-paragraph);
   color: var(--text-color-light-blue);
 }
 #home .stats__card-toggle {
@@ -1071,6 +1204,7 @@ Pages
 }
 #home .stats__swirl--third {
   z-index: -15;
+  overflow-x: clip;
 }
 #home .cta {
   background-color: var(--secondary-color-dark);
@@ -1079,6 +1213,7 @@ Pages
   position: relative;
   z-index: -11;
   width: 100%;
+  overflow: clip;
 }
 #home .cta__text {
   font-family: Geist, sans-serif;
@@ -1099,9 +1234,7 @@ Pages
 }
 
 /* ------------------------
-* Media Queries (adaptation pour les différentes tailles d'écran)
-
- - cellulaire\tablet : 0px à 768px
+* Mobile
 ------------------------- */
 #home .hero, #home .why, #home .idea__content, #home .stats, #home .cta__content {
   width: var(--mobile-general-width);
@@ -1122,7 +1255,6 @@ Pages
   position: absolute;
   left: 3em;
   top: 18rem;
-  rotate: 3deg;
 }
 #home .hero__swirl img {
   width: 200%;
@@ -1258,20 +1390,8 @@ Pages
   gap: 0.75rem;
   padding: 1.25rem;
 }
-.stats__card-title {
-  font-size: var(--mobile-font-size-subtitle);
-}
-.stats__card-text {
-  font-size: var(--mobile-font-size-paragraph);
-}
 .stats__card-toggle {
   align-self: flex-end;
-}
-.stats__card-label {
-  font-size: var(--mobile-font-size-paragraph);
-}
-.stats__card-stat {
-  font-size: var(--mobile-font-size-heading);
 }
 .stats__card-figures {
   display: grid;
@@ -1295,12 +1415,6 @@ Pages
   flex-direction: column;
   gap: 0.25rem;
 }
-.stats__figure-label {
-  font-size: var(--mobile-font-size-paragraph);
-}
-.stats__figure-value {
-  font-size: var(--mobile-font-size-subtitle);
-}
 .stats__card-text--full {
   display: none;
 }
@@ -1320,7 +1434,6 @@ Pages
 
 .cta {
   align-self: flex-start;
-  font-size: var(--mobile-font-size-paragraph);
   padding-bottom: 7rem;
   padding-top: 7rem;
 }
@@ -1334,7 +1447,6 @@ Pages
   line-height: 1;
 }
 .cta__text {
-  font-size: var(--mobile-font-size-paragraph);
   margin-bottom: 2.5rem;
 }
 .cta__deco-hands {
@@ -1516,7 +1628,7 @@ Pages
   }
   #home .hero {
     margin: 0;
-    height: 100vh;
+    height: calc(100vh - 7rem);
     gap: 10vh;
   }
   #home .hero__img img {
@@ -1532,9 +1644,6 @@ Pages
     flex-wrap: wrap;
     justify-content: center;
     gap: 5%;
-  }
-  #home .why__title {
-    font-size: var(--desktop-font-size-heading);
   }
   #home .why__title--highlight {
     display: inline;
@@ -1554,9 +1663,6 @@ Pages
     display: flex;
     flex-direction: column;
     gap: 2rem;
-  }
-  #home .idea__title {
-    font-size: var(--desktop-font-size-heading);
   }
   #home .idea__number {
     font-size: 1.5rem;
@@ -1582,6 +1688,32 @@ Pages
 #equipe .directors, #equipe .employees, #equipe .join {
   place-self: center;
 }
+#equipe .join {
+  background-color: var(--secondary-color-dark);
+}
+#equipe .join__title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-light);
+  margin: 0;
+}
+#equipe .join__text {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-light);
+  margin: 0;
+}
+#equipe .join__cta {
+  font-family: Geist, sans-serif;
+  font-weight: 700;
+  color: var(--text-color-light);
+  text-decoration: none;
+  border: var(--small-border) solid var(--text-color-light);
+  border-radius: var(--border-radius-rounded);
+  white-space: nowrap;
+}
+#equipe .join__cta:hover {
+  background-color: var(--text-color-light);
+  color: var(--secondary-color-dark);
+}
 
 /* ------------------------
 * CSS MOBILE
@@ -1589,7 +1721,7 @@ Pages
 #equipe {
   margin-top: var(--mobile-top-margin-general);
 }
-#equipe .directors, #equipe .employees, #equipe .join {
+#equipe .directors, #equipe .employees {
   width: var(--mobile-general-width);
 }
 #equipe h2 {
@@ -1597,6 +1729,43 @@ Pages
 }
 #equipe section {
   margin-bottom: var(--mobile-section-gap-size);
+}
+#equipe .join {
+  margin-bottom: 0;
+  padding: 2.5rem var(--mobile-padding-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#equipe .join__content {
+  width: var(--mobile-general-width);
+}
+#equipe .join__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+#equipe .join__title {
+  font-size: var(--mobile-font-size-heading);
+}
+#equipe .join__text {
+  font-size: var(--mobile-font-size-paragraph);
+  font-weight: 400;
+  color: var(--text-color-light-blue);
+}
+#equipe .join__action {
+  display: flex;
+  justify-content: center;
+}
+#equipe .join__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-size: var(--mobile-font-size-paragraph);
+  width: 100%;
 }
 
 /* ------------------------
@@ -1606,7 +1775,7 @@ Pages
   #equipe {
     margin-top: var(--laptop-top-margin-general);
   }
-  #equipe .directors, #equipe .employees, #equipe .join {
+  #equipe .directors, #equipe .employees {
     width: var(--laptop-general-width);
   }
   #equipe h2 {
@@ -1614,6 +1783,44 @@ Pages
   }
   #equipe section {
     margin-bottom: var(--laptop-section-gap-size);
+  }
+  #equipe .join {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem var(--laptop-padding-main);
+  }
+  #equipe .join__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--laptop-general-width);
+    row-gap: 1rem;
+  }
+  #equipe .join__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    margin-bottom: 0;
+  }
+  #equipe .join__title {
+    font-size: var(--laptop-font-size-heading);
+  }
+  #equipe .join__text {
+    font-size: var(--laptop-font-size-paragraph);
+  }
+  #equipe .join__action {
+    flex-shrink: 0;
+  }
+  #equipe .join__cta {
+    width: auto;
+    padding: 0.75rem 2rem;
+    font-size: var(--laptop-font-size-paragraph);
   }
 }
 /* ------------------------
@@ -1623,7 +1830,7 @@ Pages
   #equipe {
     margin-top: var(--desktop-top-margin-general);
   }
-  #equipe .directors, #equipe .employees, #equipe .join {
+  #equipe .directors, #equipe .employees {
     width: var(--desktop-general-width);
   }
   #equipe h2 {
@@ -1631,5 +1838,756 @@ Pages
   }
   #equipe section {
     margin-bottom: var(--laptop-section-gap-size);
+  }
+  #equipe .join__content {
+    width: var(--desktop-general-width);
+  }
+}
+/* ========================================
+=         CSS PAGE À PROPOS              =
+======================================== */
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#apropos .company__title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+}
+#apropos .company__text {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+}
+#apropos .mission {
+  position: relative;
+}
+#apropos .mission__title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+}
+#apropos .mission__card {
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius-soft);
+}
+#apropos .mission__card-icon {
+  flex-shrink: 0;
+}
+#apropos .mission__card-icon img {
+  object-fit: contain;
+}
+#apropos .mission__card-title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+#apropos .mission__card-text {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+#apropos .mission__mascot {
+  position: absolute;
+  pointer-events: none;
+}
+#apropos .mission__mascot img {
+  width: 100%;
+  height: auto;
+}
+#apropos .origin {
+  position: relative;
+}
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#apropos .company,
+#apropos .mission,
+#apropos .origin {
+  width: var(--mobile-general-width);
+  margin: 0 auto;
+}
+#apropos .company {
+  margin-top: var(--mobile-section-gap-size);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#apropos .company__title {
+  margin: 0;
+}
+#apropos .mission {
+  margin-top: var(--mobile-section-gap-size);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#apropos .mission__title {
+  margin: 0 0 0.5rem;
+}
+#apropos .mission__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#apropos .mission__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+}
+#apropos .mission__card-icon {
+  margin-bottom: 0.25rem;
+}
+#apropos .mission__card-icon img {
+  width: 28px;
+  height: 28px;
+}
+#apropos .mission__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+#apropos .mission__card-title {
+  font-weight: 700;
+}
+#apropos .mission__mascot {
+  display: none;
+}
+#apropos .origin {
+  margin-top: var(--mobile-section-gap-size);
+  margin-bottom: var(--mobile-section-gap-size);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#apropos .origin__title {
+  margin: 0;
+}
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+  #apropos .company,
+  #apropos .mission,
+  #apropos .origin {
+    width: var(--laptop-general-width);
+    margin: 0 auto;
+  }
+  #apropos .company {
+    margin-top: var(--laptop-section-gap-size);
+  }
+  #apropos .mission {
+    margin-top: var(--laptop-section-gap-size);
+  }
+  #apropos .mission__list {
+    gap: 0.75rem;
+  }
+  #apropos .mission__card {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 1.5rem;
+  }
+  #apropos .mission__card-icon img {
+    width: 28px;
+    height: 28px;
+  }
+  #apropos .mission__card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+  }
+  #apropos .mission__card-title {
+    white-space: nowrap;
+  }
+  #apropos .mission__mascot {
+    display: block;
+    right: -8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    z-index: -1;
+  }
+  #apropos .origin {
+    margin-top: var(--laptop-section-gap-size);
+    margin-bottom: var(--laptop-section-gap-size);
+  }
+}
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+  #apropos .company,
+  #apropos .mission,
+  #apropos .origin {
+    width: var(--desktop-general-width);
+    margin: 0 auto;
+  }
+  #apropos .company {
+    margin-top: var(--desktop-section-gap-size);
+  }
+  #apropos .mission {
+    margin-top: var(--desktop-section-gap-size);
+  }
+  #apropos .mission__card {
+    padding: 1.25rem 2rem;
+  }
+  #apropos .mission__card-icon img {
+    width: 32px;
+    height: 32px;
+  }
+  #apropos .mission__mascot {
+    right: -5rem;
+    width: 350px;
+  }
+  #apropos .origin {
+    margin-top: var(--desktop-section-gap-size);
+    margin-bottom: var(--desktop-section-gap-size);
+  }
+}
+/* ========================================
+=         CSS PAGE NOS VALEURS           =
+======================================== */
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#valeurs .valeurs-cards__ambition {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  text-align: center;
+}
+#valeurs .valeurs-cards__card {
+  background-color: var(--primary-color);
+  border: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: var(--border-radius-soft);
+}
+#valeurs .valeurs-cards__card-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+#valeurs .valeurs-cards__card-title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+#valeurs .valeurs-cards__card-text {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#valeurs .valeurs-cards {
+  width: var(--mobile-general-width);
+  margin: var(--mobile-section-gap-size) auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#valeurs .valeurs-cards__ambition {
+  margin: 0;
+}
+#valeurs .valeurs-cards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#valeurs .valeurs-cards__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+}
+#valeurs .valeurs-cards__card-icon {
+  align-self: flex-end;
+}
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+  #valeurs .valeurs-cards {
+    width: var(--laptop-general-width);
+    margin: var(--laptop-section-gap-size) auto;
+  }
+  #valeurs .valeurs-cards__list {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  #valeurs .valeurs-cards__card {
+    flex: 1;
+  }
+}
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+  #valeurs .valeurs-cards {
+    width: var(--desktop-general-width);
+    margin: var(--desktop-section-gap-size) auto;
+  }
+  #valeurs .valeurs-cards__card {
+    padding: 1.5rem;
+  }
+  #valeurs .valeurs-cards__card-icon img {
+    width: 32px;
+    height: 32px;
+  }
+}
+/* ========================================
+=         CSS PAGE LES EMPLOIS           =
+======================================== */
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#emplois .avantages__title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+#emplois .avantages__subtitle {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+}
+#emplois .avantages__card {
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius-soft);
+}
+#emplois .avantages__card-title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.01em;
+}
+#emplois .avantages__card-text {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+}
+#emplois .emplois-disponibles__title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.02em;
+}
+#emplois .emplois-disponibles__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#emplois .emplois-disponibles__item {
+  border-bottom: var(--small-border) solid var(--secondary-color-dark);
+}
+#emplois .emplois-disponibles__item--filled {
+  opacity: 0.5;
+}
+#emplois .emplois-disponibles__name {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+#emplois .emplois-disponibles__meta {
+  font-family: Geist, sans-serif;
+  color: var(--secondary-color-mid);
+  font-style: italic;
+  margin: 0;
+}
+#emplois .emplois-disponibles__pdf {
+  font-family: Geist, sans-serif;
+  color: var(--secondary-color-dark);
+  text-decoration: underline;
+}
+#emplois .emplois-disponibles__badge {
+  font-family: Geist, sans-serif;
+  font-weight: 700;
+  border-radius: var(--border-radius-rounded);
+  border: var(--small-border) solid var(--secondary-color-dark);
+  cursor: pointer;
+  background: none;
+  white-space: nowrap;
+}
+#emplois .emplois-disponibles__badge--postulez {
+  color: var(--text-color-dark);
+  background-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+#emplois .emplois-disponibles__badge--postulez:hover {
+  background-color: var(--secondary-color-dark);
+  color: var(--text-color-light);
+}
+#emplois .emplois-disponibles__badge--indisponible {
+  color: var(--text-color-light);
+  background-color: var(--secondary-color-dark);
+  opacity: 0.6;
+  cursor: default;
+}
+#emplois .candidatures {
+  background-color: var(--secondary-color-dark);
+  border-radius: var(--border-radius-soft);
+}
+#emplois .candidatures__title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-light);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+#emplois .candidatures__text {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-light);
+}
+#emplois .candidatures__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+#emplois .candidatures__form-group label {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-light);
+  font-weight: 600;
+}
+#emplois .candidatures__form-group input {
+  font-family: Geist, sans-serif;
+  background-color: transparent;
+  border: var(--small-border) solid var(--text-color-light);
+  border-radius: var(--border-radius-soft);
+  color: var(--text-color-light);
+}
+#emplois .candidatures__form-group input:focus {
+  outline: none;
+  border-color: var(--secondary-color-pale);
+}
+#emplois .candidatures__form-hint {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-light-blue);
+  margin: 0;
+}
+#emplois .candidatures__form-optional {
+  color: var(--text-color-light-blue);
+}
+#emplois .candidatures__cta {
+  font-family: Geist, sans-serif;
+  font-weight: 700;
+  color: var(--text-color-dark);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius-rounded);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+#emplois .candidatures__cta:hover {
+  opacity: 0.85;
+}
+#emplois .popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#emplois .popup-overlay.hidden {
+  display: none;
+}
+#emplois .popup {
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-soft);
+  position: relative;
+  overflow-y: auto;
+}
+#emplois .popup__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text-color-dark);
+  line-height: 1;
+}
+#emplois .popup__close:hover {
+  opacity: 0.6;
+}
+#emplois .popup__title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+#emplois .popup__meta {
+  font-family: Geist, sans-serif;
+  color: var(--secondary-color-mid);
+  font-style: italic;
+  margin: 0;
+}
+#emplois .popup__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+#emplois .popup__form-group label {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  font-weight: 600;
+}
+#emplois .popup__form-group input {
+  font-family: Geist, sans-serif;
+  border: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: var(--border-radius-soft);
+  color: var(--text-color-dark);
+  background-color: white;
+  padding: 0.6rem 0.75rem;
+}
+#emplois .popup__form-group input:focus {
+  outline: none;
+  border-color: var(--secondary-color-mid);
+}
+#emplois .popup__form-hint {
+  font-family: Geist, sans-serif;
+  color: var(--secondary-color-mid);
+  font-size: 0.8rem;
+  margin: 0;
+}
+#emplois .popup__form-optional {
+  color: var(--secondary-color-mid);
+  font-weight: 400;
+}
+#emplois .popup__submit {
+  font-family: Geist, sans-serif;
+  font-weight: 700;
+  color: var(--text-color-light);
+  background-color: var(--secondary-color-dark);
+  border: none;
+  border-radius: var(--border-radius-rounded);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  align-self: flex-start;
+}
+#emplois .popup__submit:hover {
+  opacity: 0.85;
+}
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#emplois .avantages,
+#emplois .emplois-disponibles,
+#emplois .candidatures {
+  width: var(--mobile-general-width);
+  margin: 0 auto;
+}
+#emplois .avantages {
+  margin-top: var(--mobile-section-gap-size);
+}
+#emplois .avantages__intro {
+  margin-bottom: 1.5rem;
+}
+#emplois .avantages__title {
+  font-size: var(--mobile-font-size-heading);
+}
+#emplois .avantages__subtitle {
+  font-size: var(--mobile-font-size-paragraph);
+}
+#emplois .avantages__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+#emplois .avantages__card {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#emplois .avantages__card-title {
+  font-size: var(--mobile-font-size-paragraph);
+  font-weight: 700;
+}
+#emplois .avantages__card-text {
+  font-size: var(--mobile-font-size-paragraph);
+}
+#emplois .emplois-disponibles {
+  margin-top: var(--mobile-section-gap-size);
+}
+#emplois .emplois-disponibles__title {
+  font-size: var(--mobile-font-size-heading);
+  margin-bottom: 1.5rem;
+}
+#emplois .emplois-disponibles__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+#emplois .emplois-disponibles__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+#emplois .emplois-disponibles__name {
+  font-size: var(--mobile-font-size-paragraph);
+}
+#emplois .emplois-disponibles__meta {
+  font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+}
+#emplois .emplois-disponibles__pdf {
+  font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+}
+#emplois .emplois-disponibles__badge {
+  padding: 0.5rem 1rem;
+  font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+}
+#emplois .candidatures {
+  margin-top: var(--mobile-section-gap-size);
+  margin-bottom: var(--mobile-section-gap-size);
+  padding: 2rem 1.5rem;
+}
+#emplois .candidatures__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+#emplois .candidatures__title {
+  font-size: var(--mobile-font-size-subtitle);
+}
+#emplois .candidatures__text {
+  font-size: var(--mobile-font-size-paragraph);
+}
+#emplois .candidatures__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#emplois .candidatures__form-group input {
+  padding: 0.6rem 0.75rem;
+}
+#emplois .candidatures__cta {
+  padding: 0.75rem 2rem;
+  font-size: var(--mobile-font-size-paragraph);
+  align-self: flex-start;
+}
+#emplois .popup {
+  width: 90vw;
+  max-height: 85vh;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+#emplois .popup__title {
+  font-size: var(--mobile-font-size-subtitle);
+  padding-right: 2rem;
+}
+#emplois .popup__meta {
+  font-size: var(--mobile-font-size-paragraph);
+}
+#emplois .popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#emplois .popup__submit {
+  padding: 0.75rem 2rem;
+  font-size: var(--mobile-font-size-paragraph);
+}
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+  #emplois .avantages,
+  #emplois .emplois-disponibles,
+  #emplois .candidatures {
+    width: var(--laptop-general-width);
+    margin: 0 auto;
+  }
+  #emplois .avantages {
+    margin-top: var(--laptop-section-gap-size);
+  }
+  #emplois .avantages__title {
+    font-size: var(--laptop-font-size-heading);
+  }
+  #emplois .avantages__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+  #emplois .avantages__card-title {
+    font-size: var(--laptop-font-size-paragraph);
+  }
+  #emplois .avantages__card-text {
+    font-size: var(--laptop-font-size-paragraph);
+  }
+  #emplois .emplois-disponibles {
+    margin-top: var(--laptop-section-gap-size);
+  }
+  #emplois .emplois-disponibles__title {
+    font-size: var(--laptop-font-size-heading);
+  }
+  #emplois .emplois-disponibles__name {
+    font-size: var(--laptop-font-size-paragraph);
+  }
+  #emplois .emplois-disponibles__meta {
+    font-size: calc(var(--laptop-font-size-paragraph) * 0.85);
+  }
+  #emplois .candidatures {
+    margin-top: var(--laptop-section-gap-size);
+    margin-bottom: var(--laptop-section-gap-size);
+    padding: 3rem 2.5rem;
+  }
+  #emplois .candidatures__title {
+    font-size: var(--laptop-font-size-subtitle);
+  }
+  #emplois .candidatures__text {
+    font-size: var(--laptop-font-size-paragraph);
+  }
+  #emplois .popup {
+    width: 550px;
+    max-height: 90vh;
+    padding: 2.5rem 2rem;
+  }
+  #emplois .popup__title {
+    font-size: var(--laptop-font-size-subtitle);
+  }
+}
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+  #emplois .avantages,
+  #emplois .emplois-disponibles,
+  #emplois .candidatures {
+    width: var(--desktop-general-width);
+    margin: 0 auto;
+  }
+  #emplois .avantages {
+    margin-top: var(--desktop-section-gap-size);
+  }
+  #emplois .avantages__title {
+    font-size: var(--desktop-font-size-heading);
+  }
+  #emplois .avantages__card-title {
+    font-size: var(--desktop-font-size-paragraph);
+  }
+  #emplois .avantages__card-text {
+    font-size: var(--desktop-font-size-paragraph);
+  }
+  #emplois .emplois-disponibles {
+    margin-top: var(--desktop-section-gap-size);
+  }
+  #emplois .emplois-disponibles__title {
+    font-size: var(--desktop-font-size-heading);
+  }
+  #emplois .candidatures {
+    margin-top: var(--desktop-section-gap-size);
+    margin-bottom: var(--desktop-section-gap-size);
   }
 }/*# sourceMappingURL=style.css.map */

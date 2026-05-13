@@ -1,0 +1,267 @@
+/* ========================================
+=         CSS PAGE À PROPOS              =
+======================================== */
+
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#apropos {
+
+    .company {
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+        }
+
+        &__text {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+        }
+    }
+
+    .mission {
+        position: relative;
+
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+        }
+
+        &__card {
+            background-color: var(--accent-color);
+            border-radius: var(--border-radius-soft);
+
+            &-icon {
+                flex-shrink: 0;
+
+                img {
+                    object-fit: contain;
+                }
+            }
+
+            &-title {
+                font-family: Futura, sans-serif;
+                color: var(--text-color-dark);
+                letter-spacing: -0.01em;
+                margin: 0;
+            }
+
+            &-text {
+                font-family: Geist, sans-serif;
+                color: var(--text-color-dark);
+                margin: 0;
+            }
+        }
+
+        &__mascot {
+            position: absolute;
+            pointer-events: none;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .origin {
+        position: relative;
+    }
+}
+
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#apropos {
+
+    .company,
+    .mission,
+    .origin {
+        width: var(--mobile-general-width);
+        margin: 0 auto;
+    }
+
+    .company {
+        margin-top: var(--mobile-section-gap-size);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        &__title {
+            margin: 0;
+        }
+    }
+
+    .mission {
+        margin-top: var(--mobile-section-gap-size);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        &__title {
+            margin: 0 0 0.5rem;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        &__card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+
+            &-icon {
+                margin-bottom: 0.25rem;
+
+                img {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+
+            &-body {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            &-title {
+                font-weight: 700;
+            }
+        }
+
+        &__mascot {
+            display: none;
+        }
+    }
+
+    .origin {
+        margin-top: var(--mobile-section-gap-size);
+        margin-bottom: var(--mobile-section-gap-size);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        &__title {
+            margin: 0;
+        }
+    }
+}
+
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+    #apropos {
+
+        .company,
+        .mission,
+        .origin {
+            width: var(--laptop-general-width);
+            margin: 0 auto;
+        }
+
+        .company {
+            margin-top: var(--laptop-section-gap-size);
+        }
+
+        .mission {
+            margin-top: var(--laptop-section-gap-size);
+
+            &__list {
+                gap: 0.75rem;
+            }
+
+            &__card {
+                flex-direction: row;
+                align-items: center;
+                gap: 1.25rem;
+                padding: 1rem 1.5rem;
+
+                &-icon {
+                    img {
+                        width: 28px;
+                        height: 28px;
+                    }
+                }
+
+                &-body {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 1.5rem;
+                    flex: 1;
+                }
+
+                &-title {
+                    white-space: nowrap;
+                }
+            }
+
+            &__mascot {
+                display: block;
+                right: -8rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 280px;
+                z-index: -1;
+            }
+        }
+
+        .origin {
+            margin-top: var(--laptop-section-gap-size);
+            margin-bottom: var(--laptop-section-gap-size);
+        }
+    }
+}
+
+
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+    #apropos {
+
+        .company,
+        .mission,
+        .origin {
+            width: var(--desktop-general-width);
+            margin: 0 auto;
+        }
+
+        .company {
+            margin-top: var(--desktop-section-gap-size);
+        }
+
+        .mission {
+            margin-top: var(--desktop-section-gap-size);
+
+            &__card {
+                padding: 1.25rem 2rem;
+
+                &-icon {
+                    img {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+            }
+
+            &__mascot {
+                right: -5rem;
+                width: 350px;
+            }
+        }
+
+        .origin {
+            margin-top: var(--desktop-section-gap-size);
+            margin-bottom: var(--desktop-section-gap-size);
+        }
+    }
+}

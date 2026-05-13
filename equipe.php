@@ -69,7 +69,7 @@ get_header(); ?>
 
             <article class="employees__card">
                 <div class="employees__card-icon">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-reseau.svg" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/placeholder1.png" alt="">
                 </div>
                 <p class="employees__card-title">Gestionnaire des réseaux TicketLunch</p>
                 <a href="#" class="employees__card-cta">Consulter le poste</a>
@@ -97,10 +97,13 @@ get_header(); ?>
     <!-- CTA REJOINDRE -->
     <section class="join">
         <div class="join__content">
-            <h2 class="join__title">Intéressé à nous rejoindre?</h2>
-        </div>
-        <div class="join__action">
-            <a href="#" class="join__cta">Voir les postes vacants</a>
+            <div class="join__info">
+                <h2 class="join__title">Intéressé à nous rejoindre?</h2>
+                <p class="join__text">Nous vous invitons à nous contacter afin d’échanger sur votre profil et vos ambitions. </p>
+            </div>
+            <div class="join__action">
+                <a href="#" class="join__cta">Voir les postes vacants</a>
+            </div>
         </div>
     </section>
 

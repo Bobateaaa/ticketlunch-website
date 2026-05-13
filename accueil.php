@@ -7,9 +7,9 @@ get_header(); ?>
 
 <main id="home">
 
-    <div class="hero__swirl" aria-hidden="true">
+    <!--<div class="hero__swirl" aria-hidden="true">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/blue-motif-1.svg" alt="">
-    </div>
+    </div>-->
 
     <section class="hero">
         <div class="hero__img">
@@ -22,6 +22,16 @@ get_header(); ?>
             <button class="hero__cta">En savoir plus</button>
         </div>
     </section>
+
+    <!-- TAGLINE BAND -->
+    <div class="tagline-band" aria-hidden="true">
+        <div class="tagline-band__track">
+            <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
+            <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
+            <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
+            <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
+        </div>
+    </div>
 
 <!-- POURQUOI CHOISIR TICKETLUNCH -->
 <section class="why">
@@ -62,9 +72,9 @@ get_header(); ?>
     </div>
 </section>
 
-    <div class="hero__swirl--second" aria-hidden="true">
+    <!--<div class="hero__swirl--second" aria-hidden="true">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/pink-motif-2.svg" alt="">
-    </div>
+    </div>-->
 
     <!-- L'IDÉE DERRIÈRE TICKETLUNCH -->
     <section class="idea">
@@ -138,9 +148,9 @@ get_header(); ?>
             </article>
         </div>
 
-        <div class="stats__swirl--third" aria-hidden="true">
+        <!--<div class="stats__swirl--third" aria-hidden="true">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/blue-motif-2.svg" alt="">
-        </div>
+        </div>-->
     </section>
 
     <!-- CTA / CONTACT -->

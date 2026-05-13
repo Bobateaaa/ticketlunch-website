@@ -1,0 +1,574 @@
+/* ========================================
+=         CSS PAGE LES EMPLOIS           =
+======================================== */
+
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#emplois {
+
+    .avantages {
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        &__subtitle {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+        }
+
+        &__card {
+            background-color: var(--accent-color);
+            border-radius: var(--border-radius-soft);
+
+            &-title {
+                font-family: Futura, sans-serif;
+                color: var(--text-color-dark);
+                letter-spacing: -0.01em;
+            }
+
+            &-text {
+                font-family: Geist, sans-serif;
+                color: var(--text-color-dark);
+            }
+        }
+    }
+
+    .emplois-disponibles {
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+            letter-spacing: -0.02em;
+        }
+
+        &__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        &__item {
+            border-bottom: var(--small-border) solid var(--secondary-color-dark);
+
+            &--filled {
+                opacity: 0.5;
+            }
+        }
+
+        &__name {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        &__meta {
+            font-family: Geist, sans-serif;
+            color: var(--secondary-color-mid);
+            font-style: italic;
+            margin: 0;
+        }
+
+        &__pdf {
+            font-family: Geist, sans-serif;
+            color: var(--secondary-color-dark);
+            text-decoration: underline;
+        }
+
+        &__badge {
+            font-family: Geist, sans-serif;
+            font-weight: 700;
+            border-radius: var(--border-radius-rounded);
+            border: var(--small-border) solid var(--secondary-color-dark);
+            cursor: pointer;
+            background: none;
+            white-space: nowrap;
+
+            &--postulez {
+                color: var(--text-color-dark);
+                background-color: transparent;
+                transition: background-color 0.2s ease, color 0.2s ease;
+
+                &:hover {
+                    background-color: var(--secondary-color-dark);
+                    color: var(--text-color-light);
+                }
+            }
+
+            &--indisponible {
+                color: var(--text-color-light);
+                background-color: var(--secondary-color-dark);
+                opacity: 0.6;
+                cursor: default;
+            }
+        }
+    }
+
+    .candidatures {
+        background-color: var(--secondary-color-dark);
+        border-radius: var(--border-radius-soft);
+
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-light);
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        &__text {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-light);
+        }
+
+        &__form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+
+            label {
+                font-family: Geist, sans-serif;
+                color: var(--text-color-light);
+                font-weight: 600;
+            }
+
+            input {
+                font-family: Geist, sans-serif;
+                background-color: transparent;
+                border: var(--small-border) solid var(--text-color-light);
+                border-radius: var(--border-radius-soft);
+                color: var(--text-color-light);
+
+                &:focus {
+                    outline: none;
+                    border-color: var(--secondary-color-pale);
+                }
+            }
+        }
+
+        &__form-hint {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-light-blue);
+            margin: 0;
+        }
+
+        &__form-optional {
+            color: var(--text-color-light-blue);
+        }
+
+        &__cta {
+            font-family: Geist, sans-serif;
+            font-weight: 700;
+            color: var(--text-color-dark);
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: var(--border-radius-rounded);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+    }
+
+    // ── POPUP OVERLAY ──
+    .popup-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    .popup {
+        background-color: var(--primary-color);
+        border-radius: var(--border-radius-soft);
+        position: relative;
+        overflow-y: auto;
+
+        &__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-color-dark);
+            line-height: 1;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        &__meta {
+            font-family: Geist, sans-serif;
+            color: var(--secondary-color-mid);
+            font-style: italic;
+            margin: 0;
+        }
+
+        &__form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+
+            label {
+                font-family: Geist, sans-serif;
+                color: var(--text-color-dark);
+                font-weight: 600;
+            }
+
+            input {
+                font-family: Geist, sans-serif;
+                border: var(--small-border) solid var(--secondary-color-dark);
+                border-radius: var(--border-radius-soft);
+                color: var(--text-color-dark);
+                background-color: white;
+                padding: 0.6rem 0.75rem;
+
+                &:focus {
+                    outline: none;
+                    border-color: var(--secondary-color-mid);
+                }
+            }
+        }
+
+        &__form-hint {
+            font-family: Geist, sans-serif;
+            color: var(--secondary-color-mid);
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        &__form-optional {
+            color: var(--secondary-color-mid);
+            font-weight: 400;
+        }
+
+        &__submit {
+            font-family: Geist, sans-serif;
+            font-weight: 700;
+            color: var(--text-color-light);
+            background-color: var(--secondary-color-dark);
+            border: none;
+            border-radius: var(--border-radius-rounded);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            align-self: flex-start;
+
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#emplois {
+
+    .avantages,
+    .emplois-disponibles,
+    .candidatures {
+        width: var(--mobile-general-width);
+        margin: 0 auto;
+    }
+
+
+    .avantages {
+        margin-top: var(--mobile-section-gap-size);
+
+        &__intro {
+            margin-bottom: 1.5rem;
+        }
+
+        &__title {
+            font-size: var(--mobile-font-size-heading);
+        }
+
+        &__subtitle {
+            font-size: var(--mobile-font-size-paragraph);
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        &__card {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            &-title {
+                font-size: var(--mobile-font-size-paragraph);
+                font-weight: 700;
+            }
+
+            &-text {
+                font-size: var(--mobile-font-size-paragraph);
+            }
+        }
+    }
+
+    .emplois-disponibles {
+        margin-top: var(--mobile-section-gap-size);
+
+        &__title {
+            font-size: var(--mobile-font-size-heading);
+            margin-bottom: 1.5rem;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        &__name {
+            font-size: var(--mobile-font-size-paragraph);
+        }
+
+        &__meta {
+            font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+        }
+
+        &__pdf {
+            font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+        }
+
+        &__badge {
+            padding: 0.5rem 1rem;
+            font-size: calc(var(--mobile-font-size-paragraph) * 0.9);
+        }
+    }
+
+    .candidatures {
+        margin-top: var(--mobile-section-gap-size);
+        margin-bottom: var(--mobile-section-gap-size);
+        padding: 2rem 1.5rem;
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        &__title {
+            font-size: var(--mobile-font-size-subtitle);
+        }
+
+        &__text {
+            font-size: var(--mobile-font-size-paragraph);
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &__form-group {
+            input {
+                padding: 0.6rem 0.75rem;
+            }
+        }
+
+        &__cta {
+            padding: 0.75rem 2rem;
+            font-size: var(--mobile-font-size-paragraph);
+            align-self: flex-start;
+        }
+    }
+
+    // ── POPUP ──
+    .popup {
+        width: 90vw;
+        max-height: 85vh;
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+
+        &__title {
+            font-size: var(--mobile-font-size-subtitle);
+            padding-right: 2rem;
+        }
+
+        &__meta {
+            font-size: var(--mobile-font-size-paragraph);
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &__submit {
+            padding: 0.75rem 2rem;
+            font-size: var(--mobile-font-size-paragraph);
+        }
+    }
+}
+
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+    #emplois {
+
+        .avantages,
+        .emplois-disponibles,
+        .candidatures {
+            width: var(--laptop-general-width);
+            margin: 0 auto;
+        }
+
+    
+
+        .avantages {
+            margin-top: var(--laptop-section-gap-size);
+
+            &__title {
+                font-size: var(--laptop-font-size-heading);
+            }
+
+            &__list {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.75rem;
+            }
+
+            &__card {
+                &-title {
+                    font-size: var(--laptop-font-size-paragraph);
+                }
+
+                &-text {
+                    font-size: var(--laptop-font-size-paragraph);
+                }
+            }
+        }
+
+        .emplois-disponibles {
+            margin-top: var(--laptop-section-gap-size);
+
+            &__title {
+                font-size: var(--laptop-font-size-heading);
+            }
+
+            &__name {
+                font-size: var(--laptop-font-size-paragraph);
+            }
+
+            &__meta {
+                font-size: calc(var(--laptop-font-size-paragraph) * 0.85);
+            }
+        }
+
+        .candidatures {
+            margin-top: var(--laptop-section-gap-size);
+            margin-bottom: var(--laptop-section-gap-size);
+            padding: 3rem 2.5rem;
+
+            &__title {
+                font-size: var(--laptop-font-size-subtitle);
+            }
+
+            &__text {
+                font-size: var(--laptop-font-size-paragraph);
+            }
+        }
+
+        .popup {
+            width: 550px;
+            max-height: 90vh;
+            padding: 2.5rem 2rem;
+
+            &__title {
+                font-size: var(--laptop-font-size-subtitle);
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+    #emplois {
+
+        .avantages,
+        .emplois-disponibles,
+        .candidatures {
+            width: var(--desktop-general-width);
+            margin: 0 auto;
+        }
+
+
+        .avantages {
+            margin-top: var(--desktop-section-gap-size);
+
+            &__title {
+                font-size: var(--desktop-font-size-heading);
+            }
+
+            &__card {
+                &-title {
+                    font-size: var(--desktop-font-size-paragraph);
+                }
+
+                &-text {
+                    font-size: var(--desktop-font-size-paragraph);
+                }
+            }
+        }
+
+        .emplois-disponibles {
+            margin-top: var(--desktop-section-gap-size);
+
+            &__title {
+                font-size: var(--desktop-font-size-heading);
+            }
+        }
+
+        .candidatures {
+            margin-top: var(--desktop-section-gap-size);
+            margin-bottom: var(--desktop-section-gap-size);
+        }
+    }
+}

@@ -36,6 +36,7 @@ main {
     flex-flow: column nowrap;
 }
 
+
 :root {
     --mobile-section-gap-size: 3rem;
     --laptop-section-gap-size: 6rem;
@@ -55,10 +56,6 @@ main {
     --laptop-general-width: clamp(200px, 75vw, 900px);
     --desktop-general-width: clamp(950px, 70vw, 2000px);
 
-    --mobile-section-gap: 200px;
-    --lapotop-section-gap: 300px;
-    --desktop-section-gap: 400px;
-
     --mobile-main-title-width: 90vw;
     --laptop-main-title-width: 90vw;
     --desktop-main-title-width: 90vw;
@@ -70,5 +67,7 @@ main {
     --mobile-top-margin-general: 60px;
     --laptop-top-margin-general: 80px;
     --desktop-top-margin-general: 100px;
+
+    -menu-gap-size: 1.5rem;
 
 }

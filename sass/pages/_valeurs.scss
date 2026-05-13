@@ -1,0 +1,127 @@
+/* ========================================
+=         CSS PAGE NOS VALEURS           =
+======================================== */
+
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#valeurs {
+
+    .valeurs-cards {
+        &__ambition {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+            text-align: center;
+        }
+
+        &__card {
+            background-color: var(--primary-color);
+            border: var(--small-border) solid var(--secondary-color-dark);
+            border-radius: var(--border-radius-soft);
+
+            &-icon {
+                img {
+                    width: 28px;
+                    height: 28px;
+                    object-fit: contain;
+                }
+            }
+
+            &-title {
+                font-family: Futura, sans-serif;
+                color: var(--text-color-dark);
+                margin: 0;
+            }
+
+            &-text {
+                font-family: Geist, sans-serif;
+                color: var(--text-color-dark);
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#valeurs {
+
+    .valeurs-cards {
+        width: var(--mobile-general-width);
+        margin: var(--mobile-section-gap-size) auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        &__ambition {
+            margin: 0;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &__card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1.25rem;
+
+            &-icon {
+                align-self: flex-end;
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+    #valeurs {
+
+        .valeurs-cards {
+            width: var(--laptop-general-width);
+            margin: var(--laptop-section-gap-size) auto;
+
+            &__list {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+
+            &__card {
+                flex: 1;
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+    #valeurs {
+
+        .valeurs-cards {
+            width: var(--desktop-general-width);
+            margin: var(--desktop-section-gap-size) auto;
+
+            &__card {
+                padding: 1.5rem;
+
+                &-icon {
+                    img {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+            }
+        }
+    }
+}
