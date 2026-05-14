@@ -1,0 +1,501 @@
+/* ========================================
+=         CSS PAGE NOUS JOINDRE          =
+======================================== */
+
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#contact {
+
+    .contact-form {
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+        }
+
+        &__text {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+        }
+
+        &__wrap {
+            background-color: var(--secondary-color-pale);
+            border-radius: var(--border-radius-soft);
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        &__row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        &__group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            flex: 1;
+
+            label {
+                font-family: Geist, sans-serif;
+                font-weight: 700;
+                color: var(--text-color-dark);
+            }
+
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                border: var(--small-border) solid var(--secondary-color-dark);
+                border-radius: var(--border-radius-soft);
+                background-color: var(--background-color);
+                font-family: Geist, sans-serif;
+                color: var(--text-color-dark);
+                outline: none;
+                width: 100%;
+
+                &:focus {
+                    border-color: var(--secondary-color-mid);
+                }
+            }
+
+            textarea {
+                resize: vertical;
+            }
+        }
+
+        &__footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &__submit {
+            font-family: Geist, sans-serif;
+            font-weight: 700;
+            color: var(--text-color-light);
+            background-color: var(--secondary-color-dark);
+            border: none;
+            border-radius: var(--border-radius-rounded);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: var(--secondary-color-mid);
+            }
+        }
+
+        &__success {
+            font-family: Geist, sans-serif;
+            color: var(--secondary-color-dark);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        &__error {
+            font-family: Geist, sans-serif;
+            color: #c0392b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .phone {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 1.5rem;
+        background-color: var(--secondary-color-pale);
+        border-radius: var(--border-radius-soft);
+        width: fit-content;
+
+        &__number {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color-dark);
+            border-radius: 50%;
+
+            img {
+                width: 18px;
+                height: 18px;
+                filter: brightness(10);
+            }
+        }
+    }
+
+    .survey {
+        background-color: var(--accent-color);
+        border-radius: var(--border-radius-soft);
+
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+            text-align: center;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.75rem;
+        }
+
+        &__option {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            width: 100%;
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+            cursor: pointer;
+            padding-bottom: 0.5rem;
+
+            input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+                accent-color: var(--secondary-color-dark);
+                cursor: pointer;
+                flex-shrink: 0;
+            }
+        }
+
+        &__submit {
+            font-family: Geist, sans-serif;
+            font-weight: 700;
+            color: var(--text-color-dark);
+            background-color: var(--primary-color);
+            border: var(--small-border) solid var(--secondary-color-dark);
+            border-radius: var(--border-radius-rounded);
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: var(--secondary-color-pale);
+            }
+        }
+
+        &__success {
+            font-family: Geist, sans-serif;
+            color: var(--secondary-color-dark);
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+
+    .map {
+
+        border: var(--small-border) solid var(--secondary-color-dark);
+        border-radius: var(--border-radius-soft);
+
+        &__iframe {
+            border-radius: var(--border-radius-soft);
+            display: block;
+        }
+    }
+
+    .cta-banner {
+        background-color: var(--secondary-color-dark);
+        position: relative;
+        overflow: hidden;
+
+        &__title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-light);
+        }
+
+        &__button {
+            font-family: Geist, sans-serif;
+            font-weight: 700;
+            color: var(--text-color-dark);
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: var(--border-radius-rounded);
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: var(--secondary-color-pale);
+            }
+        }
+
+        &__deco {
+            position: absolute;
+            pointer-events: none;
+
+            img {
+                height: auto;
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#contact {
+
+    .contact-form,
+    .survey,
+    .map {
+        width: var(--mobile-general-width);
+        margin: 0 auto;
+    }
+
+    .contact-form {
+        margin-bottom: var(--mobile-section-gap-size);
+
+        &__intro {
+            margin-bottom: 1.5rem;
+        }
+
+        &__wrap {
+            padding: 1.5rem;
+        }
+
+        &__row {
+            flex-direction: column;
+        }
+
+        &__group {
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                padding: 0.6rem 0.75rem;
+            }
+        }
+
+        &__submit {
+            padding: 0.6rem 1.5rem;
+        }
+    }
+
+    .phone {
+        margin-top: 1rem;
+
+        &__icon {
+            width: 34px;
+            height: 34px;
+            padding: 0.4rem;
+        }
+    }
+
+    .survey {
+        margin-bottom: var(--mobile-section-gap-size);
+        padding: 1.5rem;
+        
+        *{
+            justify-content: flex-start;
+            text-align: start;
+        }
+
+        &__success {
+            display: none;
+        }
+
+        &__title {
+            margin-bottom: 1.25rem;
+        }
+
+        &__submit {
+            padding: 0.5rem 1.25rem;
+        }
+    }
+
+    .map {
+        margin-bottom: var(--mobile-section-gap-size);
+
+        &__iframe {
+            width: 100%;
+            height: 250px;
+        }
+    }
+
+    .cta-banner {
+        width: 100%;
+        padding: 3rem var(--mobile-padding-main);
+
+        &__content {
+            width: var(--mobile-general-width);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        &__button {
+            padding: 0.6rem 1.5rem;
+            align-self: flex-start;
+        }
+
+        &__deco {
+            bottom: -2rem;
+            right: -3rem;
+            opacity: 0.15;
+
+            img {
+                width: 200px;
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+    #contact {
+
+        .contact-form,
+        .survey,
+        .map {
+            width: var(--laptop-general-width);
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            margin-bottom: var(--laptop-section-gap-size);
+
+            &__wrap {
+                padding: 2rem 2.5rem;
+            }
+
+            &__row {
+                flex-direction: row;
+            }
+
+            &__group {
+                input[type="text"],
+                input[type="email"],
+                textarea {
+                    padding: 0.65rem 0.85rem;
+                }
+            }
+
+            &__submit {
+                padding: 0.65rem 2rem;
+            }
+        }
+
+        .phone {
+            
+        }
+
+        .survey {
+            margin-bottom: var(--laptop-section-gap-size);
+            margin-left: auto;
+            padding: 2rem;
+        }
+
+        .map {
+            margin-bottom: var(--laptop-section-gap-size);
+
+            &__iframe {
+                height: 300px;
+            }
+        }
+
+        .cta-banner {
+            padding: 4rem var(--laptop-padding-main);
+
+            &__content {
+                width: var(--laptop-general-width);
+            }
+
+            &__deco {
+                bottom: -1rem;
+                right: 5%;
+                opacity: 1;
+
+                img {
+                    width: 280px;
+                }
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+    #contact {
+
+        .contact-form,
+        .survey,
+        .map {
+            width: var(--desktop-general-width);
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            margin-bottom: var(--desktop-section-gap-size);
+
+            &__wrap {
+                padding: 2.5rem 3rem;
+            }
+
+            &__submit {
+                padding: 0.75rem 2.5rem;
+            }
+        }
+
+        .phone {
+           
+        }
+
+        .survey {
+            margin-bottom: var(--desktop-section-gap-size);
+            padding: 0;
+            background-color: transparent;
+            &__content {
+                background-color: var(--accent-color);
+                max-width: 500px;
+                place-self: end;
+                padding: 2rem 3em;
+                border-radius: var(--border-radius-soft);
+            }   
+        }
+
+        .map {
+            margin-bottom: var(--desktop-section-gap-size);
+
+            &__iframe {
+                height: 400px;
+            }
+        }
+
+        .cta-banner {
+            padding: 5rem var(--desktop-padding-main);
+
+            &__content {
+                width: var(--desktop-general-width);
+            }
+
+            &__deco {
+                right: 8%;
+
+                img {
+                    width: 350px;
+                }
+            }
+        }
+    }
+}
