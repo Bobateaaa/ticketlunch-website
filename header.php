@@ -18,7 +18,7 @@
             <?php if ( get_theme_mod( 'header_logo' ) ) : ?>
                 <img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php echo esc_attr( get_theme_mod( 'logo_title', get_bloginfo( 'name' ) ) ); ?>">
             <?php endif; ?>
-            <p><?php echo esc_html( get_theme_mod( 'logo_title', get_bloginfo( 'name' ) ) ); ?></p>
+            <p class="header__logo-text"><?php echo esc_html( get_theme_mod( 'logo_title', get_bloginfo( 'name' ) ) ); ?></p>
         <button class="header__burger" id="burger-menu" aria-label="Toggle menu" aria-expanded="false">
             <span class="burger-line"></span>
             <span class="burger-line"></span>
@@ -51,11 +51,11 @@
                         <i class="fa-brands fa-square-facebook"></i>
                     <?php endif; ?>
                 </a>
-                <a href="<?php echo esc_url( get_theme_mod( 'twitter_url', '#' ) ); ?>" target="_blank" rel="noopener noreferrer">
-                    <?php if ( get_theme_mod( 'twitter_icon' ) ) : ?>
-                        <img src="<?php echo esc_url( get_theme_mod( 'twitter_icon' ) ); ?>" alt="Twitter" class="social-icon">
+                <a href="<?php echo esc_url( get_theme_mod( 'linkedin_url', '#' ) ); ?>" target="_blank" rel="noopener noreferrer">
+                    <?php if ( get_theme_mod( 'linkedin_icon' ) ) : ?>
+                        <img src="<?php echo esc_url( get_theme_mod( 'linkedin_icon' ) ); ?>" alt="LinkedIn" class="social-icon">
                     <?php else: ?>
-                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-linkedin"></i>
                     <?php endif; ?>
                 </a>
                 <a href="<?php echo esc_url( get_theme_mod( 'instagram_url', '#' ) ); ?>" target="_blank" rel="noopener noreferrer">

@@ -1,0 +1,132 @@
+/*========================================
+=     CSS PAGE TERMES ET CONDITIONS      =
+========================================= */
+
+/* ------------------------
+ * Global
+------------------------- */
+#termes {
+
+    .termes__content {
+        place-self: center;
+    }
+
+    .termes__update {
+        font-family: Geist, sans-serif;
+        color: var(--secondary-color-mid);
+        font-style: italic;
+    }
+
+    .termes__intro {
+        font-family: Futura, sans-serif;
+        color: var(--text-color-dark);
+        font-weight: 700;
+    }
+
+    .termes__text {
+        font-family: Geist, sans-serif;
+        color: var(--text-color-dark);
+    }
+
+    .termes__section {
+        border-top: var(--small-border) solid var(--secondary-color-pale);
+
+        &-title {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+            letter-spacing: -0.01em;
+        }
+    }
+
+    .termes__list {
+        list-style: none;
+        padding: 0;
+
+        &-item {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+            padding-left: 1.25rem;
+            position: relative;
+
+            &::before {
+                content: '—';
+                position: absolute;
+                left: 0;
+                color: var(--secondary-color-dark);
+            }
+        }
+    }
+
+    .termes__link {
+        color: var(--secondary-color-dark);
+        text-decoration: underline;
+
+        &:hover {
+            color: var(--secondary-color-mid);
+        }
+    }
+}
+
+/* ------------------------
+ * Mobile
+------------------------- */
+#termes {
+
+    .termes__content {
+        width: var(--mobile-general-width);
+        margin: 0 auto;
+        margin-bottom: var(--mobile-section-gap-size);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .termes__section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding-top: 1.5rem;
+
+        &-title {
+            margin: 0 0 0.5rem;
+        }
+    }
+
+    .termes__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* ------------------------
+ * Laptop\Tablet
+------------------------- */
+@media (min-width: 769px) {
+    #termes {
+
+        .termes__content {
+            width: var(--laptop-general-width);
+            margin-bottom: var(--laptop-section-gap-size);
+            gap: 2.5rem;
+        }
+
+        .termes__section {
+            padding-top: 2rem;
+        }
+    }
+}
+
+/* ------------------------
+ * Desktop
+------------------------- */
+@media (min-width: 1200px) {
+    #termes {
+
+        .termes__content {
+            width: var(--desktop-general-width);
+            margin-bottom: var(--desktop-section-gap-size);
+            gap: 3rem;
+        }
+    }
+}

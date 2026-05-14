@@ -70,7 +70,6 @@
 
     <div class="footer__info">
         <p class="footer__description">Tick&Lunch est une entreprise qui offre un avantage social permettant aux employés de manger au restaurant à prix réduit, tout en soutenant l'économie locale et en contribuant à l'engagement des employés.</p>
-        <p class="footer__location">Location: <?php echo esc_html( get_theme_mod( 'footer_address', '2555 Rue Holt, Montréal, QC H1Y 1N4' ) ); ?></p>
         <p class="footer__phone">Numéro: <?php echo esc_html( get_theme_mod( 'footer_phone', '450 751 2927' ) ); ?></p>
     </div>
 

@@ -6,12 +6,14 @@
 * Global (colors, fonts, borders, position, display, etc.)
 ------------------------- */
 #home {
-
-    .hero, .idea, .stats, .cta {
+ .idea, .stats, .cta {
         overflow: clip;
     }
 
     .hero {
+        display: flex;
+        flex-flow: column;
+
         &__tagline{
             font-family: Futura, sans-serif;
             line-height: 120%;
@@ -223,7 +225,7 @@
 * Mobile
 ------------------------- */
 #home {
-    .hero, .why, .idea__content, .stats, .cta__content {
+    .hero__container, .why, .idea__content, .stats, .cta__content {
         width: var(--mobile-general-width);
         place-self: center;
     }
@@ -233,12 +235,16 @@
     }
 
     .hero {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        align-items: center;
-        justify-content: center;
-        gap: 5vh;
+        margin-top: calc(var(--mobile-top-margin-general) - 1rem);
+        gap:4rem;
+        &__container {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            align-items: center;
+            justify-content: center;
+            gap: 5vh;
+        }
 
         &__swirl {
             position: absolute;
@@ -500,7 +506,7 @@
 
 @media (min-width: 769px) {
     #home {
-        .hero, .why, .idea__content, .stats, .cta__content {
+        .hero__container, .why, .idea__content, .stats, .cta__content {
             width: var(--laptop-general-width);
             place-self: center;
             margin: 7rem auto;
@@ -517,13 +523,19 @@
         }
 
         .hero {
-            display: flex;
-            height: fit-content;
-            align-items: center;
-            justify-content: center;
-            margin: 20vh 0 15vh 0;
-            gap: 5vh;
-            flex-direction: row-reverse;
+            gap: 0;
+            margin-top: 0;
+            height: auto;
+
+            margin-bottom: 0;
+            &__container {
+                display: flex;
+                height: fit-content;
+                align-items: center;
+                justify-content: center;
+                gap: 5vh;
+                flex-direction: row-reverse;
+            }
 
             &__img {
                 img {
@@ -690,10 +702,17 @@
 
 @media (min-width: 1200px) {
     #home {
-        .hero, .why, .idea__content, .stats, .cta__content {
+         .why, .idea__content, .stats, .cta__content {
             width: var(--desktop-general-width);
             place-self: center;
             margin: 8rem auto;
+        }
+
+        .hero__container {
+            padding-top: 5vh;
+            width: var(--desktop-general-width);
+            margin: auto;
+            place-self: center;
         }
 
         .cta {
@@ -710,9 +729,11 @@
         }
 
         .hero {
-            margin: 0;
-            height: calc(100vh - 7rem);
-            gap: 10vh;
+            min-height: 700px;
+            height: 96vh;
+            &__container {
+                column-gap: 10vh;
+            }
 
             &__img {
                 img {

@@ -12,26 +12,27 @@ get_header(); ?>
     </div>-->
 
     <section class="hero">
-        <div class="hero__img">
-            <img src="<?php echo esc_url( get_theme_mod( 'hero_image_1', '' ) ); ?>"
-                alt="<?php echo esc_attr( get_theme_mod( 'hero_image_1_alt', '' ) ); ?>">
+        <div class="hero__container">
+            <div class="hero__img">
+                <img src="<?php echo esc_url( get_theme_mod( 'hero_image_1', '' ) ); ?>"
+                    alt="<?php echo esc_attr( get_theme_mod( 'hero_image_1_alt', '' ) ); ?>">
+            </div>
+            <div class="hero__content">
+                <p class="hero__badge">Nouveau au Québec<img src="<?php echo esc_url( get_theme_mod( 'badge_icon', '' ) ); ?>" alt="<?php echo esc_attr( get_theme_mod( 'badge_icon_alt', '' ) ); ?>"></p>
+                <h3 class="hero__tagline"><span class="hero__tagline--underline">Offrez un avantage social</span> qui permet à vos employés de réduire leurs dépenses lorsqu’ils mangent au restaurant.</h3>
+                <button class="hero__cta">En savoir plus</button>
+            </div>
         </div>
-        <div class="hero__content">
-            <p class="hero__badge">Nouveau au Québec<img src="<?php echo esc_url( get_theme_mod( 'badge_icon', '' ) ); ?>" alt="<?php echo esc_attr( get_theme_mod( 'badge_icon_alt', '' ) ); ?>"></p>
-            <h3 class="hero__tagline"><span class="hero__tagline--underline">Offrez un avantage social</span> qui permet à vos employés de réduire leurs dépenses lorsqu’ils mangent au restaurant.</h3>
-            <button class="hero__cta">En savoir plus</button>
+
+        <div class="tagline-band" aria-hidden="true">
+            <div class="tagline-band__track">
+                <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
+                <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
+                <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
+                <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
+            </div>
         </div>
     </section>
-
-    <!-- TAGLINE BAND -->
-    <div class="tagline-band" aria-hidden="true">
-        <div class="tagline-band__track">
-            <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
-            <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
-            <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
-            <span class="tagline-band__item">Le seul ticket que vous ne voudrez jamais contester : <strong>TicketLunch.</strong></span>
-        </div>
-    </div>
 
 <!-- POURQUOI CHOISIR TICKETLUNCH -->
 <section class="why">

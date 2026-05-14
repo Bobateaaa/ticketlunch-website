@@ -155,6 +155,11 @@
 @media (min-width: 769px) {
     .footer {
         padding: 7rem 5vw 2rem 5vw;
+
+        &__description {
+            max-width: 600px;
+        }
+
         li a {
 
         }

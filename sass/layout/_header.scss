@@ -54,6 +54,11 @@
         align-items: center;
         font-family: RoundPop, sans-serif;
         z-index: 2000;
+        gap: 0.5rem;
+
+        &-text {
+            font-family: RoundPop, sans-serif !important;
+        }
 
         img {
             width: auto;

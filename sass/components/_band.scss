@@ -4,7 +4,7 @@
 
 
 .cuisine-band {
-    background-color: var(--tertiary-color);
+    background-color: rgb(249, 248, 247);
     overflow: hidden;
 
     &__track {
@@ -14,8 +14,8 @@
     }
 
     &__item {
-        font-family: Gelasio, sans-serif;
-        color: var(--text-color-light);
+        font-family: Futura, sans-serif;
+        color: var(--text-color-dark);
         white-space: nowrap;
         font-weight: 500;
     }
@@ -27,11 +27,11 @@
 }
 
     .cuisine-band {
-        padding: 1rem 0;
+        padding: 1.2rem 0;
 
         &__item {
             font-size: var(--mobile-font-size-paragraph);
-            padding: 0 1.5rem;
+            padding: 0 2.5rem;
         }
     }
 
@@ -49,6 +49,7 @@
     border-bottom: var(--small-border) solid var(--secondary-color-dark);
     background-color: var(--background-color);
     height: 4rem;
+    min-height: 3rem;
     place-self: center;
     display: flex;
     align-items: center;

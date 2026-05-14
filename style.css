@@ -79,10 +79,10 @@ main {
   --desktop-main-title-width: 90vw;
   --mobile-main-title-height: 250px;
   --laptop-main-title-height: 350px;
-  --desktop-main-title-height: 450px;
-  --mobile-top-margin-general: 60px;
-  --laptop-top-margin-general: 80px;
-  --desktop-top-margin-general: 100px;
+  --desktop-main-title-height: 400px;
+  --mobile-top-margin-general: calc(80px + 4vh);
+  --laptop-top-margin-general: calc(80px + 4vh);
+  --desktop-top-margin-general: calc(82px + 4vh);
   -menu-gap-size: 1.5rem;
 }
 
@@ -275,7 +275,7 @@ Components
 =           CSS DE LA BANDE              =
 ========================================= */
 .cuisine-band {
-  background-color: var(--tertiary-color);
+  background-color: rgb(249, 248, 247);
   overflow: hidden;
 }
 .cuisine-band__track {
@@ -284,8 +284,8 @@ Components
   animation: band-scroll 50s linear infinite;
 }
 .cuisine-band__item {
-  font-family: Gelasio, sans-serif;
-  color: var(--text-color-light);
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
   white-space: nowrap;
   font-weight: 500;
 }
@@ -299,11 +299,11 @@ Components
   } /* -50% because track is doubled */
 }
 .cuisine-band {
-  padding: 1rem 0;
+  padding: 1.2rem 0;
 }
 .cuisine-band__item {
   font-size: var(--mobile-font-size-paragraph);
-  padding: 0 1.5rem;
+  padding: 0 2.5rem;
 }
 
 /* ------------------------
@@ -316,6 +316,7 @@ Components
   border-bottom: var(--small-border) solid var(--secondary-color-dark);
   background-color: var(--background-color);
   height: 4rem;
+  min-height: 3rem;
   place-self: center;
   display: flex;
   align-items: center;
@@ -932,6 +933,10 @@ Layout
   align-items: center;
   font-family: RoundPop, sans-serif;
   z-index: 2000;
+  gap: 0.5rem;
+}
+.header__logo-text {
+  font-family: RoundPop, sans-serif !important;
 }
 .header__logo img {
   width: auto;
@@ -1259,6 +1264,9 @@ Layout
   .footer {
     padding: 7rem 5vw 2rem 5vw;
   }
+  .footer__description {
+    max-width: 600px;
+  }
 }
 /* /////////////////////////////////
 Pages
@@ -1269,8 +1277,12 @@ Pages
 /* ------------------------
 * Global (colors, fonts, borders, position, display, etc.)
 ------------------------- */
-#home .hero, #home .idea, #home .stats, #home .cta {
+#home .idea, #home .stats, #home .cta {
   overflow: clip;
+}
+#home .hero {
+  display: flex;
+  flex-flow: column;
 }
 #home .hero__tagline {
   font-family: Futura, sans-serif;
@@ -1440,7 +1452,7 @@ Pages
 /* ------------------------
 * Mobile
 ------------------------- */
-#home .hero, #home .why, #home .idea__content, #home .stats, #home .cta__content {
+#home .hero__container, #home .why, #home .idea__content, #home .stats, #home .cta__content {
   width: var(--mobile-general-width);
   place-self: center;
 }
@@ -1448,9 +1460,13 @@ Pages
   margin: auto;
 }
 #home .hero {
+  margin-top: calc(var(--mobile-top-margin-general) - 1rem);
+  gap: 4rem;
+}
+#home .hero__container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: fit-content;
   align-items: center;
   justify-content: center;
   gap: 5vh;
@@ -1670,7 +1686,7 @@ Pages
 }
 
 @media (min-width: 769px) {
-  #home .hero, #home .why, #home .idea__content, #home .stats, #home .cta__content {
+  #home .hero__container, #home .why, #home .idea__content, #home .stats, #home .cta__content {
     width: var(--laptop-general-width);
     place-self: center;
     margin: 7rem auto;
@@ -1684,11 +1700,16 @@ Pages
     padding-bottom: 0;
   }
   #home .hero {
+    gap: 0;
+    margin-top: 0;
+    height: auto;
+    margin-bottom: 0;
+  }
+  #home .hero__container {
     display: flex;
     height: fit-content;
     align-items: center;
     justify-content: center;
-    margin: 20vh 0 15vh 0;
     gap: 5vh;
     flex-direction: row-reverse;
   }
@@ -1819,10 +1840,16 @@ Pages
   }
 }
 @media (min-width: 1200px) {
-  #home .hero, #home .why, #home .idea__content, #home .stats, #home .cta__content {
+  #home .why, #home .idea__content, #home .stats, #home .cta__content {
     width: var(--desktop-general-width);
     place-self: center;
     margin: 8rem auto;
+  }
+  #home .hero__container {
+    padding-top: 5vh;
+    width: var(--desktop-general-width);
+    margin: auto;
+    place-self: center;
   }
   #home .cta {
     margin-bottom: 0;
@@ -1835,9 +1862,11 @@ Pages
     width: 100vw;
   }
   #home .hero {
-    margin: 0;
-    height: calc(100vh - 7rem);
-    gap: 10vh;
+    min-height: 700px;
+    height: 96vh;
+  }
+  #home .hero__container {
+    column-gap: 10vh;
   }
   #home .hero__img img {
     width: clamp(500px, 32vw, 700px);
@@ -3000,6 +3029,7 @@ Pages
 #contact .cta-banner {
   width: 100%;
   padding: 3rem var(--mobile-padding-main);
+  margin-bottom: 0;
 }
 #contact .cta-banner__content {
   width: var(--mobile-general-width);
@@ -3124,5 +3154,109 @@ Pages
   }
   #contact .cta-banner__deco img {
     width: 350px;
+  }
+}
+/*========================================
+=     CSS PAGE TERMES ET CONDITIONS      =
+========================================= */
+/* ------------------------
+ * Global
+------------------------- */
+#termes .termes__content {
+  place-self: center;
+}
+#termes .termes__update {
+  font-family: Geist, sans-serif;
+  color: var(--secondary-color-mid);
+  font-style: italic;
+}
+#termes .termes__intro {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  font-weight: 700;
+}
+#termes .termes__text {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+}
+#termes .termes__section {
+  border-top: var(--small-border) solid var(--secondary-color-pale);
+}
+#termes .termes__section-title {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.01em;
+}
+#termes .termes__list {
+  list-style: none;
+  padding: 0;
+}
+#termes .termes__list-item {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  padding-left: 1.25rem;
+  position: relative;
+}
+#termes .termes__list-item::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color-dark);
+}
+#termes .termes__link {
+  color: var(--secondary-color-dark);
+  text-decoration: underline;
+}
+#termes .termes__link:hover {
+  color: var(--secondary-color-mid);
+}
+
+/* ------------------------
+ * Mobile
+------------------------- */
+#termes .termes__content {
+  width: var(--mobile-general-width);
+  margin: 0 auto;
+  margin-bottom: var(--mobile-section-gap-size);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#termes .termes__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+}
+#termes .termes__section-title {
+  margin: 0 0 0.5rem;
+}
+#termes .termes__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ------------------------
+ * Laptop\Tablet
+------------------------- */
+@media (min-width: 769px) {
+  #termes .termes__content {
+    width: var(--laptop-general-width);
+    margin-bottom: var(--laptop-section-gap-size);
+    gap: 2.5rem;
+  }
+  #termes .termes__section {
+    padding-top: 2rem;
+  }
+}
+/* ------------------------
+ * Desktop
+------------------------- */
+@media (min-width: 1200px) {
+  #termes .termes__content {
+    width: var(--desktop-general-width);
+    margin-bottom: var(--desktop-section-gap-size);
+    gap: 3rem;
   }
 }/*# sourceMappingURL=style.css.map */

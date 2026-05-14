@@ -62,11 +62,11 @@ main {
 
     --mobile-main-title-height: 250px;
     --laptop-main-title-height: 350px;
-    --desktop-main-title-height: 450px;
+    --desktop-main-title-height: 400px;
 
-    --mobile-top-margin-general: 60px;
-    --laptop-top-margin-general: 80px;
-    --desktop-top-margin-general: 100px;
+    --mobile-top-margin-general: calc(80px + 4vh);
+    --laptop-top-margin-general: calc(80px + 4vh);
+    --desktop-top-margin-general: calc(82px + 4vh);
 
     -menu-gap-size: 1.5rem;
 

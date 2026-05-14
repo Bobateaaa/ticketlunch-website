@@ -102,7 +102,7 @@ function ticketlunch_customize_register( $wp_customize ) {
     // HEADER SETTINGS
     // -------------------------------------------------------------------------
     $wp_customize->add_section( 'ticketlunch_header', array(
-        'title'    => __( 'Header Settings', 'ticketlunch' ),
+        'title'    => __( 'Header', 'ticketlunch' ),
         'priority' => 31,
     ) );
 
@@ -143,29 +143,28 @@ function ticketlunch_customize_register( $wp_customize ) {
         'sanitize_callback' => 'esc_url_raw',
     ) );
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'facebook_icon', array(
-        'label'    => __( 'Facebook Icon (optional)', 'ticketlunch' ),
+        'label'    => __( 'Facebook Icon', 'ticketlunch' ),
         'section'  => 'ticketlunch_header',
         'settings' => 'facebook_icon',
     ) ) );
 
-    // Twitter
-    $wp_customize->add_setting( 'twitter_url', array(
+    $wp_customize->add_setting( 'linkedin_url', array(
         'default'           => '#',
         'sanitize_callback' => 'esc_url_raw',
     ) );
-    $wp_customize->add_control( 'twitter_url', array(
-        'label'   => __( 'Twitter URL', 'ticketlunch' ),
+    $wp_customize->add_control( 'linkedin_url', array(
+        'label'   => __( 'LinkedIn URL', 'ticketlunch' ),
         'section' => 'ticketlunch_header',
         'type'    => 'url',
     ) );
-    $wp_customize->add_setting( 'twitter_icon', array(
+    $wp_customize->add_setting( 'linkedin_icon', array(
         'default'           => '',
         'sanitize_callback' => 'esc_url_raw',
     ) );
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'twitter_icon', array(
-        'label'    => __( 'Twitter Icon (optional)', 'ticketlunch' ),
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'linkedin_icon', array(
+        'label'    => __( 'LinkedIn Icon', 'ticketlunch' ),
         'section'  => 'ticketlunch_header',
-        'settings' => 'twitter_icon',
+        'settings' => 'linkedin_icon',
     ) ) );
 
     // Instagram
@@ -183,7 +182,7 @@ function ticketlunch_customize_register( $wp_customize ) {
         'sanitize_callback' => 'esc_url_raw',
     ) );
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'instagram_icon', array(
-        'label'    => __( 'Instagram Icon (optional)', 'ticketlunch' ),
+        'label'    => __( 'Instagram Icon', 'ticketlunch' ),
         'section'  => 'ticketlunch_header',
         'settings' => 'instagram_icon',
     ) ) );
