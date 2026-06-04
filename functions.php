@@ -230,39 +230,86 @@ function ticketlunch_customize_register( $wp_customize ) {
 
     // ---- WHY SECTION IMAGES ----
 
-// Employers image
-$wp_customize->add_setting( 'why_image_employers', array(
-    'default'           => '',
-    'sanitize_callback' => 'esc_url_raw',
-) );
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'why_image_employers', array(
-    'label'    => __( 'Pourquoi choisir TicketLunch? – Employeurs Image', 'ticketlunch' ),
-    'section'  => 'ticketlunch_accueil_hero',
-    'settings' => 'why_image_employers',
-) ) );
+    // Employers image
+    $wp_customize->add_setting( 'why_image_employers', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'why_image_employers', array(
+        'label'    => __( 'Pourquoi choisir TicketLunch? – Employeurs Image', 'ticketlunch' ),
+        'section'  => 'ticketlunch_accueil_hero',
+        'settings' => 'why_image_employers',
+    ) ) );
 
-// Employees image
-$wp_customize->add_setting( 'why_image_employees', array(
-    'default'           => '',
-    'sanitize_callback' => 'esc_url_raw',
-) );
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'why_image_employees', array(
-    'label'    => __( 'Pourquoi choisir TicketLunch? – Employés Image', 'ticketlunch' ),
-    'section'  => 'ticketlunch_accueil_hero',
-    'settings' => 'why_image_employees',
-) ) );
+    // Employees image
+    $wp_customize->add_setting( 'why_image_employees', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'why_image_employees', array(
+        'label'    => __( 'Pourquoi choisir TicketLunch? – Employés Image', 'ticketlunch' ),
+        'section'  => 'ticketlunch_accueil_hero',
+        'settings' => 'why_image_employees',
+    ) ) );
 
-// Restaurants image
-$wp_customize->add_setting( 'why_image_restaurants', array(
-    'default'           => '',
-    'sanitize_callback' => 'esc_url_raw',
-) );
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'why_image_restaurants', array(
-    'label'    => __( 'Pourquoi choisir
-TicketLunch? – Restaurateurs Image', 'ticketlunch' ),
-    'section'  => 'ticketlunch_accueil_hero',
-    'settings' => 'why_image_restaurants',
-) ) );
-}
+    // Restaurants image
+    $wp_customize->add_setting( 'why_image_restaurants', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'why_image_restaurants', array(
+        'label'    => __( 'Pourquoi choisir
+    TicketLunch? – Restaurateurs Image', 'ticketlunch' ),
+        'section'  => 'ticketlunch_accueil_hero',
+        'settings' => 'why_image_restaurants',
+    ) ) );
+
+// ── SECTION ──────────────────────────────────────────────────────────────
+    $wp_customize->add_section( 'epicerie_images', array(
+        'title'    => 'Projet épicerie — Images',
+        'priority' => 50,
+    ) );
+ 
+    // ── PHOTO SACS (mises-a-jour, droite) ────────────────────────────────────
+    $wp_customize->add_setting( 'epicerie_photo_sacs', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'epicerie_photo_sacs', array(
+        'label'   => 'Photo sacs TicketLunch (droite)',
+        'section' => 'epicerie_images',
+    ) ) );
+ 
+    $wp_customize->add_setting( 'epicerie_photo_sacs_alt', array(
+        'default'           => 'Sacs TicketLunch',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'epicerie_photo_sacs_alt', array(
+        'label'   => 'Texte alternatif — photo sacs',
+        'section' => 'epicerie_images',
+        'type'    => 'text',
+    ) );
+ 
+    // ── PHOTO SAC ÉPICERIE (avancement, gauche) ───────────────────────────────
+    $wp_customize->add_setting( 'epicerie_photo_sac_epicerie', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'epicerie_photo_sac_epicerie', array(
+        'label'   => 'Photo sac épicerie (gauche)',
+        'section' => 'epicerie_images',
+    ) ) );
+ 
+    $wp_customize->add_setting( 'epicerie_photo_sac_epicerie_alt', array(
+        'default'           => 'Sac d\'épicerie TicketLunch',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'epicerie_photo_sac_epicerie_alt', array(
+        'label'   => 'Texte alternatif — photo sac épicerie',
+        'section' => 'epicerie_images',
+        'type'    => 'text',
+    ) );
+} 
+    
 add_action( 'customize_register', 'ticketlunch_customize_register' );
 ?>

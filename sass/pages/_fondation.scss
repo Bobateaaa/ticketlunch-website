@@ -1,0 +1,160 @@
+/* ========================================
+=         CSS PAGE FONDATION             =
+======================================== */
+
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#fondation {
+
+    .intro {
+        &__chapeau {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        &__image {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: var(--border-radius-soft);
+                display: block;
+            }
+        }
+    }
+
+    .citation {
+        background-color: var(--accent-color);
+        border-radius: var(--border-radius-soft);
+
+        &__texte {
+            font-family: Gelasio, serif;
+            color: var(--text-color-dark);
+            font-style: italic;
+            margin: 0;
+
+            p {
+                font-family: Gelasio, serif;
+                font-style: italic;
+                margin: 0;
+                line-height: 1.8;
+            }
+        }
+    }
+
+    .bloc-texte {
+        &__description {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+            margin: 0;
+        }
+    }
+}
+
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#fondation {
+
+    .intro,
+    .citation,
+    .conclusion {
+        width: var(--mobile-general-width);
+        margin: 0 auto var(--mobile-section-gap-size);
+    }
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        &__textes {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        &__image {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .citation {
+        padding: 2rem 1.5rem;
+    }
+
+    .conclusion {
+        margin-bottom: var(--mobile-section-gap-size);
+    }
+}
+
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+    #fondation {
+
+        .intro,
+        .citation,
+        .conclusion {
+            width: var(--laptop-general-width);
+            margin: 0 auto var(--laptop-section-gap-size);
+        }
+
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: start;
+            gap: 3rem;
+
+            &__image {
+                aspect-ratio: none;
+                height: auto;
+            }
+        }
+
+        .citation {
+            padding: 2.5rem 3rem;
+        }
+
+        .conclusion {
+            margin-bottom: var(--laptop-section-gap-size);
+        }
+    }
+}
+
+
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+    #fondation {
+
+        .intro,
+        .citation,
+        .conclusion {
+            width: var(--desktop-general-width);
+            margin: 0 auto var(--desktop-section-gap-size);
+        }
+
+        .intro {
+            gap: 5rem;
+            margin-bottom: 4rem;
+        }
+
+        .citation {
+            padding: 3rem 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .conclusion {
+            margin-bottom: var(--desktop-section-gap-size);
+        }
+    }
+}

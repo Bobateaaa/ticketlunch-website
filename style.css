@@ -104,9 +104,9 @@ main {
 }
 /* Typography size */
 :root {
-  --mobile-font-size-menu: clamp(14px, 4vw, 30px);
-  --laptop-font-size-menu: clamp(14px, 2vw, 24px);
-  --desktop-font-size-menu: clamp(14px, 1vw, 16px);
+  --mobile-font-size-menu: clamp(12px, 4vw, 30px);
+  --laptop-font-size-menu: clamp(12px, 2vw, 24px);
+  --desktop-font-size-menu: 14px;
   --mobile-font-size-heading: clamp(30px, 6vw, 40px);
   --laptop-font-size-heading: clamp(35px, 4vw, 48px);
   --desktop-font-size-heading: clamp(40px, 2.5vw, 56px);
@@ -896,7 +896,7 @@ Layout
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 60px;
   background-color: var(--background-color);
   z-index: -1;
 }
@@ -1003,7 +1003,7 @@ Layout
   width: 25px;
 }
 .header__logo {
-  height: 80px;
+  height: 60px;
   margin: 0 var(--mobile-padding-main);
   border-bottom: 2px solid var(--text-color-dark);
   position: absolute;
@@ -1073,7 +1073,7 @@ Layout
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--desktop-padding-main);
-    height: 80px;
+    height: 60px;
     transform: none;
     background-color: transparent;
     padding: 0;
@@ -3258,5 +3258,273 @@ Pages
     width: var(--desktop-general-width);
     margin-bottom: var(--desktop-section-gap-size);
     gap: 3rem;
+  }
+}
+/* ========================================
+=         CSS PAGE PROJET ÉPICERIE       =
+======================================== */
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#epicerie .mises-a-jour__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-soft);
+  display: block;
+}
+#epicerie .avancement-epicerie__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#epicerie .bloc-texte__titre {
+  font-family: Futura, sans-serif;
+  color: var(--text-color-dark);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+#epicerie .bloc-texte__description {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+
+/* ------------------------
+ * MOBILE 
+------------------------- */
+#epicerie .mises-a-jour,
+#epicerie .avancement-epicerie {
+  width: var(--mobile-general-width);
+  margin: 0 auto var(--mobile-section-gap-size);
+}
+#epicerie .mises-a-jour {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#epicerie .mises-a-jour__textes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#epicerie .mises-a-jour__image {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+#epicerie .avancement-epicerie {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+}
+#epicerie .avancement-epicerie__image {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+#epicerie .avancement-epicerie__textes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#epicerie .bloc-texte__titre {
+  font-size: var(--mobile-font-size-subtitle);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+  #epicerie .mises-a-jour,
+  #epicerie .avancement-epicerie {
+    width: var(--laptop-general-width);
+    margin: 0 auto var(--laptop-section-gap-size);
+  }
+  #epicerie .mises-a-jour {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "textes image";
+    align-items: center;
+    gap: 3rem;
+  }
+  #epicerie .mises-a-jour__textes {
+    grid-area: textes;
+  }
+  #epicerie .mises-a-jour__image {
+    grid-area: image;
+    aspect-ratio: none;
+    height: auto;
+  }
+  #epicerie .avancement-epicerie {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "image textes";
+    align-items: center;
+    gap: 3rem;
+  }
+  #epicerie .avancement-epicerie__image {
+    grid-area: image;
+    padding: 10%;
+    object-fit: contain;
+    aspect-ratio: 2/3;
+  }
+  #epicerie .avancement-epicerie__textes {
+    grid-area: textes;
+    text-align: right;
+  }
+  #epicerie .bloc-texte__titre {
+    font-size: var(--laptop-font-size-subtitle);
+  }
+}
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+  #epicerie .mises-a-jour,
+  #epicerie .avancement-epicerie {
+    width: var(--desktop-general-width);
+    margin: 0 auto var(--desktop-section-gap-size);
+    margin-bottom: 0;
+  }
+  #epicerie .mises-a-jour {
+    gap: 7rem;
+  }
+  #epicerie .mises-a-jour__image {
+    grid-area: image;
+    aspect-ratio: none;
+    height: calc(100% + 1vh);
+  }
+  #epicerie .avancement-epicerie {
+    gap: 7rem;
+  }
+  #epicerie .avancement-epicerie__image {
+    padding: 0;
+    aspect-ratio: none;
+    height: 80% !important;
+  }
+  #epicerie .bloc-texte__titre {
+    font-size: var(--desktop-font-size-subtitle);
+  }
+}
+/* ========================================
+=         CSS PAGE FONDATION             =
+======================================== */
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#fondation .intro__chapeau {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  font-weight: 600;
+  margin: 0;
+}
+#fondation .intro__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-soft);
+  display: block;
+}
+#fondation .citation {
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius-soft);
+}
+#fondation .citation__texte {
+  font-family: Gelasio, serif;
+  color: var(--text-color-dark);
+  font-style: italic;
+  margin: 0;
+}
+#fondation .citation__texte p {
+  font-family: Gelasio, serif;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.8;
+}
+#fondation .bloc-texte__description {
+  font-family: Geist, sans-serif;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+
+/* ------------------------
+ * MOBILE — default layout
+------------------------- */
+#fondation .intro,
+#fondation .citation,
+#fondation .conclusion {
+  width: var(--mobile-general-width);
+  margin: 0 auto var(--mobile-section-gap-size);
+}
+#fondation .intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+#fondation .intro__textes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+#fondation .intro__image {
+  width: 100%;
+  height: auto;
+}
+#fondation .citation {
+  padding: 2rem 1.5rem;
+}
+#fondation .conclusion {
+  margin-bottom: var(--mobile-section-gap-size);
+}
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+  #fondation .intro,
+  #fondation .citation,
+  #fondation .conclusion {
+    width: var(--laptop-general-width);
+    margin: 0 auto var(--laptop-section-gap-size);
+  }
+  #fondation .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 3rem;
+  }
+  #fondation .intro__image {
+    aspect-ratio: none;
+    height: auto;
+  }
+  #fondation .citation {
+    padding: 2.5rem 3rem;
+  }
+  #fondation .conclusion {
+    margin-bottom: var(--laptop-section-gap-size);
+  }
+}
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+  #fondation .intro,
+  #fondation .citation,
+  #fondation .conclusion {
+    width: var(--desktop-general-width);
+    margin: 0 auto var(--desktop-section-gap-size);
+  }
+  #fondation .intro {
+    gap: 5rem;
+    margin-bottom: 4rem;
+  }
+  #fondation .citation {
+    padding: 3rem 4rem;
+    margin-bottom: 4rem;
+  }
+  #fondation .conclusion {
+    margin-bottom: var(--desktop-section-gap-size);
   }
 }/*# sourceMappingURL=style.css.map */

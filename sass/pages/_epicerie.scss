@@ -1,0 +1,205 @@
+/* ========================================
+=         CSS PAGE PROJET ÉPICERIE       =
+======================================== */
+
+/* ------------------------
+ * GLOBAL — colors, fonts, borders
+------------------------- */
+#epicerie {
+
+    .mises-a-jour {
+        &__image {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: var(--border-radius-soft);
+                display: block;
+            }
+        }
+    }
+
+    .avancement-epicerie {
+        &__image {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+
+    .bloc-texte {
+        &__titre {
+            font-family: Futura, sans-serif;
+            color: var(--text-color-dark);
+            letter-spacing: -0.02em;
+            margin: 0 0 0.5rem;
+        }
+
+        &__description {
+            font-family: Geist, sans-serif;
+            color: var(--text-color-dark);
+            margin: 0;
+        }
+    }
+}
+
+
+/* ------------------------
+ * MOBILE 
+------------------------- */
+#epicerie {
+
+    .mises-a-jour,
+    .avancement-epicerie {
+        width: var(--mobile-general-width);
+        margin: 0 auto var(--mobile-section-gap-size);
+    }
+
+    .mises-a-jour {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        &__textes {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        &__image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    .avancement-epicerie {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+
+        &__image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+
+        &__textes {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+    }
+
+    .bloc-texte {
+        &__titre {
+            font-size: var(--mobile-font-size-subtitle);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+    }
+}
+
+
+/* ------------------------
+ * TABLET & UP — min-width: 769px
+------------------------- */
+@media (min-width: 769px) {
+    #epicerie {
+
+        .mises-a-jour,
+        .avancement-epicerie {
+            width: var(--laptop-general-width);
+            margin: 0 auto var(--laptop-section-gap-size);
+        }
+
+        .mises-a-jour {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "textes image";
+            align-items: center;
+            gap: 3rem;
+
+            &__textes {
+                grid-area: textes;
+            }
+
+            &__image {
+                grid-area: image;
+                aspect-ratio: none;
+                height: auto;
+            }
+        }
+
+        .avancement-epicerie {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "image textes";
+            align-items: center;
+            gap: 3rem;
+
+            &__image {
+                grid-area: image;
+                padding: 10%;
+                object-fit: contain;
+                aspect-ratio: 2 /3;
+
+            }
+
+            &__textes {
+                grid-area: textes;
+                text-align: right;
+            }
+        }
+
+        .bloc-texte {
+            &__titre {
+                font-size: var(--laptop-font-size-subtitle);
+            }
+        }
+    }
+}
+
+
+/* ------------------------
+ * DESKTOP — min-width: 1200px
+------------------------- */
+@media (min-width: 1200px) {
+    #epicerie {
+
+        .mises-a-jour,
+        .avancement-epicerie {
+            width: var(--desktop-general-width);
+            margin: 0 auto var(--desktop-section-gap-size);
+            margin-bottom: 0;
+        }
+
+        .mises-a-jour {
+            gap: 7rem;
+
+            &__image {
+                grid-area: image;
+                aspect-ratio: none;
+                height: calc(100% + 1vh);
+            }
+        }
+
+        .avancement-epicerie {
+            gap: 7rem;
+
+            &__image {
+                padding: 0;
+                aspect-ratio: none;
+                height: 80% !important;
+
+            }
+        }
+
+        .bloc-texte {
+            &__titre {
+                font-size: var(--desktop-font-size-subtitle);
+            }
+        }
+    }
+}

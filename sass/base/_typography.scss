@@ -21,9 +21,9 @@
 /* Typography size */
 
 :root {
-    --mobile-font-size-menu: clamp(14px, 4vw, 30px);
-    --laptop-font-size-menu: clamp(14px, 2vw, 24px);
-    --desktop-font-size-menu: clamp(14px, 1vw, 16px);
+    --mobile-font-size-menu: clamp(12px, 4vw, 30px);
+    --laptop-font-size-menu: clamp(12px, 2vw, 24px);
+    --desktop-font-size-menu: 14px;
 
     --mobile-font-size-heading: clamp(30px, 6vw, 40px);
     --laptop-font-size-heading: clamp(35px, 4vw, 48px);
