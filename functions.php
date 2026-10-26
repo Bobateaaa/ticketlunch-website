@@ -99,7 +99,7 @@ function ticketlunch_customize_register( $wp_customize ) {
     ) );
 
     // -------------------------------------------------------------------------
-    // HEADER SETTINGS
+    // MENU HEADER SETTINGS
     // -------------------------------------------------------------------------
     $wp_customize->add_section( 'ticketlunch_header', array(
         'title'    => __( 'Header', 'ticketlunch' ),
@@ -188,10 +188,10 @@ function ticketlunch_customize_register( $wp_customize ) {
     ) ) );
 
     // -------------------------------------------------------------------------
-    // ACCUEIL 
+    // PAGE ACCUEIL 
     // -------------------------------------------------------------------------
     $wp_customize->add_section( 'ticketlunch_accueil_hero', array(
-        'title'       => __( 'Accueil', 'ticketlunch' ),
+        'title'       => __( 'Page d\'accueil', 'ticketlunch' ),
         'description' => __( 'Images displayed in the hero section on the home page.', 'ticketlunch' ),
         'priority'    => 40,
     ) );
@@ -309,7 +309,75 @@ function ticketlunch_customize_register( $wp_customize ) {
         'section' => 'epicerie_images',
         'type'    => 'text',
     ) );
-} 
-    
+    // -------------------------------------------------------------------------
+    // À PROPOS — IMAGES
+    // -------------------------------------------------------------------------
+    $wp_customize->add_section( 'ticketlunch_apropos', array(
+        'title'       => __( 'Page à propos', 'ticketlunch' ),
+        'description' => __( 'Images affichées sur la page À propos. Si vide, l\'image par défaut du thème est utilisée.', 'ticketlunch' ),
+        'priority'    => 45,
+    ) );
+
+    $apropos_images = array(
+        'apropos_mascot'      => __( 'Mascotte du titre', 'ticketlunch' ),
+        'apropos_mission_1'   => __( 'Mission 1 – Redonner du pouvoir d\'achat (icône)', 'ticketlunch' ),
+        'apropos_mission_2'   => __( 'Mission 2 – Repenser la consommation (icône)', 'ticketlunch' ),
+        'apropos_mission_3'   => __( 'Mission 3 – Devenir une référence (icône)', 'ticketlunch' ),
+        'apropos_mascot_card' => __( 'Mascotte de la section Mission', 'ticketlunch' ),
+    );
+
+    foreach ( $apropos_images as $id => $label ) {
+        $wp_customize->add_setting( $id, array(
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ) );
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
+            'label'    => $label,
+            'section'  => 'ticketlunch_apropos',
+            'settings' => $id,
+        ) ) );
+    }
+
+    // -------------------------------------------------------------------------
+    // NOTRE ÉQUIPE — IMAGES
+    // -------------------------------------------------------------------------
+    $wp_customize->add_section( 'ticketlunch_equipe', array(
+        'title'       => __( 'Page Notre équipe', 'ticketlunch' ),
+        'description' => __( 'Images affichées sur la page Notre équipe. Si vide, l\'image par défaut du thème est utilisée.', 'ticketlunch' ),
+        'priority'    => 46,
+    ) );
+
+    $equipe_images = array(
+        'equipe_mascot'     => __( 'Mascotte du titre', 'ticketlunch' ),
+        'equipe_director_1' => __( 'Angélique Bourbier', 'ticketlunch' ),
+        'equipe_director_2' => __( 'Patrice Coujandasamy', 'ticketlunch' ),
+        'equipe_employee_1' => __( 'Employé 1', 'ticketlunch' ),
+        'equipe_employee_2' => __( 'Employé 2', 'ticketlunch' ),
+        'equipe_employee_3' => __( 'Employé 3', 'ticketlunch' ),
+    );
+
+    foreach ( $equipe_images as $id => $label ) {
+        $wp_customize->add_setting( $id, array(
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ) );
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
+            'label'    => $label,
+            'section'  => 'ticketlunch_equipe',
+            'settings' => $id,
+        ) ) );
+    }
+}
+
+function ticketlunch_apropos_img( $setting, $fallback ) {
+    $image = get_theme_mod( $setting );
+
+    if ( $image ) {
+        return $image;
+    }
+
+    return get_template_directory_uri() . '/assets/' . $fallback;
+}
+
 add_action( 'customize_register', 'ticketlunch_customize_register' );
 ?>

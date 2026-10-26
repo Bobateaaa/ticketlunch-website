@@ -14,7 +14,7 @@ get_header(); ?>
             <h1 class="equipe-title__heading title__heading">Notre équipe</h1>
         </div>
         <div class="equipe-title__mascot tite__mascot" aria-hidden="true">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/mascot.png" alt="">
+            <img src="<?php echo esc_url( ticketlunch_apropos_img( 'equipe_mascot', 'mascot.png' ) ); ?>" alt="">
         </div>
     </section>
 
@@ -31,7 +31,7 @@ get_header(); ?>
 
             <article class="directors__card">
                 <div class="directors__card-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/placeholder.webp" alt="Angélique Bourbier">
+                    <img src="<?php echo esc_url( ticketlunch_apropos_img( 'equipe_director_1', 'placeholder.webp' ) ); ?>" alt="Angélique Bourbier">
                 </div>
                 <div class="directors__card-content">
                     <h3 class="directors__card-name">Angélique Bourbier</h3>
@@ -44,7 +44,7 @@ get_header(); ?>
 
             <article class="directors__card">
                 <div class="directors__card-image">
-                    <img src="" alt="Patrice Coujandasamy">
+                    <img src="<?php echo esc_url( ticketlunch_apropos_img( 'equipe_director_2', 'placeholder.webp' ) ); ?>" alt="Patrice Coujandasamy">
                 </div>
                 <div class="directors__card-content">
                     <h3 class="directors__card-name">Patrice Coujandasamy</h3>
@@ -69,7 +69,7 @@ get_header(); ?>
 
             <article class="employees__card">
                 <div class="employees__card-icon">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/placeholder1.png" alt="">
+                    <img src="<?php echo esc_url( ticketlunch_apropos_img( 'equipe_employee_1', 'placeholder1.png' ) ); ?>" alt="">
                 </div>
                 <p class="employees__card-title">Gestionnaire des réseaux TicketLunch</p>
                 <a href="#" class="employees__card-cta">Consulter le poste</a>
@@ -77,7 +77,7 @@ get_header(); ?>
 
             <article class="employees__card">
                 <div class="employees__card-icon">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-comptable.svg" alt="">
+                    <img src="<?php echo esc_url( ticketlunch_apropos_img( 'equipe_employee_2', 'icon-comptable.svg' ) ); ?>" alt="">
                 </div>
                 <p class="employees__card-title">Comptable</p>
                 <a href="#" class="employees__card-cta">Consulter le poste</a>
@@ -85,7 +85,7 @@ get_header(); ?>
 
             <article class="employees__card">
                 <div class="employees__card-icon">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icon-representant.svg" alt="">
+                    <img src="<?php echo esc_url( ticketlunch_apropos_img( 'equipe_employee_3', 'icon-representant.svg' ) ); ?>" alt="">
                 </div>
                 <p class="employees__card-title">Représentant(e) des entreprises</p>
                 <a href="#" class="employees__card-cta">Consulter le poste</a>
