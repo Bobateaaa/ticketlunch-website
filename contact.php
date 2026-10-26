@@ -86,40 +86,6 @@ get_header(); ?>
 
     </section>
 
-
-    <!-- DISCOVERY SURVEY -->
-    <section class="survey">
-        <div class="survey__content">
-        <h3 class="survey__title">Comment avez-vous découvert TicketLunch?</h3>
-
-        <?php
-        if ( isset( $_POST['survey_submit'] ) && check_admin_referer( 'discovery_survey', 'survey_nonce' ) ) {
-            $sources = array_map( 'sanitize_text_field', $_POST['survey_source'] ?? [] );
-            $to      = get_option( 'admin_email' );
-            $subject = 'Sondage – Découverte TicketLunch';
-            $body    = 'Sources : ' . implode( ', ', $sources );
-            wp_mail( $to, $subject, $body );
-            echo '<p class="survey__success">Merci pour votre réponse!</p>';
-        }
-        ?>
-
-        <form class="survey__form" method="post">
-            <?php wp_nonce_field( 'discovery_survey', 'survey_nonce' ); ?>
-
-            <?php
-            $sources = [ 'LinkedIn', 'Facebook', 'Recherche internet', 'Autre' ];
-            foreach ( $sources as $source ) : ?>
-                <label class="survey__option">
-                    <?php echo esc_html( $source ); ?>
-                    <input type="checkbox" name="survey_source[]" value="<?php echo esc_attr( $source ); ?>">
-                </label>
-            <?php endforeach; ?>
-
-            <button type="submit" name="survey_submit" class="survey__submit">Soumettre</button>
-        </form>
-        </div>
-    </section>
-
     <!-- MAP -->
     <section class="map">
         <iframe
@@ -147,6 +113,39 @@ get_header(); ?>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/mascot.png" alt="">
         </div>
     </section>
+
+    <!-- DISCOVERY SURVEY -->
+    <!--<section class="survey">
+        <div class="survey__content">
+        <h3 class="survey__title">Comment avez-vous découvert TicketLunch?</h3>
+
+        /*<?php
+        if ( isset( $_POST['survey_submit'] ) && check_admin_referer( 'discovery_survey', 'survey_nonce' ) ) {
+            $sources = array_map( 'sanitize_text_field', $_POST['survey_source'] ?? [] );
+            $to      = get_option( 'admin_email' );
+            $subject = 'Sondage – Découverte TicketLunch';
+            $body    = 'Sources : ' . implode( ', ', $sources );
+            wp_mail( $to, $subject, $body );
+            echo '<p class="survey__success">Merci pour votre réponse!</p>';
+        }
+        ?>*/
+
+        <form class="survey__form" method="post">
+            /*<?php wp_nonce_field( 'discovery_survey', 'survey_nonce' ); ?>
+
+            <?php
+            $sources = [ 'LinkedIn', 'Facebook', 'Recherche internet', 'Autre' ];
+            foreach ( $sources as $source ) : ?>
+                <label class="survey__option">
+                    <?php echo esc_html( $source ); ?>
+                    <input type="checkbox" name="survey_source[]" value="<?php echo esc_attr( $source ); ?>">
+                </label>
+            <?php endforeach; ?>*/
+
+            <button type="submit" name="survey_submit" class="survey__submit">Soumettre</button>
+        </form>
+        </div>
+    </section>-->
 
 </main>
 

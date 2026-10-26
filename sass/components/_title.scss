@@ -34,10 +34,10 @@
 ------------------------- */
 
     .title{
-        margin: var(--mobile-top-margin-general) calc(var(--mobile-padding-main) + 1rem) var(--mobile-section-gap-size);
+        /*margin: var(--mobile-top-margin-general) calc(var(--mobile-padding-main) + 1rem) var(--mobile-section-gap-size);*/
         &__content{
             height: var(--mobile-main-title-height);
-                border-radius: var(--border-radius-soft);
+                border-radius: var(--border-radius-hard);
         }
                 
         &__heading{
@@ -57,9 +57,9 @@
     }
 
         .title{
-            margin: var(--laptop-top-margin-general) calc(var(--laptop-padding-main) + 2rem) var(--laptop-section-gap-size);
+            /*margin: var(--laptop-top-margin-general) calc(var(--laptop-padding-main) + 2rem) var(--laptop-section-gap-size);*/
             &__content{
-                border-radius: var(--border-radius-rounded);
+                border-radius: var(--border-radius-hard);
                 height: var(--laptop-main-title-height);
             }
 
@@ -76,7 +76,7 @@
 @media (min-width:1200px) {  
 
         .title{
-            margin:  var(--desktop-top-margin-general) calc(var(--desktop-padding-main) + 3rem) var(--laptop-section-gap-size);
+            /*margin:  var(--desktop-top-margin-general) calc(var(--desktop-padding-main) + 3rem) var(--laptop-section-gap-size);*/
             &__content{
                 height: var(--desktop-main-title-height);
             }

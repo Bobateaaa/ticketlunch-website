@@ -48,6 +48,7 @@ main {
 
     --border-radius-rounded: 50px;
     --border-radius-soft: 10px;
+    --border-radius-hard: 0px;
 
     --border-size: 2px;
     --small-border: 1px;
@@ -64,9 +65,9 @@ main {
     --laptop-main-title-height: 350px;
     --desktop-main-title-height: 400px;
 
-    --mobile-top-margin-general: calc(80px + 4vh);
-    --laptop-top-margin-general: calc(80px + 4vh);
-    --desktop-top-margin-general: calc(82px + 4vh);
+    --mobile-top-margin-general: 0;
+    --laptop-top-margin-general: 0;
+    --desktop-top-margin-general: 0;
 
     -menu-gap-size: 1.5rem;
 

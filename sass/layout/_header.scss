@@ -143,7 +143,7 @@
 
     &__logo {
         height: 60px;
-        margin: 0 var(--mobile-padding-main);
+        padding: 0 var(--mobile-padding-main);
         border-bottom: 2px solid var(--text-color-dark);
         position: absolute;
         top: 0;
@@ -212,7 +212,8 @@
 @media (min-width: 1200px) {
 
     .header {
-        margin: 0 4vw;
+        margin: 0;
+        padding: 0 4vw;
         display: flex;
         width: -webkit-fill-available;
         border-bottom: var(--border-size) solid var(--text-color-dark);
