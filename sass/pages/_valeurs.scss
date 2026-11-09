@@ -15,8 +15,8 @@
         }
 
         &__card {
-            background-color: var(--primary-color);
-            border: var(--small-border) solid var(--secondary-color-dark);
+            background-color: var(--secondary-color-pale);
+            border: none;
             border-radius: var(--border-radius-soft);
 
             &-icon {
@@ -91,7 +91,7 @@
         .valeurs-cards {
             width: var(--laptop-general-width);
             margin-bottom: var(--laptop-section-gap-size);
-        
+
             &__ambition {
                 margin: 0;
                 font-size: 18px;
@@ -99,12 +99,17 @@
             }
 
             &__list {
+                --cards-gap: 2rem;
                 flex-direction: row;
-                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: var(--cards-gap);
             }
 
             &__card {
-                flex: 1;
+                /* 3 per row: (100% - 2 gaps) / 3 */
+                flex: 0 0 calc((100% - (2 * var(--cards-gap))) / 3);
+                box-sizing: border-box;
             }
         }
     }
@@ -130,7 +135,7 @@
 
 
             &__card {
-                padding: 1.5rem;
+                padding: 2rem;
 
                 &-icon {
                     img {

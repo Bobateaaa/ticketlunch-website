@@ -228,6 +228,17 @@ function ticketlunch_customize_register( $wp_customize ) {
         'settings' => 'badge_icon',
     ) ) );
 
+        // Idea section mascot
+    $wp_customize->add_setting( 'idea_mascot', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'idea_mascot', array(
+        'label'    => __( 'L\'idée derrière TicketLunch – Mascotte', 'ticketlunch' ),
+        'section'  => 'ticketlunch_accueil_hero',
+        'settings' => 'idea_mascot',
+    ) ) );
+
     // ---- WHY SECTION IMAGES ----
 
     // Employers image
@@ -364,6 +375,35 @@ function ticketlunch_customize_register( $wp_customize ) {
         $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
             'label'    => $label,
             'section'  => 'ticketlunch_equipe',
+            'settings' => $id,
+        ) ) );
+    }
+
+    // -------------------------------------------------------------------------
+    // NOS VALEURS — ICÔNES
+    // -------------------------------------------------------------------------
+    $wp_customize->add_section( 'ticketlunch_valeurs', array(
+        'title'       => __( 'Page Nos valeurs', 'ticketlunch' ),
+        'description' => __( 'Icônes affichées sur la page Nos valeurs. Si vide, l\'icône par défaut du thème est utilisée.', 'ticketlunch' ),
+        'priority'    => 47,
+    ) );
+
+    $valeurs_icons = array(
+        'valeurs_icon_bienetre'      => __( 'Icône – Bien-être', 'ticketlunch' ),
+        'valeurs_icon_innovation'    => __( 'Icône – Innovation', 'ticketlunch' ),
+        'valeurs_icon_accessibilite' => __( 'Icône – Accessibilité', 'ticketlunch' ),
+        'valeurs_icon_diversite'     => __( 'Icône – Diversité', 'ticketlunch' ),
+        'valeurs_icon_inclusion'     => __( 'Icône – Inclusion', 'ticketlunch' ),
+    );
+
+    foreach ( $valeurs_icons as $id => $label ) {
+        $wp_customize->add_setting( $id, array(
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ) );
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $id, array(
+            'label'    => $label,
+            'section'  => 'ticketlunch_valeurs',
             'settings' => $id,
         ) ) );
     }

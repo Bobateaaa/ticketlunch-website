@@ -62,8 +62,8 @@ main {
 
 :root {
   --mobile-section-gap-size: 4rem;
-  --laptop-section-gap-size: 6rem;
-  --desktop-section-gap-size: 9rem;
+  --laptop-section-gap-size: 5.5rem;
+  --desktop-section-gap-size: 7rem;
   --mobile-padding-main: clamp(16px, 5vw, 24px);
   --laptop-padding-main: clamp(16px, 5vw, 24px);
   --desktop-padding-main: 4vw;
@@ -263,6 +263,7 @@ Components
   text-decoration: none;
   position: relative;
   right: 0.3rem;
+  z-index: 1000;
 }
 
 @media (min-width: 769px) {
@@ -1467,7 +1468,7 @@ Pages
   align-self: flex-start;
   color: var(--text-color-light);
   position: relative;
-  z-index: -11;
+  z-index: 10;
   width: 100%;
   overflow: clip;
 }
@@ -1480,6 +1481,7 @@ Pages
 }
 #home .cta__deco-hands, #home .cta__deco-question-mark {
   position: absolute;
+  pointer-events: none;
 }
 #home .cta__deco-question-mark {
   font-family: Futura, sans-serif;
@@ -2318,8 +2320,8 @@ Pages
   text-align: center;
 }
 #valeurs .valeurs-cards__card {
-  background-color: var(--primary-color);
-  border: var(--small-border) solid var(--secondary-color-dark);
+  background-color: var(--secondary-color-pale);
+  border: none;
   border-radius: var(--border-radius-soft);
 }
 #valeurs .valeurs-cards__card-icon img {
@@ -2383,11 +2385,16 @@ Pages
     text-align: left;
   }
   #valeurs .valeurs-cards__list {
+    --cards-gap: 2rem;
     flex-direction: row;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--cards-gap);
   }
   #valeurs .valeurs-cards__card {
-    flex: 1;
+    /* 3 per row: (100% - 2 gaps) / 3 */
+    flex: 0 0 calc((100% - 2 * var(--cards-gap)) / 3);
+    box-sizing: border-box;
   }
 }
 /* ------------------------
@@ -2405,7 +2412,7 @@ Pages
     text-align: left;
   }
   #valeurs .valeurs-cards__card {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   #valeurs .valeurs-cards__card-icon img {
     width: 32px;

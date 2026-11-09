@@ -100,8 +100,8 @@ get_header(); ?>
             </article>
 
             <div class="idea__mascot" aria-hidden="true">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/mascot-holding-card.png" alt="">
-             </div>
+                <img src="<?php echo esc_url( ticketlunch_apropos_img( 'idea_mascot', 'mascot-holding-card.png' ) ); ?>" alt="">
+            </div>
 
                 </div>
             </div>
@@ -159,7 +159,7 @@ get_header(); ?>
         <div class="cta__content">
             <h2 class="cta__title">Posez-vous des questions ?</h2>
             <p class="cta__text">Que vous soyez employeur, employé ou restaurateur, notre équipe est là pour répondre à vos questions et vous accompagner. Contactez-nous pour plus de détails.</p>
-            <a href="#contact" class="cta__button">Contactez-nous</a>
+            <a href="<?php echo esc_url( home_url( '/nous-joindre/' ) ); ?>" class="cta__button">Contactez-nous</a>
         </div>
 
         <div class="cta__deco-hands" aria-hidden="true">

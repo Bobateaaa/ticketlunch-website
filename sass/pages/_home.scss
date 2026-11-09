@@ -193,7 +193,7 @@
         align-self: flex-start;
         color: var(--text-color-light);
         position: relative;
-        z-index: -11;
+        z-index: 10;
         width: 100%;
         overflow: clip;
 
@@ -208,6 +208,7 @@
 
         &__deco-hands, &__deco-question-mark {
             position: absolute;
+            pointer-events: none;
         }
 
         &__deco-question-mark {

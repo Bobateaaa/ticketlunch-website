@@ -13,7 +13,7 @@ get_header(); ?>
             <p class="equipe-title__label title__label">L'organisation</p>
             <h1 class="equipe-title__heading title__heading">Notre équipe</h1>
         </div>
-        <div class="equipe-title__mascot tite__mascot" aria-hidden="true">
+        <div class="equipe-title__mascot title__mascot" aria-hidden="true">
             <img src="<?php echo esc_url( ticketlunch_apropos_img( 'equipe_mascot', 'mascot.png' ) ); ?>" alt="">
         </div>
     </section>
@@ -101,7 +101,7 @@ get_header(); ?>
                 <p class="join__text">Nous vous invitons à nous contacter afin d’échanger sur votre profil et vos ambitions. </p>
             </div>
             <div class="join__action">
-                <a href="#" class="join__cta">Voir les postes vacants</a>
+                <a href="<?php echo esc_url( home_url( '/les-emplois/' ) ); ?>" class="join__cta">Voir les postes vacants</a>
             </div>
         </div>
     </section>
