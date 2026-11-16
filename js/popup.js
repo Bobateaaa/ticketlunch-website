@@ -44,6 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Dismiss the discovery survey card (contact page)
+    document.querySelectorAll('.survey__close').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const survey = this.closest('.survey');
+            if (survey) survey.hidden = true;
+        });
+    });
+
     function closeAllPopups() {
         document.querySelectorAll('.popup-overlay').forEach(overlay => {
             overlay.classList.remove('active');

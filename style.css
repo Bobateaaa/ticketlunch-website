@@ -2813,6 +2813,9 @@ Pages
 /* ------------------------
  * GLOBAL — colors, fonts, borders
 ------------------------- */
+#contact .contact-form {
+  position: relative;
+}
 #contact .contact-form__title {
   font-family: Futura, sans-serif;
   color: var(--text-color-dark);
@@ -2821,9 +2824,18 @@ Pages
   font-family: Geist, sans-serif;
   color: var(--text-color-dark);
 }
+#contact .contact-form {
+  /* Green card: form on the left, photo + phone on the right */
+}
 #contact .contact-form__wrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
   background-color: var(--secondary-color-pale);
   border-radius: var(--border-radius-soft);
+}
+#contact .contact-form__main {
+  min-width: 0;
 }
 #contact .contact-form__form {
   display: flex;
@@ -2842,16 +2854,17 @@ Pages
 }
 #contact .contact-form__group label {
   font-family: Geist, sans-serif;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 0.875rem;
   color: var(--text-color-dark);
 }
 #contact .contact-form__group input[type=text],
 #contact .contact-form__group input[type=email],
 #contact .contact-form__group textarea {
   border: var(--small-border) solid var(--secondary-color-dark);
-  border-radius: var(--border-radius-soft);
   background-color: var(--background-color);
   font-family: Geist, sans-serif;
+  font-size: 0.9rem;
   color: var(--text-color-dark);
   outline: none;
   width: 100%;
@@ -2861,8 +2874,19 @@ Pages
 #contact .contact-form__group textarea:focus {
   border-color: var(--secondary-color-mid);
 }
+#contact .contact-form__group {
+  /* Single-line fields are pills, the message box keeps soft corners */
+}
+#contact .contact-form__group input[type=text],
+#contact .contact-form__group input[type=email] {
+  border-radius: var(--border-radius-rounded);
+}
 #contact .contact-form__group textarea {
+  border-radius: var(--border-radius-soft);
   resize: vertical;
+}
+#contact .contact-form__group--message {
+  margin-top: 0.75rem;
 }
 #contact .contact-form__footer {
   display: flex;
@@ -2893,25 +2917,81 @@ Pages
   font-weight: 700;
   margin-bottom: 1rem;
 }
+#contact .contact-form {
+  /* Right column */
+}
+#contact .contact-form__aside {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  /* Divider line between the two columns */
+}
+#contact .contact-form__aside::before {
+  content: "";
+  position: absolute;
+  background-color: var(--secondary-color-dark);
+}
+#contact .contact-form__aside-title {
+  font-family: Futura, sans-serif;
+  color: var(--secondary-color-dark);
+}
+#contact .contact-form {
+  /* The image is taken out of the layout flow (absolute) so its size never
+     makes the card taller: the wrapper decides the size, the image fills it. */
+}
+#contact .contact-form__photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+#contact .contact-form__photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#contact .contact-form {
+  /* Decorative peach ring peeking out behind the card (tablet & up only) */
+}
+#contact .contact-form::after {
+  content: "";
+  display: none;
+  position: absolute;
+  z-index: 0;
+  border: 1.5rem solid var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+}
+#contact {
+  /* Phone pill: outlined, number on the left, round dark icon on the right */
+}
 #contact .phone {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.5rem 1.5rem;
-  background-color: var(--secondary-color-pale);
-  border-radius: var(--border-radius-soft);
-  width: fit-content;
+  margin-top: auto;
+  padding: 0.35rem 0.4rem 0.35rem 1.25rem;
+  background-color: transparent;
+  border: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: var(--border-radius-rounded);
 }
 #contact .phone__number {
   font-family: Geist, sans-serif;
+  font-size: 0.875rem;
   color: var(--text-color-dark);
-  font-weight: 700;
+  font-weight: 500;
   margin: 0;
 }
 #contact .phone__icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
   background-color: var(--secondary-color-dark);
   border-radius: 50%;
 }
@@ -2920,14 +3000,54 @@ Pages
   height: 18px;
   filter: brightness(10);
 }
-#contact .survey {
-  background-color: var(--accent-color);
+#contact .map__frame {
+  border: var(--small-border) solid var(--secondary-color-dark);
   border-radius: var(--border-radius-soft);
+  overflow: hidden;
+}
+#contact .map__iframe {
+  display: block;
+}
+#contact {
+  /* Discovery survey: peach card floating at the bottom-right of the screen.
+     position: fixed pins it to the viewport, so it stays visible while scrolling. */
+}
+#contact .survey {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 999;
+  background-color: var(--accent-color);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(50, 50, 50, 0.18);
+}
+#contact .survey[hidden] {
+  display: none;
+}
+#contact .survey__close {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  color: var(--secondary-color-mid);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+#contact .survey__close:hover {
+  color: var(--secondary-color-dark);
 }
 #contact .survey__title {
   font-family: Futura, sans-serif;
+  font-size: 1.05rem;
   color: var(--text-color-dark);
-  text-align: center;
+  text-align: right;
+  padding-left: 2.5rem; /* keeps the text clear of the close button */
+  margin-bottom: 1.25rem;
 }
 #contact .survey__form {
   display: flex;
@@ -2939,19 +3059,61 @@ Pages
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.75rem;
+  gap: 0.6rem;
   width: 100%;
   font-family: Geist, sans-serif;
+  font-size: 0.8125rem;
   color: var(--text-color-dark);
   cursor: pointer;
-  padding-bottom: 0.5rem;
+  /* Square outlined checkbox */
 }
 #contact .survey__option input[type=checkbox] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--secondary-color-dark);
-  cursor: pointer;
+  appearance: none;
+  display: grid;
+  place-content: center;
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  background-color: transparent;
+  border: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: 3px;
+  cursor: pointer;
+}
+#contact .survey__option input[type=checkbox]::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background-color: var(--secondary-color-dark);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transition: transform 0.12s ease;
+}
+#contact .survey__option input[type=checkbox]:checked::after {
+  transform: scale(1);
+}
+#contact .survey__option input[type=checkbox]:focus-visible {
+  outline: 2px solid var(--secondary-color-mid);
+  outline-offset: 2px;
+}
+#contact .survey {
+  /* "Autre" has a free-text blank, drawn as an underline */
+}
+#contact .survey__other {
+  flex: 0 1 7rem;
+  min-width: 0;
+  padding: 0 0.25rem;
+  font-family: Geist, sans-serif;
+  font-size: 0.8125rem;
+  color: var(--text-color-dark);
+  background: transparent;
+  border: none;
+  border-bottom: var(--small-border) solid var(--secondary-color-dark);
+  border-radius: 0;
+  outline: none;
+}
+#contact .survey__other:focus {
+  border-bottom-color: var(--secondary-color-mid);
 }
 #contact .survey__submit {
   font-family: Geist, sans-serif;
@@ -2961,7 +3123,7 @@ Pages
   border: var(--small-border) solid var(--secondary-color-dark);
   border-radius: var(--border-radius-rounded);
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   transition: background-color 0.2s ease;
 }
 #contact .survey__submit:hover {
@@ -2971,15 +3133,15 @@ Pages
   font-family: Geist, sans-serif;
   color: var(--secondary-color-dark);
   font-weight: 700;
-  text-align: center;
+  text-align: right;
 }
-#contact .map {
-  border: var(--small-border) solid var(--secondary-color-dark);
-  border-radius: var(--border-radius-soft);
-}
-#contact .map__iframe {
-  border-radius: var(--border-radius-soft);
-  display: block;
+#contact .survey__error {
+  font-family: Geist, sans-serif;
+  font-size: 0.8125rem;
+  color: #c0392b;
+  font-weight: 700;
+  text-align: right;
+  margin-bottom: 0.75rem;
 }
 #contact .cta-banner {
   background-color: var(--secondary-color-dark);
@@ -3016,7 +3178,6 @@ Pages
  * MOBILE — default layout
 ------------------------- */
 #contact .contact-form,
-#contact .survey,
 #contact .map {
   width: var(--mobile-general-width);
   margin: 0 auto;
@@ -3028,43 +3189,37 @@ Pages
   margin-bottom: 1.5rem;
 }
 #contact .contact-form__wrap {
+  grid-template-columns: 1fr;
+  row-gap: 1.75rem;
   padding: 1.5rem;
 }
 #contact .contact-form__row {
   flex-direction: column;
 }
 #contact .contact-form__group input[type=text],
-#contact .contact-form__group input[type=email],
+#contact .contact-form__group input[type=email] {
+  padding: 0.6rem 1rem;
+}
 #contact .contact-form__group textarea {
   padding: 0.6rem 0.75rem;
 }
 #contact .contact-form__submit {
   padding: 0.6rem 1.5rem;
 }
-#contact .phone {
-  margin-top: 1rem;
+#contact .contact-form {
+  /* Stacked: divider becomes a horizontal line above the photo */
 }
-#contact .phone__icon {
-  width: 34px;
-  height: 34px;
-  padding: 0.4rem;
+#contact .contact-form__aside {
+  padding-top: 1.75rem;
 }
-#contact .survey {
-  margin-bottom: var(--mobile-section-gap-size);
-  padding: 1.5rem;
+#contact .contact-form__aside::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--small-border);
 }
-#contact .survey * {
-  justify-content: flex-start;
-  text-align: start;
-}
-#contact .survey__success {
-  display: none;
-}
-#contact .survey__title {
-  margin-bottom: 1.25rem;
-}
-#contact .survey__submit {
-  padding: 0.5rem 1.25rem;
+#contact .contact-form__photo {
+  aspect-ratio: 16/10;
 }
 #contact .map {
   margin-bottom: var(--mobile-section-gap-size);
@@ -3072,6 +3227,23 @@ Pages
 #contact .map__iframe {
   width: 100%;
   height: 250px;
+}
+#contact {
+  /* Mobile: compact card so it doesn't cover too much of the screen */
+}
+#contact .survey {
+  width: calc(100% - 2rem);
+  max-width: 270px;
+  padding: 1rem 1.25rem 1.25rem;
+}
+#contact .survey__title {
+  margin-bottom: 0.75rem;
+}
+#contact .survey__form {
+  gap: 0.5rem;
+}
+#contact .survey__submit {
+  padding: 0.5rem 1.25rem;
 }
 #contact .cta-banner {
   width: 100%;
@@ -3105,38 +3277,85 @@ Pages
 ------------------------- */
 @media (min-width: 769px) {
   #contact .contact-form,
-  #contact .survey,
   #contact .map {
     width: var(--laptop-general-width);
     margin: 0 auto;
   }
   #contact .contact-form {
     margin-bottom: var(--laptop-section-gap-size);
+    /* Peach ring behind the right edge of the card */
+  }
+  #contact .contact-form::after {
+    display: block;
+    width: 15rem;
+    height: 10rem;
+    right: -12%;
+    bottom: -2.5rem;
+    transform: rotate(-25deg);
   }
   #contact .contact-form__wrap {
+    grid-template-columns: 1.7fr 1fr;
+    column-gap: 3rem;
+    row-gap: 0;
     padding: 2rem 2.5rem;
   }
   #contact .contact-form__row {
     flex-direction: row;
   }
   #contact .contact-form__group input[type=text],
-  #contact .contact-form__group input[type=email],
+  #contact .contact-form__group input[type=email] {
+    padding: 0.65rem 1.1rem;
+  }
   #contact .contact-form__group textarea {
     padding: 0.65rem 0.85rem;
   }
   #contact .contact-form__submit {
     padding: 0.65rem 2rem;
   }
-  #contact .survey {
-    margin-bottom: var(--laptop-section-gap-size);
-    margin-left: auto;
-    padding: 2rem;
+  #contact .contact-form {
+    /* Side by side: vertical divider centered in the column gap */
+  }
+  #contact .contact-form__aside {
+    padding-top: 0;
+  }
+  #contact .contact-form__aside::before {
+    top: 0;
+    bottom: 0;
+    left: -1.5rem;
+    right: auto;
+    width: var(--small-border);
+    height: auto;
+  }
+  #contact .contact-form {
+    /* Fills the space left between the title and the phone pill, so the
+       photo matches the height of the form instead of growing with the screen */
+  }
+  #contact .contact-form__photo {
+    aspect-ratio: auto;
+    flex: 1 1 auto;
+    min-height: 12rem;
   }
   #contact .map {
     margin-bottom: var(--laptop-section-gap-size);
   }
   #contact .map__iframe {
     height: 300px;
+  }
+  #contact .survey {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 290px;
+    max-width: none;
+    padding: 2rem 1.75rem 1.75rem;
+  }
+  #contact .survey__title {
+    margin-bottom: 1.5rem;
+  }
+  #contact .survey__form {
+    gap: 0.9rem;
+  }
+  #contact .survey__submit {
+    padding: 0.55rem 1.5rem;
   }
   #contact .cta-banner {
     padding: 4rem var(--laptop-padding-main);
@@ -3158,7 +3377,6 @@ Pages
 ------------------------- */
 @media (min-width: 1200px) {
   #contact .contact-form,
-  #contact .survey,
   #contact .map {
     width: var(--desktop-general-width);
     margin: 0 auto;
@@ -3166,29 +3384,38 @@ Pages
   #contact .contact-form {
     margin-bottom: var(--desktop-section-gap-size);
   }
+  #contact .contact-form::after {
+    width: 20rem;
+    height: 13rem;
+    right: -9%;
+  }
   #contact .contact-form__wrap {
+    column-gap: 3.5rem;
     padding: 2.5rem 3rem;
+  }
+  #contact .contact-form__aside::before {
+    left: -1.75rem;
   }
   #contact .contact-form__submit {
     padding: 0.75rem 2.5rem;
-  }
-  #contact .survey {
-    margin-bottom: var(--desktop-section-gap-size);
-    padding: 0;
-    background-color: transparent;
-  }
-  #contact .survey__content {
-    background-color: var(--accent-color);
-    max-width: 500px;
-    place-self: end;
-    padding: 2rem 3em;
-    border-radius: var(--border-radius-soft);
   }
   #contact .map {
     margin-bottom: var(--desktop-section-gap-size);
   }
   #contact .map__iframe {
     height: 400px;
+  }
+  #contact .survey {
+    right: 2rem;
+    bottom: 2rem;
+    width: 310px;
+    padding: 2.5rem 2rem 2rem;
+  }
+  #contact .survey__title {
+    margin-bottom: 1.75rem;
+  }
+  #contact .survey__form {
+    gap: 1rem;
   }
   #contact .cta-banner {
     padding: 5rem var(--desktop-padding-main);

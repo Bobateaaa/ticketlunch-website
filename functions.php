@@ -275,9 +275,36 @@ function ticketlunch_customize_register( $wp_customize ) {
         'settings' => 'why_image_restaurants',
     ) ) );
 
-// ── SECTION ──────────────────────────────────────────────────────────────
+    // ── FONDATION — IMAGE ────────────────────────────────────────────────────
+    $wp_customize->add_section( 'ticketlunch_fondation', array(
+        'title'       => __( 'Page Fondation', 'ticketlunch' ),
+        'description' => __( 'Image affichée sur la page Fondation.', 'ticketlunch' ),
+        'priority'    => 48,
+    ) );
+
+    $wp_customize->add_setting( 'fondation_photo_equipe', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'fondation_photo_equipe', array(
+        'label'    => __( 'Photo de la Fondation', 'ticketlunch' ),
+        'section'  => 'ticketlunch_fondation',
+        'settings' => 'fondation_photo_equipe',
+    ) ) );
+
+    $wp_customize->add_setting( 'fondation_photo_equipe_alt', array(
+        'default'           => 'Équipe TicketLunch',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'fondation_photo_equipe_alt', array(
+        'label'   => __( 'Texte alternatif — photo de la Fondation', 'ticketlunch' ),
+        'section' => 'ticketlunch_fondation',
+        'type'    => 'text',
+    ) );
+
+    // ── SECTION ──────────────────────────────────────────────────────────────
     $wp_customize->add_section( 'epicerie_images', array(
-        'title'    => 'Projet épicerie — Images',
+        'title'    => 'Page Épicerie',
         'priority' => 50,
     ) );
  
@@ -407,6 +434,35 @@ function ticketlunch_customize_register( $wp_customize ) {
             'settings' => $id,
         ) ) );
     }
+
+    // -------------------------------------------------------------------------
+    // NOUS JOINDRE — PHOTO
+    // -------------------------------------------------------------------------
+    $wp_customize->add_section( 'ticketlunch_contact', array(
+        'title'       => __( 'Page Nous joindre', 'ticketlunch' ),
+        'description' => __( 'Photo affichée à côté du formulaire de contact. Si vide, assets/contact-photo.jpg du thème est utilisée (si le fichier existe).', 'ticketlunch' ),
+        'priority'    => 48,
+    ) );
+
+    $wp_customize->add_setting( 'contact_photo', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'contact_photo', array(
+        'label'    => __( 'Photo du formulaire', 'ticketlunch' ),
+        'section'  => 'ticketlunch_contact',
+        'settings' => 'contact_photo',
+    ) ) );
+
+    $wp_customize->add_setting( 'contact_photo_alt', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'contact_photo_alt', array(
+        'label'   => __( 'Photo du formulaire – Texte alternatif', 'ticketlunch' ),
+        'section' => 'ticketlunch_contact',
+        'type'    => 'text',
+    ) );
 }
 
 function ticketlunch_apropos_img( $setting, $fallback ) {
